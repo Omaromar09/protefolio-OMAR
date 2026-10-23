@@ -1,0 +1,291 @@
+/* ==========================================================================
+   HERO SECTION STYLES
+   Seamless Hand-off Centerpiece with Interactive 3D Photo Wheel
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 100px 60px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+}
+
+/* Start Column: Hero Content */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+html[dir="rtl"] .hero-content {
+  align-items: flex-start;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  padding: 8px 18px;
+  border-radius: var(--pill-radius);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  box-shadow: 0 4px 14px rgba(20, 17, 15, 0.04);
+  margin-bottom: 24px;
+}
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.hero-title {
+  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--text-main);
+  margin-bottom: 18px;
+  clip-path: inset(0 0 0 0);
+  will-change: transform, opacity;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-actions .btn-primary svg,
+.hero-actions .btn-secondary svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.25s ease;
+}
+
+html[dir="rtl"] .hero-actions .btn-primary svg {
+  transform: scaleX(-1);
+}
+
+/* End Column: Interactive Photo Wheel */
+.hero-wheel-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.hero-card-stage {
+  position: relative;
+  width: clamp(280px, 32vw, 380px);
+  height: clamp(380px, 44vw, 508px);
+  border-radius: var(--card-radius);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.hero-card-stage:active {
+  cursor: grabbing;
+}
+
+/* Three.js or 3D Layer */
+.three-canvas-container {
+  display: none;
+}
+
+/* 3D Card Shell */
+.hero-card-3d {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  background-color: #E8E4DD;
+  box-shadow: 0 24px 50px -12px rgba(20, 17, 15, 0.16), 0 8px 24px -4px rgba(20, 17, 15, 0.08);
+  border: 3px solid var(--accent);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.1s ease-out, border-color 0.3s ease;
+}
+
+.hero-card-image-wrap {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  will-change: transform, filter;
+  transition: filter 0.25s ease;
+}
+
+/* Wheel Controls & Counter */
+.wheel-controls {
+  position: absolute;
+  inset-inline-end: -64px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 15;
+}
+
+.wheel-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(20, 17, 15, 0.06);
+  transition: all 0.25s ease;
+}
+
+.wheel-btn:hover {
+  background: var(--text-main);
+  color: #FFFFFF;
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(20, 17, 15, 0.12);
+}
+
+.wheel-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.wheel-indicator-bar {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  padding: 8px 20px;
+  border-radius: var(--pill-radius);
+  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.04);
+}
+
+.wheel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.wheel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(20, 17, 15, 0.18);
+  cursor: pointer;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.wheel-dot.is-active {
+  width: 24px;
+  border-radius: 9999px;
+  background-color: var(--accent);
+}
+
+.wheel-counter-text {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  direction: ltr !important;
+  unicode-bidi: isolate;
+}
+
+#hero-check-badge {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Floating Helper Hint */
+.wheel-hint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.wheel-hint svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Responsive adjustments for Hero */
+@media (max-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  html[dir="rtl"] .hero-content {
+    align-items: center;
+  }
+  .hero-subtitle {
+    margin-inline: auto;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .wheel-controls {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    margin-top: 16px;
+  }
+}

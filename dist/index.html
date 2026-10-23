@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>عمر يحيى — مصمم ومطور مواقع</title>
+  <meta name="description" content="الموقع الشخصي لعمر يحيى — مصمم ومطور مواقع وتجارب رقمية تفاعلية وثلاثية الأبعاد." />
+
+  <!-- Preload Critical Intro Assets (All 6 Photos) -->
+  <link rel="preload" as="image" href="/assets/photos/photo-1.webp" type="image/webp" />
+  <link rel="preload" as="image" href="/assets/photos/photo-2.webp" type="image/webp" />
+  <link rel="preload" as="image" href="/assets/photos/photo-3.webp" type="image/webp" />
+  <link rel="preload" as="image" href="/assets/photos/photo-4.webp" type="image/webp" />
+  <link rel="preload" as="image" href="/assets/photos/photo-5.webp" type="image/webp" />
+  <link rel="preload" as="image" href="/assets/photos/photo-6.webp" type="image/webp" />
+
+  <!-- Open Graph & Twitter SEO -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="عمر يحيى — مصمم ومطور مواقع" />
+  <meta property="og:description" content="الموقع الشخصي لعمر يحيى — تصميم وتطوير واجهات ومواقع ويب حية وتفاعلية." />
+  <meta property="og:image" content="https://omaryahia.me/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="عمر يحيى — مصمم ومطور مواقع" />
+  <meta name="twitter:description" content="الموقع الشخصي لعمر يحيى — تصميم وتطوير مواقع الويب الحديثة." />
+  <meta name="twitter:image" content="https://omaryahia.me/og-image.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <script type="module" crossorigin src="/assets/index-BMx7ZK4h.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/lenis-BXjoyVLH.js">
+  <link rel="modulepreload" crossorigin href="/assets/gsap-C8IefbVz.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-CXsSYQD9.css">
+</head>
+<body>
+  <!-- Atmosphere Background: Dot Grid & Drifting Soft Peach Blobs -->
+  <div class="bg-canvas-container" aria-hidden="true">
+    <div class="bg-dot-grid"></div>
+    <div class="bg-blob bg-blob-top"></div>
+    <div class="bg-blob bg-blob-bottom"></div>
+  </div>
+
+  <!-- INTRO OVERLAY (Master Timeline GSAP: 5.0s on first load) -->
+  <div id="intro-overlay" role="dialog" aria-modal="true" aria-label="مقدمة الموقع">
+    <!-- Sleek Minimalist Progress Indicator (0.00 to 5.00s) -->
+    <div id="intro-progress-line" class="intro-progress-line" aria-hidden="true"></div>
+
+    <!-- Skip Button (visible from frame 1) -->
+    <button id="intro-skip-btn" class="intro-skip-btn" aria-label="تخطي المقدمة">
+      <span id="skip-btn-label">تخطي</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="5 4 15 12 5 20 5 4"></polygon>
+        <line x1="19" y1="5" x2="19" y2="19"></line>
+      </svg>
+    </button>
+
+    <!-- Phase 1 & 2: Center Orange Dot & Expanding White Pill -->
+    <div id="intro-center-stage" class="intro-center-stage">
+      <div id="intro-dot-wrapper" class="intro-dot-wrapper">
+        <div id="intro-dot" class="intro-dot"></div>
+        <div id="intro-pulse-ring" class="intro-pulse-ring"></div>
+      </div>
+      <div id="intro-pill" class="intro-pill">
+        <div class="pill-shimmer" aria-hidden="true"></div>
+        <div class="intro-avatars-group">
+          <img class="intro-avatar" src="/assets/photos/photo-1-thumb.webp" alt="عمر" />
+          <img class="intro-avatar" src="/assets/photos/photo-2-thumb.webp" alt="عمر" />
+          <img class="intro-avatar" src="/assets/photos/photo-3-thumb.webp" alt="عمر" />
+          <img class="intro-avatar" src="/assets/photos/photo-4-thumb.webp" alt="عمر" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 4 & 5: Headline with inline avatars & rotating roll word -->
+    <div id="intro-headline-stage" class="intro-headline-stage">
+      <div class="intro-headline">
+        <div class="intro-headline-line1">
+          <span id="intro-line1-prefix">خلّي</span>
+          <span class="intro-inline-avatars">
+            <img src="/assets/photos/photo-1-thumb.webp" alt="عمر" />
+            <img src="/assets/photos/photo-2-thumb.webp" alt="عمر" />
+            <img src="/assets/photos/photo-3-thumb.webp" alt="عمر" />
+            <img src="/assets/photos/photo-4-thumb.webp" alt="عمر" />
+          </span>
+          <span id="intro-line1-suffix">عمر يبني</span>
+        </div>
+        <div class="intro-headline-line2">
+          <span class="intro-roller-box">
+            <span id="intro-roller-track" class="intro-roller-track">
+              <span class="intro-roller-item">موقع</span>
+              <span class="intro-roller-item">متجر</span>
+              <span class="intro-roller-item">براند</span>
+              <span class="intro-roller-item is-final">مشروع</span>
+            </span>
+          </span>
+          <span id="intro-line2-suffix">بتاعك</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 6 & 7: "قابل عمر." on start side, vertical photo wheel on end side -->
+    <div id="intro-meet-stage" class="intro-meet-stage">
+      <div class="intro-meet-text-col">
+        <h2 id="intro-meet-heading" class="intro-meet-heading">
+          <span id="intro-meet-l1">قابل</span><br />
+          <span id="intro-meet-l2">عمر<span class="highlight-dot">.</span></span>
+        </h2>
+      </div>
+
+      <div class="intro-wheel-col">
+        <div class="intro-wheel-viewport">
+          <div id="intro-wheel-track" class="intro-wheel-track">
+            <!-- Repeated loop of photos for high-speed scrolling -->
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-7.webp" alt="" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-6.webp" alt="" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-1.webp" alt="" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-3.webp" alt="" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-4.webp" alt="" /></div>
+            <!-- The landing card (photo-2) which the wheel stops on at exactly 5.00s -->
+            <div id="intro-landing-card" class="intro-wheel-card is-landing">
+              <img src="/assets/photos/photo-2.webp" alt="عمر يحيى" />
+              <div id="intro-check-badge" class="card-check-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <div id="intro-snap-ripple" class="intro-snap-ripple" aria-hidden="true"></div>
+              <div class="card-counter-badge">02 / 08</div>
+            </div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-5.webp" alt="" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-8.webp" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN APP STRUCTURE -->
+  <div id="app">
+    <!-- Top Navigation Bar (drops down on intro hand-off) -->
+    <header class="site-nav" id="site-nav">
+      <div class="nav-inner">
+        <a href="#hero" class="nav-brand" data-magnetic>
+          <span class="nav-dot"></span>
+          <span id="nav-brand-text">عمر يحيى</span>
+        </a>
+
+        <div class="nav-controls">
+          <nav class="nav-links" aria-label="روابط الموقع">
+            <a href="#about" class="nav-link" id="nav-link-about">حكايتي</a>
+            <a href="#photos" class="nav-link" id="nav-link-photos">ورا الكواليس</a>
+            <a href="#services" class="nav-link" id="nav-link-services">صنعتي</a>
+            <a href="#work" class="nav-link" id="nav-link-work">أعمال 7P</a>
+            <a href="#contact" class="nav-link" id="nav-link-contact">يلا نتكلم</a>
+          </nav>
+          
+          <button id="lang-toggle-btn" class="lang-btn" data-magnetic aria-label="تبديل اللغة">
+            English
+          </button>
+        </div>
+
+        <button id="mobile-toggle-btn" class="mobile-nav-toggle" aria-label="القائمة">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <a href="#about" class="mobile-drawer-link" data-nav="about">حكايتي</a>
+      <a href="#photos" class="mobile-drawer-link" data-nav="photos">ورا الكواليس</a>
+      <a href="#services" class="mobile-drawer-link" data-nav="services">صنعتي</a>
+      <a href="#work" class="mobile-drawer-link" data-nav="work">أعمال 7P</a>
+      <a href="#contact" class="mobile-drawer-link" data-nav="contact">يلا نتكلم</a>
+      <button id="mobile-lang-btn" class="lang-btn" style="margin-top: 16px;">English</button>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO SECTION (Becomes active at intro hand-off) -->
+      <section id="hero" class="hero-section">
+        <div class="section-container">
+          <div class="hero-grid">
+            <!-- Start Column: Hero Copy -->
+            <div class="hero-content">
+              <div class="hero-badge" id="hero-badge">
+                <span class="hero-badge-dot"></span>
+                <span id="hero-badge-text">مصمم ومطور ويب • شغال بشغف</span>
+              </div>
+              <h1 class="hero-title" id="hero-title">أنا عمر يحيى.</h1>
+              <p class="hero-subtitle" id="hero-subtitle">
+                <span id="hero-subtitle-prefix">بحول الأفكار لمواقع فيها </span>
+                <span class="accent-word" id="hero-subtitle-accent">روح وحركة</span>
+                <span id="hero-subtitle-suffix"> تسيب بصمة</span>
+              </p>
+              <div class="hero-actions">
+                <a href="https://7pstudio.tech" target="_blank" rel="noopener noreferrer" class="btn-primary" data-magnetic id="hero-cta-work">
+                  <span id="hero-cta-work-text">شوف أعمال الاستوديو</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                  </svg>
+                </a>
+                <a href="https://wa.me/201221576360" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-magnetic id="hero-cta-contact">
+                  <span id="hero-cta-contact-text">ابعتلي واتساب</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- End Column: Interactive 3D Photo Wheel -->
+            <div class="hero-wheel-wrapper">
+              <div id="hero-card-stage" class="hero-card-stage">
+                <!-- Three.js Canvas Container -->
+                <div id="three-canvas-container" class="three-canvas-container"></div>
+
+                <!-- 3D Card Shell -->
+                <div id="hero-card-3d" class="hero-card-3d">
+                  <div class="hero-card-image-wrap">
+                    <img id="hero-card-img" class="hero-card-img" src="/assets/photos/photo-2.webp" alt="عمر يحيى" />
+                  </div>
+                  <!-- Corner Checkmark Badge -->
+                  <div id="hero-check-badge" class="card-check-badge" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                </div>
+
+                <!-- Floating Up / Down Buttons -->
+                <div class="wheel-controls">
+                  <button id="wheel-btn-prev" class="wheel-btn" data-magnetic aria-label="الصورة السابقة">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="18 15 12 9 6 15"></polyline>
+                    </svg>
+                  </button>
+                  <button id="wheel-btn-next" class="wheel-btn" data-magnetic aria-label="الصورة التالية">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Indicator Bar & Counter -->
+              <div class="wheel-indicator-bar">
+                <div id="wheel-dots" class="wheel-dots"></div>
+                <div id="wheel-counter-text" class="wheel-counter-text">02 / 08</div>
+              </div>
+              <div class="wheel-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="5" y="2" width="14" height="20" rx="7"></rect>
+                  <line x1="12" y1="6" x2="12" y2="10"></line>
+                </svg>
+                <span id="wheel-hint-text">تقدر تقلب بالماوس أو بالسحب أو بالأسهم</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTINUOUS CREATIVE MARQUEE RIBBON -->
+      <div class="infinite-marquee-ribbon" aria-hidden="true">
+        <div class="marquee-track">
+          <span>✦ حركة ناعمة 60 إطار</span>
+          <span>✦ ديزاين معمول بروح</span>
+          <span>✦ THREE.JS & GSAP</span>
+          <span>✦ تجارب ويب مش تقليدية</span>
+          <span>✦ من أول فكرة لآخر بيكسل</span>
+          <span>✦ CRAFTED WITH SOUL</span>
+          <span>✦ NO BORING WEBSITES</span>
+          <!-- loop duplication -->
+          <span>✦ حركة ناعمة 60 إطار</span>
+          <span>✦ ديزاين معمول بروح</span>
+          <span>✦ THREE.JS & GSAP</span>
+          <span>✦ تجارب ويب مش تقليدية</span>
+          <span>✦ من أول فكرة لآخر بيكسل</span>
+          <span>✦ CRAFTED WITH SOUL</span>
+          <span>✦ NO BORING WEBSITES</span>
+        </div>
+      </div>
+
+      <!-- 1. ABOUT ME ("حكايتي") SECTION -->
+      <section id="about" class="content-section">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="about-kicker">حكايتي</div>
+            <h2 class="section-title" id="about-title">شغفي إني أعمل ويب الناس تحب تفضل فيه وتنبهر بيه</h2>
+          </div>
+
+          <!-- Card Fan Deck -->
+          <div class="about-deck-wrapper">
+            <!-- Fanning Photos orbiting the central card -->
+            <div class="about-fan-card fan-1" data-photo="1">
+              <img src="/assets/photos/photo-1.webp" alt="عمر يحيى" loading="lazy" />
+            </div>
+            <div class="about-fan-card fan-2" data-photo="3">
+              <img src="/assets/photos/photo-3.webp" alt="عمر يحيى" loading="lazy" />
+            </div>
+            <div class="about-fan-card fan-3" data-photo="4">
+              <img src="/assets/photos/photo-4.webp" alt="عمر يحيى" loading="lazy" />
+            </div>
+            <div class="about-fan-card fan-4" data-photo="6">
+              <img src="/assets/photos/photo-6.webp" alt="عمر يحيى" loading="lazy" />
+            </div>
+
+            <!-- Central Bio Card -->
+            <div class="about-center-card">
+              <p class="about-bio-text" id="about-bio">
+                أنا عمر، مهووس بالتفاصيل الصغيرة اللي معظم الناس بتعديها.. البيكسل المضبوط، الفريم اللي بيسري بنعومة، والأنيميشن اللي لو اتعمل بذكاء يحسسك إن الموقع كائن حي بيتنفس مش مجرد صور وكلام مرصوص.
+              </p>
+              <p class="about-bio-placeholder" id="about-placeholder">
+                [EDIT: لو حابب تضيف أي تفاصيل زيادة عن نفسك، دراستك، أو بدايتك، اكتبها هنا براحتك]
+              </p>
+              <p class="about-focal-note" id="about-focal-note">
+                مش بحب القوالب الجاهزة ولا الشغل البارد. كل فكرة بمسكها لازم يكون ليها طابع وصوت وشخصية تليق بصاحبها.
+              </p>
+
+              <!-- Live Cairo Vibe & Stack Widget -->
+              <div class="about-vibe-widget">
+                <div class="vibe-status-line">
+                  <span class="vibe-beacon-dot"></span>
+                  <span id="about-vibe-status">متاح حالياً لمشاريع مميزة وجديدة • إسكندرية / القاهرة</span>
+                </div>
+                <div class="vibe-time-line">
+                  <span class="vibe-clock-icon">⏱️</span>
+                  <span>الساعة بتوقيتي: <strong id="cairo-clock">03:20 م</strong> (سهران بكود وبصمم ☕)</span>
+                </div>
+                <div class="vibe-stack-tags">
+                  <span class="stack-tag">Figma</span>
+                  <span class="stack-tag">JavaScript</span>
+                  <span class="stack-tag">GSAP Motion</span>
+                  <span class="stack-tag">Three.js</span>
+                  <span class="stack-tag">CSS 3D</span>
+                  <span class="stack-tag">Tailwind</span>
+                  <span class="stack-tag">60fps Fluid</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. BEHIND THE SCENES ("ورا الكواليس" - NO "صوري"!) SECTION -->
+      <section id="photos" class="content-section">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="gallery-kicker">ورا الكواليس</div>
+            <h2 class="section-title" id="gallery-title">مش كل حياتي كود وشاشات.. دي لقطات من تفاصيل أيامي</h2>
+            <p class="section-subtitle" id="gallery-subtitle">لقطات عفوية من غير فلاتر ولا كلام كتير.. تقدر تقلب بالماوس أو بالسحب:</p>
+          </div>
+
+          <div id="gallery-stack" class="gallery-stack-container">
+            <div id="gallery-track" class="gallery-stack-track"></div>
+          </div>
+
+          <div class="gallery-nav-btns">
+            <button id="gallery-prev-btn" class="wheel-btn" data-magnetic aria-label="السابق">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button id="gallery-next-btn" class="wheel-btn" data-magnetic aria-label="التالي">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. CRAFT ("صنعتي") SECTION -->
+      <section id="services" class="content-section">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="services-kicker">صنعتي</div>
+            <h2 class="section-title" id="services-title">ثلاث حاجات بحط فيهم كل طاقتي وتركيزي</h2>
+            <p class="section-subtitle" id="services-subtitle">مش بديك كود وخلاص، دي تجربة رقمية كاملة بنبنيها سوا من الصفر:</p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <div class="service-num">01</div>
+              <h3 class="service-title" id="service-1-title">ديزاين معمول على مقاسك (UI/UX)</h3>
+              <p class="service-desc" id="service-1-desc">
+                بفهم الفكرة اللي في دماغك وأصممها من الصفر في Figma، واجهات نظيفة جداً، ألوان متناسقة، وتجربة سهلة ومريحة تجبر أي حد يدخل يكمل للآخر.
+              </p>
+              <div class="service-tags">
+                <span>فهم المستخدم</span>
+                <span>تناسق الألوان</span>
+                <span>خطوط مريحة</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-num">02</div>
+              <h3 class="service-title" id="service-2-title">حركة وروح بالكود (3D & Motion)</h3>
+              <p class="service-desc" id="service-2-desc">
+                البرمجة الإبداعية الحقيقية.. بنحول التصميم لموقع حي بيتفاعل مع الماوس، أنيميشن سلس للغاية 60 إطار في الثانية، ولمسات 3D بـ Three.js تبهر عملائك.
+              </p>
+              <div class="service-tags">
+                <span>GSAP Motion</span>
+                <span>Three.js 3D</span>
+                <span>سرعة 60fps</span>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-num">03</div>
+              <h3 class="service-title" id="service-3-title">تطوير وترقية المواقع القائمة</h3>
+              <p class="service-desc" id="service-3-desc">
+                عندك موقع بطيء أو شكله قديم ومش عاجبك؟ بنمسكه ننضف الكود، نسرع التحميل زي الصاروخ، ونضيفله أنيميشن ولمسات عصرية تنقله لمستوى تاني خالص.
+              </p>
+              <div class="service-tags">
+                <span>تسريع صاروخي</span>
+                <span>ريسبونسف 100%</span>
+                <span>كود نظيف</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. MY WORK ("أعمال 7P") SECTION (Strictly Isolated Single External Link to 7P Studio) -->
+      <section id="work" class="content-section">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="work-kicker">شغل الوكالة</div>
+            <h2 class="section-title" id="work-title">شغلي التجاري الكامل مع العملاء</h2>
+            <p class="section-subtitle" id="work-subtitle">كل شغلي التجاري، مشاريع الشركات الكبيرة، والمتاجر موجودة بالكامل في استوديو 7P.</p>
+          </div>
+
+          <a href="https://7pstudio.tech" target="_blank" rel="noopener noreferrer" class="work-single-card" id="work-card">
+            <div class="work-card-content">
+              <div class="work-card-tag" id="work-card-tag">7P STUDIO</div>
+              <h3 class="work-card-title" id="work-card-title">شغلي الكامل على 7P Studio</h3>
+              <p class="work-card-desc" id="work-card-desc">
+                لو حابب تشوف مواقع حقيقية شغالة في السوق، دراسات حالة مفصلة، ومشاريع عملاء كاملة.. تقدر تتفرج عليها كلها هناك.
+              </p>
+              <div class="work-link-button">
+                <span id="work-link-text">زيارة موقع 7P Studio</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"></line>
+                  <polyline points="7 7 17 7 17 17"></polyline>
+                </svg>
+              </div>
+            </div>
+
+            <div class="work-card-preview" aria-hidden="true">
+              <div class="preview-badge-glow">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              </div>
+              <div class="preview-domain">7pstudio.tech</div>
+              <div class="preview-subtext" id="work-preview-note">موقع استوديو العملاء الخارجي</div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. CONTACT ("يلا نتكلم") SECTION -->
+      <section id="contact" class="content-section">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="contact-kicker">يلا نتكلم</div>
+            <h2 class="section-title" id="contact-title">عندك فكرة مشروع وعايز تحولها لواقع يبهر الناس؟</h2>
+            <p class="section-subtitle" id="contact-subtitle">أنا دايماً متاح ويسعدني ندردش في أي فكرة جديدة.. ابعتلي مباشرة على المنصة اللي تريحك:</p>
+          </div>
+
+          <div class="contact-channels-grid">
+            <!-- WhatsApp -->
+            <div class="contact-card">
+              <div class="contact-icon-bubble">
+                <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </div>
+              <span class="contact-label" id="contact-wa-label">واتساب</span>
+              <div class="contact-value-row">
+                <span class="contact-selectable-text" id="val-whatsapp">01221576360</span>
+                <button class="btn-copy" data-copy-target="val-whatsapp">نسخ</button>
+              </div>
+              <a href="https://wa.me/201221576360" target="_blank" rel="noopener noreferrer" class="btn-primary contact-action-link" data-magnetic>
+                <span>محادثة فورية</span>
+              </a>
+            </div>
+
+            <!-- Email -->
+            <div class="contact-card">
+              <div class="contact-icon-bubble">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              </div>
+              <span class="contact-label" id="contact-email-label">الإيميل</span>
+              <div class="contact-value-row">
+                <span class="contact-selectable-text" id="val-email">om058166@gmail.com</span>
+                <button class="btn-copy" data-copy-target="val-email">نسخ</button>
+              </div>
+              <a href="mailto:om058166@gmail.com" class="btn-secondary contact-action-link" data-magnetic>
+                <span>إرسال إيميل</span>
+              </a>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-card">
+              <div class="contact-icon-bubble">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </div>
+              <span class="contact-label" id="contact-insta-label">إنستجرام</span>
+              <div class="contact-value-row">
+                <span class="contact-selectable-text" id="val-insta">@omar_thegratt</span>
+                <button class="btn-copy" data-copy-target="val-insta">نسخ</button>
+              </div>
+              <a href="https://instagram.com/omar_thegratt" target="_blank" rel="noopener noreferrer" class="btn-secondary contact-action-link" data-magnetic>
+                <span>فتح البروفايل</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer class="site-footer" id="footer">
+      <div class="section-container">
+        <div class="footer-inner">
+          <p class="footer-copy" id="footer-rights">© 2026 عمر يحيى • اتعملت بحب، شغف، وفناجين قهوة كتيرة ☕</p>
+          <button id="footer-back-to-top" class="footer-back-to-top" data-magnetic>
+            <span id="footer-back-to-top-text">العودة للأعلى ↑</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

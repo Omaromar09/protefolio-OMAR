@@ -1,0 +1,280 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { photos } from './photosData.js';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export class ScrollSectionsController {
+  constructor(lenisInstance) {
+    this.lenis = lenisInstance;
+    this.galleryCurrentIndex = 0;
+    this.galleryCards = [];
+    this.init();
+  }
+
+  init() {
+    this.initAboutFan();
+    this.initGalleryStack();
+    this.initServiceCards();
+    this.initWorkCard();
+    this.initContactCopy();
+    this.initBackToTop();
+  }
+
+  initAboutFan() {
+    const wrapper = document.querySelector('.about-deck-wrapper');
+    const fanCards = document.querySelectorAll('.about-fan-card');
+    if (!wrapper || fanCards.length === 0) return;
+
+    // Fan-out animation triggered as section enters viewport
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: 'top 80%',
+        end: 'bottom 40%',
+        scrub: 1.2
+      }
+    });
+
+    // Spread each fan card outward with deliberate rotation
+    fanCards.forEach((card, index) => {
+      let targetX = 0;
+      let targetY = 0;
+      let targetRot = 0;
+
+      if (index === 0) {
+        targetX = -120;
+        targetY = -60;
+        targetRot = -22;
+      } else if (index === 1) {
+        targetX = -140;
+        targetY = 70;
+        targetRot = -10;
+      } else if (index === 2) {
+        targetX = 120;
+        targetY = -70;
+        targetRot = 20;
+      } else if (index === 3) {
+        targetX = 140;
+        targetY = 60;
+        targetRot = 14;
+      }
+
+      const isRtl = document.documentElement.dir === 'rtl';
+      if (isRtl) {
+        targetX = -targetX;
+        targetRot = -targetRot;
+      }
+
+      tl.to(card, {
+        x: targetX,
+        y: targetY,
+        rotate: targetRot,
+        ease: 'none'
+      }, 0);
+    });
+  }
+
+  initGalleryStack() {
+    const container = document.getElementById('gallery-stack');
+    const track = document.getElementById('gallery-track');
+    const prevBtn = document.getElementById('gallery-prev-btn');
+    const nextBtn = document.getElementById('gallery-next-btn');
+
+    if (!container || !track) return;
+
+    track.innerHTML = '';
+    this.galleryCards = [];
+
+    // Create cards for all photos
+    photos.forEach((p, idx) => {
+      const card = document.createElement('div');
+      card.className = `gallery-card card-idx-${idx}`;
+      card.dataset.index = idx;
+
+      const img = document.createElement('img');
+      img.src = p.src;
+      img.alt = document.documentElement.lang === 'en' ? p.altEn : p.altAr;
+      img.loading = 'lazy';
+      img.style.objectPosition = p.focalPoint;
+
+      const caption = document.createElement('div');
+      caption.className = 'gallery-card-caption';
+      
+      const num = document.createElement('span');
+      num.className = 'gallery-card-num';
+      const curStr = String(idx + 1).padStart(2, '0');
+      const totalStr = String(photos.length).padStart(2, '0');
+      num.textContent = `${curStr} / ${totalStr}`;
+
+      caption.appendChild(num);
+      card.appendChild(img);
+      card.appendChild(caption);
+      track.appendChild(card);
+
+      this.galleryCards.push(card);
+    });
+
+    this.updateGalleryStackLayout(false);
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.galleryPrev();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.galleryNext();
+      });
+    }
+
+    // Touch / Swipe support on gallery
+    let startX = 0;
+    container.addEventListener('touchstart', (e) => {
+      if (e.touches.length > 0) startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      if (e.changedTouches.length > 0) {
+        const diffX = e.changedTouches[0].clientX - startX;
+        if (Math.abs(diffX) > 40) {
+          if (diffX < 0) {
+            document.documentElement.dir === 'rtl' ? this.galleryPrev() : this.galleryNext();
+          } else {
+            document.documentElement.dir === 'rtl' ? this.galleryNext() : this.galleryPrev();
+          }
+        }
+      }
+    }, { passive: true });
+  }
+
+  updateGalleryStackLayout(animate = true) {
+    const total = this.galleryCards.length;
+
+    this.galleryCards.forEach((card, idx) => {
+      const offset = (idx - this.galleryCurrentIndex + total) % total;
+
+      let zIndex = total - offset;
+      let scale = 1 - offset * 0.055;
+      let yOffset = offset * 22;
+      let opacity = offset > 3 ? 0 : 1 - offset * 0.22;
+      let pointerEvents = offset === 0 ? 'auto' : 'none';
+
+      if (animate) {
+        gsap.to(card, {
+          y: yOffset,
+          scale: scale,
+          opacity: opacity,
+          zIndex: zIndex,
+          duration: 0.5,
+          ease: 'power3.out'
+        });
+      } else {
+        gsap.set(card, {
+          y: yOffset,
+          scale: scale,
+          opacity: opacity,
+          zIndex: zIndex
+        });
+      }
+
+      card.style.pointerEvents = pointerEvents;
+    });
+  }
+
+  galleryNext() {
+    this.galleryCurrentIndex = (this.galleryCurrentIndex + 1) % this.galleryCards.length;
+    this.updateGalleryStackLayout(true);
+  }
+
+  galleryPrev() {
+    this.galleryCurrentIndex = (this.galleryCurrentIndex - 1 + this.galleryCards.length) % this.galleryCards.length;
+    this.updateGalleryStackLayout(true);
+  }
+
+  initServiceCards() {
+    const cards = document.querySelectorAll('.service-card');
+    if (cards.length === 0) return;
+
+    gsap.fromTo(cards,
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.65,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.services-grid',
+          start: 'top 85%'
+        }
+      }
+    );
+  }
+
+  initWorkCard() {
+    const card = document.querySelector('.work-single-card');
+    if (!card) return;
+
+    gsap.fromTo(card,
+      { y: 60, opacity: 0, scale: 0.96 },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 85%'
+        }
+      }
+    );
+  }
+
+  initContactCopy() {
+    const copyBtns = document.querySelectorAll('[data-copy-target]');
+
+    copyBtns.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const targetId = btn.getAttribute('data-copy-target');
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+
+        const textToCopy = targetEl.textContent.trim();
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+          const originalText = btn.innerHTML;
+          const isEn = document.documentElement.lang === 'en';
+          
+          btn.classList.add('copied');
+          btn.textContent = isEn ? 'Copied!' : 'تم النسخ!';
+
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = originalText;
+          }, 2000);
+        } catch (err) {
+          console.warn('Clipboard write failed:', err);
+        }
+      });
+    });
+  }
+
+  initBackToTop() {
+    const btn = document.getElementById('footer-back-to-top');
+    if (!btn) return;
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (this.lenis) {
+        this.lenis.scrollTo(0, { duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
+}
