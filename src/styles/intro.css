@@ -443,24 +443,78 @@ html[dir="rtl"] .intro-meet-text-col {
 
 /* Responsive adjustments for Intro */
 @media (max-width: 860px) {
+  .intro-skip-btn {
+    top: 16px;
+    inset-inline-end: 16px;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    min-height: 38px;
+  }
+  .intro-headline {
+    font-size: clamp(1.5rem, 5.8vw, 2.4rem);
+  }
+  .intro-headline-line1 {
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+  .intro-inline-avatars {
+    padding: 3px 8px;
+    margin-inline: 4px;
+  }
+  .intro-inline-avatars img {
+    width: clamp(26px, 4.5vw, 34px);
+    height: clamp(26px, 4.5vw, 34px);
+    margin-left: -8px;
+  }
   .intro-meet-stage {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    gap: 32px;
-    padding-top: 80px;
+    gap: 16px;
+    padding-top: 64px;
+    padding-inline: 20px;
   }
   .intro-meet-text-col {
     align-items: center;
     text-align: center;
   }
+  .intro-meet-title {
+    font-size: clamp(2rem, 7vw, 3.2rem);
+  }
   .intro-wheel-viewport {
-    width: clamp(240px, 68vw, 310px);
-    height: clamp(320px, 90vw, 414px);
+    width: min(260px, 68vw);
+    height: min(346px, 90vw);
+    aspect-ratio: 3 / 4;
   }
   .intro-wheel-card {
-    height: clamp(320px, 90vw, 414px);
+    height: 100%;
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-headline {
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
   }
   .intro-headline-line1 {
-    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .intro-inline-avatars {
+    padding: 2px 6px;
+  }
+  .intro-inline-avatars img {
+    width: 24px;
+    height: 24px;
+    margin-left: -6px;
+  }
+  .intro-meet-stage {
+    padding-top: 54px;
+    gap: 12px;
+  }
+  .intro-meet-title {
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+  }
+  .intro-wheel-viewport {
+    width: min(230px, 66vw);
+    height: min(306px, 88vw);
   }
 }

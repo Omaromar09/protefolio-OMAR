@@ -58,9 +58,9 @@ html[dir="rtl"] .hero-content {
 }
 
 .hero-title {
-  font-size: clamp(3.2rem, 6.5vw, 5.8rem);
+  font-size: clamp(2.3rem, 6vw, 5.8rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.035em;
   color: var(--text-main);
   margin-bottom: 18px;
@@ -69,9 +69,9 @@ html[dir="rtl"] .hero-content {
 }
 
 .hero-subtitle {
-  font-size: clamp(1.2rem, 2.2vw, 1.85rem);
+  font-size: clamp(1.05rem, 2vw, 1.85rem);
   font-weight: 500;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--text-muted);
   margin-bottom: 36px;
   max-width: 520px;
@@ -114,7 +114,7 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
-  touch-action: pan-y;
+  touch-action: pan-y pinch-zoom;
 }
 
 .hero-card-stage:active {
@@ -264,10 +264,23 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
 }
 
 /* Responsive adjustments for Hero */
-@media (max-width: 960px) {
+@media (max-width: 1024px) {
+  .hero-grid {
+    gap: 40px;
+  }
+  .hero-title {
+    font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-section {
+    padding-block: 90px 48px;
+    min-height: auto;
+  }
   .hero-grid {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
     text-align: center;
   }
   .hero-content {
@@ -278,14 +291,119 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   }
   .hero-subtitle {
     margin-inline: auto;
+    max-width: 480px;
   }
   .hero-actions {
     justify-content: center;
   }
+  .hero-card-stage {
+    width: min(300px, 78vw);
+    height: auto;
+    aspect-ratio: 3 / 4;
+    max-height: 420px;
+  }
   .wheel-controls {
-    position: static;
-    transform: none;
+    position: absolute;
+    left: -22px;
+    right: -22px;
+    width: calc(100% + 44px);
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    display: flex;
     flex-direction: row;
-    margin-top: 16px;
+    justify-content: space-between;
+    pointer-events: none;
+    z-index: 20;
+    padding-inline: 0;
+    margin-top: 0;
+  }
+  html[dir="rtl"] #wheel-btn-prev svg,
+  html[dir="rtl"] #wheel-btn-next svg {
+    transform: rotate(90deg);
+  }
+  html[dir="ltr"] #wheel-btn-prev svg,
+  html[dir="ltr"] #wheel-btn-next svg {
+    transform: rotate(-90deg);
+  }
+  .wheel-btn {
+    pointer-events: auto;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 4px 16px rgba(20, 17, 15, 0.12);
+  }
+  .wheel-indicator-bar {
+    margin-top: 20px;
+    padding: 7px 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-section {
+    padding-block: 80px 32px;
+  }
+  .hero-grid {
+    gap: 32px;
+  }
+  .hero-badge {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-size: clamp(2.2rem, 8.5vw, 3.1rem);
+    line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 22px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 290px;
+    margin-inline: auto;
+    gap: 10px;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  .hero-card-stage {
+    width: min(270px, 75vw);
+    border-radius: 24px;
+  }
+  .hero-card-3d {
+    border-radius: 24px;
+  }
+  .wheel-controls {
+    left: -18px;
+    right: -18px;
+    width: calc(100% + 36px);
+  }
+  .wheel-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-card-stage {
+    width: min(240px, 74vw);
+  }
+  .wheel-controls {
+    left: -14px;
+    right: -14px;
+    width: calc(100% + 28px);
+  }
+  .wheel-btn {
+    width: 36px;
+    height: 36px;
   }
 }

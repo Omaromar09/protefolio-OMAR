@@ -269,6 +269,14 @@ class App {
     if (linkWork) linkWork.textContent = t.nav.work;
     if (linkContact) linkContact.textContent = t.nav.contact;
 
+    const drawerLinks = document.querySelectorAll('.mobile-drawer-link');
+    drawerLinks.forEach((link) => {
+      const key = link.getAttribute('data-nav');
+      if (key && t.nav[key]) {
+        link.textContent = t.nav[key];
+      }
+    });
+
     const langToggleBtn = document.getElementById('lang-toggle-btn');
     const mobileLangBtn = document.getElementById('mobile-lang-btn');
     if (langToggleBtn) langToggleBtn.textContent = t.nav.langToggle;
@@ -467,14 +475,39 @@ class App {
       });
     }
 
-    // Mobile Navigation Drawer Toggle
+    // Mobile Navigation Drawer Toggle & Close
     const mobileToggle = document.getElementById('mobile-toggle-btn');
     const mobileDrawer = document.getElementById('mobile-drawer');
+    const mobileCloseBtn = document.getElementById('mobile-close-btn');
 
     if (mobileToggle && mobileDrawer) {
       mobileToggle.addEventListener('click', (e) => {
         e.preventDefault();
         mobileDrawer.classList.toggle('is-open');
+        const isOpen = mobileDrawer.classList.contains('is-open');
+        mobileDrawer.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        document.body.classList.toggle('drawer-open', isOpen);
+      });
+
+      if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.closeMobileDrawer();
+        });
+      }
+
+      // Close when clicking directly on the backdrop
+      mobileDrawer.addEventListener('click', (e) => {
+        if (e.target === mobileDrawer) {
+          this.closeMobileDrawer();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
+          this.closeMobileDrawer();
+        }
       });
 
       const drawerLinks = mobileDrawer.querySelectorAll('.mobile-drawer-link');
@@ -488,7 +521,11 @@ class App {
 
   closeMobileDrawer() {
     const drawer = document.getElementById('mobile-drawer');
-    if (drawer) drawer.classList.remove('is-open');
+    if (drawer) {
+      drawer.classList.remove('is-open');
+      drawer.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('drawer-open');
+    }
   }
 
   initCairoClock() {

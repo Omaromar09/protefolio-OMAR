@@ -121,20 +121,33 @@ export class ScrollSectionsController {
       });
     }
 
-    // Touch / Swipe support on gallery
+    // Touch / Swipe support on gallery (both X and Y)
     let startX = 0;
+    let startY = 0;
     container.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) startX = e.touches[0].clientX;
+      if (e.touches.length > 0) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }
     }, { passive: true });
 
     container.addEventListener('touchend', (e) => {
       if (e.changedTouches.length > 0) {
         const diffX = e.changedTouches[0].clientX - startX;
-        if (Math.abs(diffX) > 40) {
+        const diffY = e.changedTouches[0].clientY - startY;
+        const isRtl = document.documentElement.dir === 'rtl';
+
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
           if (diffX < 0) {
-            document.documentElement.dir === 'rtl' ? this.galleryPrev() : this.galleryNext();
+            isRtl ? this.galleryPrev() : this.galleryNext();
           } else {
-            document.documentElement.dir === 'rtl' ? this.galleryNext() : this.galleryPrev();
+            isRtl ? this.galleryNext() : this.galleryPrev();
+          }
+        } else if (Math.abs(diffY) > 30) {
+          if (diffY < 0) {
+            this.galleryNext();
+          } else {
+            this.galleryPrev();
           }
         }
       }
@@ -147,9 +160,10 @@ export class ScrollSectionsController {
     this.galleryCards.forEach((card, idx) => {
       const offset = (idx - this.galleryCurrentIndex + total) % total;
 
+      const isMobile = window.innerWidth <= 600;
       let zIndex = total - offset;
-      let scale = 1 - offset * 0.055;
-      let yOffset = offset * 22;
+      let scale = 1 - offset * (isMobile ? 0.045 : 0.055);
+      let yOffset = offset * (isMobile ? 12 : 20);
       let opacity = offset > 3 ? 0 : 1 - offset * 0.22;
       let pointerEvents = offset === 0 ? 'auto' : 'none';
 
@@ -173,6 +187,11 @@ export class ScrollSectionsController {
 
       card.style.pointerEvents = pointerEvents;
     });
+
+    const counter = document.getElementById('gallery-counter');
+    if (counter && total > 0) {
+      counter.textContent = `${String(this.galleryCurrentIndex + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+    }
   }
 
   galleryNext() {

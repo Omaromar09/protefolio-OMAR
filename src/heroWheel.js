@@ -100,21 +100,33 @@ export class HeroWheelController {
       }, { passive: false });
     }
 
-    // Touch Swipe & Mouse Drag
+    // Touch Swipe & Mouse Drag (supports vertical AND horizontal swipes)
     if (this.stage) {
+      let startX = 0;
       let startY = 0;
       let isDragging = false;
 
-      const onTouchStart = (clientY) => {
+      const onTouchStart = (clientX, clientY) => {
+        startX = clientX;
         startY = clientY;
         isDragging = true;
       };
 
-      const onTouchEnd = (clientY) => {
+      const onTouchEnd = (clientX, clientY) => {
         if (!isDragging) return;
         isDragging = false;
+        const diffX = clientX - startX;
         const diffY = clientY - startY;
-        if (Math.abs(diffY) > 35) {
+        const isRtl = document.documentElement.dir === 'rtl';
+
+        // Detect swipe based on dominant axis
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+          if (diffX < 0) {
+            isRtl ? this.prev() : this.next();
+          } else {
+            isRtl ? this.next() : this.prev();
+          }
+        } else if (Math.abs(diffY) > 30) {
           if (diffY < 0) {
             this.next();
           } else {
@@ -124,19 +136,19 @@ export class HeroWheelController {
       };
 
       this.stage.addEventListener('touchstart', (e) => {
-        if (e.touches.length > 0) onTouchStart(e.touches[0].clientY);
+        if (e.touches.length > 0) onTouchStart(e.touches[0].clientX, e.touches[0].clientY);
       }, { passive: true });
 
       this.stage.addEventListener('touchend', (e) => {
-        if (e.changedTouches.length > 0) onTouchEnd(e.changedTouches[0].clientY);
+        if (e.changedTouches.length > 0) onTouchEnd(e.changedTouches[0].clientX, e.changedTouches[0].clientY);
       }, { passive: true });
 
       this.stage.addEventListener('mousedown', (e) => {
-        onTouchStart(e.clientY);
+        onTouchStart(e.clientX, e.clientY);
       });
 
       window.addEventListener('mouseup', (e) => {
-        onTouchEnd(e.clientY);
+        onTouchEnd(e.clientX, e.clientY);
       });
     }
 
