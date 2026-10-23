@@ -74,13 +74,10 @@ class App {
     // 7. Live Cairo Clock Ticker & Vibe
     this.initCairoClock();
 
-    // 8. Easter Egg Interaction & Console Greeting
-    this.initEasterEgg();
-
-    // 9. Navigation & Language Events
+    // 8. Navigation & Language Events
     this.bindGlobalEvents();
 
-    // 10. Test / URL parameters (?t=2.5, ?skip=1)
+    // 9. Test / URL parameters (?t=2.5, ?skip=1)
     this.checkUrlParams();
 
     // Check visibility change to pause loops
@@ -430,16 +427,13 @@ class App {
     if (emailLabel) emailLabel.textContent = t.contact.emailLabel;
     if (instaLabel) instaLabel.textContent = t.contact.instaLabel;
 
-    // Footer & Easter Egg
+    // Footer
     const footerRights = document.getElementById('footer-rights');
     const footerBack = document.getElementById('footer-back-to-top-text');
-    if (footerRights) {
-      footerRights.innerHTML = `${t.footer.copy} <button id="easter-egg-btn" class="easter-egg-coffee" aria-label="Easter Egg">☕</button>`;
-      this.bindEasterEgg();
-    }
+    if (footerRights) footerRights.textContent = t.footer.copy;
     if (footerBack) footerBack.textContent = t.footer.backToTop;
 
-    // Re-render gallery captions if initialized
+    // Re-render gallery if initialized
     if (this.scrollSections) {
       this.scrollSections.initGalleryStack();
     }
@@ -526,35 +520,6 @@ class App {
     if (vibeEl) {
       vibeEl.textContent = getCairoVibe(this.currentLang);
     }
-  }
-
-  initEasterEgg() {
-    // Console Greeting
-    console.log(
-      '%c👋 أهلاً بيك في كواليس الموقع!\nأنا عمر يحيى.. لو عجبك الشغل وعايز نعمل حاجة سوا، كلمني على الواتساب: 01221576360',
-      'color: #E8552B; font-size: 14px; font-weight: bold; padding: 4px;'
-    );
-    this.bindEasterEgg();
-  }
-
-  bindEasterEgg() {
-    const btn = document.getElementById('easter-egg-btn');
-    const toast = document.getElementById('easter-egg-toast');
-    if (!btn || !toast) return;
-
-    btn.onclick = (e) => {
-      e.preventDefault();
-      const t = translations[this.currentLang];
-      toast.textContent = t.footer.easterEggToast;
-      toast.classList.add('is-visible');
-      toast.setAttribute('aria-hidden', 'false');
-
-      if (this.toastTimeout) clearTimeout(this.toastTimeout);
-      this.toastTimeout = setTimeout(() => {
-        toast.classList.remove('is-visible');
-        toast.setAttribute('aria-hidden', 'true');
-      }, 3500);
-    };
   }
 }
 

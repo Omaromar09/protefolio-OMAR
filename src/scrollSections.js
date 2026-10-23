@@ -88,7 +88,7 @@ export class ScrollSectionsController {
     track.innerHTML = '';
     this.galleryCards = [];
 
-    // Create cards for all photos
+    // Create clean photo cards without any captions or text overlays
     photos.forEach((p, idx) => {
       const card = document.createElement('div');
       card.className = `gallery-card card-idx-${idx}`;
@@ -100,23 +100,7 @@ export class ScrollSectionsController {
       img.loading = 'lazy';
       img.style.objectPosition = p.focalPoint;
 
-      const caption = document.createElement('div');
-      caption.className = 'gallery-card-caption';
-      
-      const text = document.createElement('span');
-      text.className = 'gallery-card-text';
-      text.textContent = document.documentElement.lang === 'en' ? p.captionEn : p.captionAr;
-
-      const num = document.createElement('span');
-      num.className = 'gallery-card-num';
-      const curStr = String(idx + 1).padStart(2, '0');
-      const totalStr = String(photos.length).padStart(2, '0');
-      num.textContent = `${curStr} / ${totalStr}`;
-
-      caption.appendChild(text);
-      caption.appendChild(num);
       card.appendChild(img);
-      card.appendChild(caption);
       track.appendChild(card);
 
       this.galleryCards.push(card);
