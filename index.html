@@ -552,7 +552,78 @@
         </div>
       </section>
 
-      <!-- 7. CONTACT ("يلا نتكلم") SECTION -->
+      <!-- 7. MINI-GAME SECTION ("استراحة كود // لعبة التعبان") -->
+      <section id="game" class="content-section section-game">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="game-kicker">استراحة كود 🎮</div>
+            <h2 class="section-title" id="game-title">افصل شوية مع لعبة التعبان</h2>
+            <p class="section-subtitle" id="game-subtitle">مبرمجها كود صافي بالـ JavaScript و Canvas. العب بالأسهم على الكيبورد أو بالتاتش لو إنت ع الموبايل وشوف هتوصل لكام نقطة!</p>
+          </div>
+
+          <div class="game-card-wrapper">
+            <!-- Top Status Bar -->
+            <div class="game-header-bar">
+              <div class="game-score-box">
+                <span class="score-label" id="game-score-label">السكور:</span>
+                <span id="game-current-score" class="score-value">0</span>
+              </div>
+              <div class="game-actions-box">
+                <button id="game-start-btn" class="btn-primary game-btn" data-magnetic>
+                  <span id="game-btn-text">ابدأ اللعب ▶</span>
+                </button>
+              </div>
+              <div class="game-score-box">
+                <span class="score-label" id="game-best-label">أعلى سكور:</span>
+                <span id="game-best-score" class="score-value">0</span>
+              </div>
+            </div>
+
+            <!-- Canvas Stage Container -->
+            <div class="game-canvas-container">
+              <canvas id="snake-canvas" width="400" height="400"></canvas>
+              <!-- Overlay for Game Start / Pause / Game Over -->
+              <div id="game-overlay" class="game-overlay is-visible">
+                <div class="game-overlay-content">
+                  <div class="game-overlay-icon">🐍</div>
+                  <h3 id="game-overlay-title" class="game-overlay-title">جاهز تلعب؟</h3>
+                  <p id="game-overlay-msg" class="game-overlay-msg">استخدم الأسهم أو التاتش عشان توجه التعبان وماتخبطش في الحيطة أو في نفسك.</p>
+                  <button id="game-overlay-btn" class="btn-primary game-action-btn">ابدأ اللعب ▶</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mobile Touch Controls (D-Pad) -->
+            <div class="game-dpad-controls" aria-label="أزرار تحكم التاتش">
+              <div class="dpad-row dpad-row-up">
+                <button class="dpad-btn dpad-up" data-dir="UP" aria-label="فوق">
+                  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                </button>
+              </div>
+              <div class="dpad-row dpad-row-middle">
+                <button class="dpad-btn dpad-left" data-dir="LEFT" aria-label="شمال">
+                  <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+                <div class="dpad-center-indicator"></div>
+                <button class="dpad-btn dpad-right" data-dir="RIGHT" aria-label="يمين">
+                  <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
+              </div>
+              <div class="dpad-row dpad-row-down">
+                <button class="dpad-btn dpad-down" data-dir="DOWN" aria-label="تحت">
+                  <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="game-footer-hint">
+              <span id="game-controls-hint">💡 على الكيبورد: الأسهم أو W, A, S, D — على الموبايل: المس الأسهم أو اسحب ع الشاشة مباشرة</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. CONTACT ("يلا نتكلم") SECTION -->
       <section id="contact" class="content-section">
         <div class="section-container">
           <div class="section-head">

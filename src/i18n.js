@@ -163,6 +163,15 @@ export const translations = {
         }
       ]
     },
+    game: {
+      tag: 'استراحة كود 🎮',
+      title: 'افصل شوية مع لعبة التعبان',
+      subtitle: 'مبرمجها كود صافي بالـ JavaScript و Canvas. العب بالأسهم على الكيبورد أو بالتاتش لو إنت ع الموبايل وشوف هتوصل لكام نقطة!',
+      scoreLabel: 'السكور:',
+      bestLabel: 'أعلى سكور:',
+      startBtn: 'ابدأ اللعب ▶',
+      hint: '💡 على الكيبورد: الأسهم أو W, A, S, D — على الموبايل: المس الأسهم أو اسحب ع الشاشة مباشرة'
+    },
     contact: {
       tag: 'يلا نتكلم',
       title: 'عندك فكرة أو مشروع؟ تعالى ندردش.',
@@ -344,6 +353,15 @@ export const translations = {
           a: 'We pinpoint the issues and rebuild it cleanly from the ground up so it runs fast and modern across all devices.'
         }
       ]
+    },
+    game: {
+      tag: 'Code Break 🎮',
+      title: 'Take a Break with Classic Snake',
+      subtitle: 'Hand-coded with vanilla JavaScript and HTML5 Canvas. Play with keyboard arrows or touch controls on mobile and see your high score!',
+      scoreLabel: 'Score:',
+      bestLabel: 'High Score:',
+      startBtn: 'Start Game ▶',
+      hint: '💡 Keyboard: Arrow keys or W, A, S, D — Mobile: Touch D-pad buttons or swipe on canvas'
     },
     contact: {
       tag: "Let's Talk",

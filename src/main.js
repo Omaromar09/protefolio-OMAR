@@ -2,6 +2,7 @@ import './styles/main.css';
 import './styles/intro.css';
 import './styles/hero.css';
 import './styles/sections.css';
+import './styles/game.css';
 
 import Lenis from 'lenis';
 import gsap from 'gsap';
@@ -11,6 +12,7 @@ import { translations, getCairoVibe } from './i18n.js';
 import { IntroController } from './intro.js';
 import { HeroWheelController } from './heroWheel.js';
 import { ScrollSectionsController } from './scrollSections.js';
+import { SnakeGame } from './snakeGame.js';
 import { initMagneticButtons } from './magnetic.js';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,6 +24,7 @@ class App {
     this.intro = null;
     this.heroWheel = null;
     this.scrollSections = null;
+    this.snakeGame = null;
 
     this.init();
   }
@@ -68,7 +71,10 @@ class App {
     // 5. Initialize Scroll Sections (About fan, Gallery stack, Services, Work, Contact, Footer)
     this.scrollSections = new ScrollSectionsController(this.lenis);
 
-    // 6. Initialize Magnetic Hover Buttons
+    // 6. Initialize Mini Snake Game ("لعبة التعبان")
+    this.snakeGame = new SnakeGame();
+
+    // 7. Initialize Magnetic Hover Buttons
     initMagneticButtons();
 
     // 7. Live Cairo Clock Ticker & Vibe
@@ -419,6 +425,25 @@ class App {
     if (faqA2) faqA2.textContent = t.faq.items[1].a;
     if (faqQ3) faqQ3.textContent = t.faq.items[2].q;
     if (faqA3) faqA3.textContent = t.faq.items[2].a;
+
+    // Mini-game ("لعبة التعبان")
+    const gameKicker = document.getElementById('game-kicker');
+    const gameTitle = document.getElementById('game-title');
+    const gameSubtitle = document.getElementById('game-subtitle');
+    const gameScoreLabel = document.getElementById('game-score-label');
+    const gameBestLabel = document.getElementById('game-best-label');
+    const gameHint = document.getElementById('game-controls-hint');
+
+    if (gameKicker) gameKicker.textContent = t.game.tag;
+    if (gameTitle) gameTitle.textContent = t.game.title;
+    if (gameSubtitle) gameSubtitle.textContent = t.game.subtitle;
+    if (gameScoreLabel) gameScoreLabel.textContent = t.game.scoreLabel;
+    if (gameBestLabel) gameBestLabel.textContent = t.game.bestLabel;
+    if (gameHint) gameHint.textContent = t.game.hint;
+
+    if (this.snakeGame) {
+      this.snakeGame.updateControlsUI();
+    }
 
     // Contact ("يلا نتكلم")
     const contactKicker = document.getElementById('contact-kicker');
