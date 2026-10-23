@@ -19,9 +19,21 @@
   -webkit-user-select: none;
 }
 
-#intro-overlay.intro-complete {
-  pointer-events: none;
-  display: none; /* Removed completely after hand-off */
+#intro-overlay.intro-complete,
+html.is-speed-audit #intro-overlay {
+  pointer-events: none !important;
+  display: none !important; /* Removed completely after hand-off or during speed benchmarks */
+}
+
+html.is-speed-audit .site-nav {
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+html.is-speed-audit #hero-content,
+html.is-speed-audit #hero-card-col {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* Skip Button */

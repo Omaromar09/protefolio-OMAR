@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_model": "eng_omar_portfolio",
+  "name_for_human": "Omar Yahia Portfolio",
+  "description_for_model": "Official portfolio of Omar Yahia, creative web designer and developer. Includes showcase of bespoke projects, frontend development capabilities, and contact information.",
+  "description_for_human": "الموقع الرسمي للمهندس عمر يحيى — مصمم ومطور مواقع ويب تفاعلية وتطبيقات حديثة.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://www.engomar.tech"
+  },
+  "logo_url": "https://www.engomar.tech/favicon.svg",
+  "contact_email": "contact@engomar.tech",
+  "legal_info_url": "https://www.engomar.tech"
+}

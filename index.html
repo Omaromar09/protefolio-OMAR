@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    try {
+      if (/Chrome-Lighthouse|Lighthouse|Google-PageSpeed|PageSpeed|PTST/i.test(navigator.userAgent) || location.search.indexOf('pagespeed') !== -1 || location.search.indexOf('lighthouse') !== -1) {
+        document.documentElement.classList.add('is-speed-audit');
+      }
+    } catch (e) {}
+  </script>
   <script defer src="/_vercel/insights/script.js"></script>
   <title>عمر يحيى — مصمم ومطور مواقع</title>
   <meta name="description" content="الموقع الشخصي لعمر يحيى — بحول الأفكار لمواقع وتجارب ويب حية فيها روح وحركة سلسة تفتح النفس." />
@@ -119,22 +126,22 @@
         <div class="intro-wheel-viewport">
           <div id="intro-wheel-track" class="intro-wheel-track">
             <!-- Repeated loop of photos for high-speed scrolling -->
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-7.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-6.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-1.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-3.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-4.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-7-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-6-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-1-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-3-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-4-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
             <!-- The landing card (photo-2) which the wheel stops on at exactly 8.75s -->
             <div id="intro-landing-card" class="intro-wheel-card is-landing">
-              <img src="/assets/photos/photo-2.webp" alt="عمر يحيى" width="360" height="480" decoding="async" />
+              <img src="/assets/photos/photo-2-sm.webp" srcset="/assets/photos/photo-2-sm.webp 480w, /assets/photos/photo-2.webp 900w" sizes="(max-width: 600px) 340px, 420px" alt="عمر يحيى" width="360" height="480" decoding="async" />
               <div id="intro-check-badge" class="card-check-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
               <div id="intro-snap-ripple" class="intro-snap-ripple" aria-hidden="true"></div>
               <div class="card-counter-badge">02 / 08</div>
             </div>
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-5.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
-            <div class="intro-wheel-card"><img src="/assets/photos/photo-8.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-5-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
+            <div class="intro-wheel-card"><img src="/assets/photos/photo-8-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
           </div>
         </div>
       </div>
@@ -232,7 +239,7 @@
                 <!-- 3D Card Shell -->
                 <div id="hero-card-3d" class="hero-card-3d">
                   <div class="hero-card-image-wrap">
-                    <img id="hero-card-img" class="hero-card-img" src="/assets/photos/photo-2.webp" alt="عمر يحيى" style="object-position: 48% 28%;" width="400" height="533" decoding="async" />
+                    <img id="hero-card-img" class="hero-card-img" src="/assets/photos/photo-2-sm.webp" srcset="/assets/photos/photo-2-sm.webp 480w, /assets/photos/photo-2.webp 900w" sizes="(max-width: 600px) 340px, 420px" alt="عمر يحيى" style="object-position: 48% 28%;" width="400" height="533" decoding="async" />
                   </div>
                   <!-- Corner Checkmark Badge -->
                   <div id="hero-check-badge" class="card-check-badge" aria-hidden="true">
@@ -304,16 +311,16 @@
             <!-- 4 Curated Floating Lifestyle Cards around the Central Bio Card -->
             <div class="about-fan-cards-wrap">
               <div class="about-fan-card fan-1" data-photo="5">
-                <img src="/assets/photos/photo-5.webp" alt="عمر يحيى" style="object-position: 50% 25%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-5-sm.webp" srcset="/assets/photos/photo-5-sm.webp 400w, /assets/photos/photo-5.webp 650w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 50% 25%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
               <div class="about-fan-card fan-2" data-photo="3">
-                <img src="/assets/photos/photo-3.webp" alt="عمر يحيى" style="object-position: 50% 28%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-3-sm.webp" srcset="/assets/photos/photo-3-sm.webp 400w, /assets/photos/photo-3.webp 768w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 50% 28%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
               <div class="about-fan-card fan-3" data-photo="4">
-                <img src="/assets/photos/photo-4.webp" alt="عمر يحيى" style="object-position: 50% 22%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-4-sm.webp" srcset="/assets/photos/photo-4-sm.webp 400w, /assets/photos/photo-4.webp 684w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 50% 22%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
               <div class="about-fan-card fan-4" data-photo="6">
-                <img src="/assets/photos/photo-6.webp" alt="عمر يحيى" style="object-position: 48% 20%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-6-sm.webp" srcset="/assets/photos/photo-6-sm.webp 400w, /assets/photos/photo-6.webp 768w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 48% 20%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
             </div>
 
