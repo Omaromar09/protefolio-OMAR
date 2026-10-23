@@ -28,38 +28,40 @@ export class ScrollSectionsController {
     const fanCards = document.querySelectorAll('.about-fan-card');
     if (!wrapper || fanCards.length === 0) return;
 
-    // Fan-out animation triggered as section enters viewport
+    // Only apply subtle scroll drift on larger screens where cards float
+    if (window.innerWidth <= 768) return;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapper,
-        start: 'top 80%',
-        end: 'bottom 40%',
-        scrub: 1.2
+        start: 'top 85%',
+        end: 'bottom 45%',
+        scrub: 1.5
       }
     });
 
-    // Spread each fan card outward with deliberate rotation
+    // Gentle outward micro-drift that stays completely clear of the top navbar
     fanCards.forEach((card, index) => {
       let targetX = 0;
       let targetY = 0;
       let targetRot = 0;
 
       if (index === 0) {
-        targetX = -120;
-        targetY = -60;
-        targetRot = -22;
+        targetX = -20;
+        targetY = 12;
+        targetRot = -2;
       } else if (index === 1) {
-        targetX = -140;
-        targetY = 70;
-        targetRot = -10;
+        targetX = -18;
+        targetY = 15;
+        targetRot = 2;
       } else if (index === 2) {
-        targetX = 120;
-        targetY = -70;
-        targetRot = 20;
+        targetX = 20;
+        targetY = 12;
+        targetRot = 2;
       } else if (index === 3) {
-        targetX = 140;
-        targetY = 60;
-        targetRot = 14;
+        targetX = 18;
+        targetY = 15;
+        targetRot = -2;
       }
 
       const isRtl = document.documentElement.dir === 'rtl';
@@ -71,7 +73,7 @@ export class ScrollSectionsController {
       tl.to(card, {
         x: targetX,
         y: targetY,
-        rotate: targetRot,
+        rotate: `+=${targetRot}`,
         ease: 'none'
       }, 0);
     });

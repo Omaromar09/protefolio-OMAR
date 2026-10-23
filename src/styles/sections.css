@@ -55,42 +55,171 @@
 .about-deck-wrapper {
   position: relative;
   width: 100%;
-  max-width: 680px;
+  max-width: 980px;
   margin-inline: auto;
-  margin-top: 24px;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+  margin-bottom: 24px;
 }
 
 .about-center-card {
   position: relative;
   width: 100%;
-  background: rgba(255, 255, 255, 0.94);
+  max-width: 620px;
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: var(--card-radius);
+  border-radius: 28px;
   border: 1px solid var(--card-border);
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 20px 48px -12px rgba(20, 17, 15, 0.08);
   padding: 48px 40px;
   text-align: center;
+  z-index: 10;
 }
 
 .about-bio-text {
-  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  font-size: clamp(1.12rem, 1.8vw, 1.3rem);
   line-height: 1.7;
   color: var(--text-main);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-weight: 500;
 }
 
-@media (max-width: 860px) {
-  .about-center-card {
-    padding: 32px 24px;
-    border-radius: 24px;
+/* Floating Lifestyle Cards on Desktop */
+.about-fan-cards-wrap {
+  display: contents;
+}
+
+.about-fan-card {
+  position: absolute;
+  width: clamp(140px, 15vw, 185px);
+  aspect-ratio: 3 / 4;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 16px 36px -8px rgba(20, 17, 15, 0.14), 0 2px 6px rgba(20, 17, 15, 0.04);
+  transition: transform 0.35s var(--transition-smooth), box-shadow 0.35s ease, border-color 0.35s ease;
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 5;
+  will-change: transform;
+}
+
+.about-fan-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-fan-card:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  z-index: 20 !important;
+  border-color: var(--accent);
+  box-shadow: 0 24px 50px -10px rgba(232, 85, 43, 0.22);
+}
+
+.about-fan-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Elegant coordinates on desktop - well below the fixed navbar */
+.fan-1 {
+  top: 15px;
+  inset-inline-start: -55px;
+  transform: rotate(-4deg);
+}
+
+.fan-2 {
+  bottom: 20px;
+  inset-inline-start: -40px;
+  transform: rotate(5deg);
+}
+
+.fan-3 {
+  top: 25px;
+  inset-inline-end: -55px;
+  transform: rotate(4deg);
+}
+
+.fan-4 {
+  bottom: 25px;
+  inset-inline-end: -40px;
+  transform: rotate(-5deg);
+}
+
+@media (max-width: 1024px) {
+  .about-deck-wrapper {
+    max-width: 820px;
   }
-  .about-bio-text {
-    font-size: 1.05rem;
-    line-height: 1.65;
+  .about-fan-card {
+    width: 135px;
+  }
+  .fan-1 {
+    top: 10px;
+    inset-inline-start: -25px;
+  }
+  .fan-2 {
+    bottom: 10px;
+    inset-inline-start: -15px;
+  }
+  .fan-3 {
+    top: 15px;
+    inset-inline-end: -25px;
+  }
+  .fan-4 {
+    bottom: 15px;
+    inset-inline-end: -15px;
+  }
+}
+
+/* Mobile & Tablet layout (< 768px): clean polaroid strip below the card */
+@media (max-width: 768px) {
+  .about-deck-wrapper {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    margin-top: 16px;
     margin-bottom: 16px;
   }
+
+  .about-center-card {
+    order: 1;
+    padding: 30px 22px;
+    border-radius: 24px;
+    max-width: 100%;
+  }
+
+  .about-fan-cards-wrap {
+    order: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding-inline: 4px;
+  }
+
+  .about-fan-card {
+    position: static;
+    width: clamp(65px, 20vw, 80px);
+    aspect-ratio: 3 / 4;
+    border-radius: 14px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 0 8px 18px -4px rgba(20, 17, 15, 0.12);
+  }
+
+  .fan-1 { transform: rotate(-3deg) !important; }
+  .fan-2 { transform: rotate(2deg) !important; }
+  .fan-3 { transform: rotate(-2deg) !important; }
+  .fan-4 { transform: rotate(3deg) !important; }
 }
 
 @media (max-width: 480px) {
@@ -101,6 +230,13 @@
   .about-bio-text {
     font-size: 0.98rem;
     line-height: 1.65;
+  }
+  .about-fan-cards-wrap {
+    gap: 8px;
+  }
+  .about-fan-card {
+    width: clamp(60px, 20vw, 74px);
+    border-radius: 12px;
   }
 }
 
