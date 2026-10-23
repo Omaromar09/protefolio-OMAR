@@ -1,6 +1,5 @@
 import gsap from 'gsap';
 import { photos, LANDING_PHOTO_INDEX } from './photosData.js';
-import { ThreeHeroCard } from './threeCard.js';
 
 export class HeroWheelController {
   constructor(options = {}) {

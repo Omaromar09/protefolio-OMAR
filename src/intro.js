@@ -93,7 +93,7 @@ export class IntroController {
   adjustLandingPosition() {
     if (!this.wheelTrack) return;
     const targetY = this.getLandingTargetY();
-    if (this.timeline && this.timeline.time() >= 5.0) {
+    if (this.timeline && this.timeline.time() >= 8.75) {
       gsap.set(this.wheelTrack, { y: targetY });
     }
   }
@@ -112,11 +112,11 @@ export class IntroController {
 
     window.__introTimeline = this.timeline;
 
-    // Minimalist Timeline Progress Bar (0.00 to 5.00s)
+    // Minimalist Timeline Progress Bar (0.00 to 10.75s)
     if (this.progressLine) {
       this.timeline.fromTo(this.progressLine,
         { width: '0%' },
-        { width: '100%', duration: 5.00, ease: 'none' },
+        { width: '100%', duration: 10.75, ease: 'none' },
         0
       );
     }
@@ -137,19 +137,19 @@ export class IntroController {
     );
 
     // ----------------------------------------------------
-    // Phase 2: 0.50 to 0.85s - Dot grows into white rounded pill
+    // Phase 2: 0.45 to 0.80s - Dot grows into white rounded pill
     // ----------------------------------------------------
     this.timeline.to(this.dot, {
       scale: 0.2,
       opacity: 0,
       duration: 0.2,
       ease: 'power2.in'
-    }, 0.50);
+    }, 0.45);
 
     this.timeline.fromTo(this.pill,
       { scale: 0.15, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.35, ease: 'cubic-bezier(0.16, 1, 0.3, 1)' },
-      0.50
+      0.45
     );
 
     // Subtle glossy shimmer across the pill
@@ -157,12 +157,13 @@ export class IntroController {
       this.timeline.fromTo(this.pillShimmer,
         { left: '-120%' },
         { left: '120%', duration: 0.6, ease: 'power2.inOut' },
-        0.65
+        0.60
       );
     }
 
     // ----------------------------------------------------
-    // Phase 3: 0.85 to 1.20s - Avatars pop into pill one by one
+    // Phase 3: 0.80 to 1.15s - Avatars pop into pill one by one
+    // Hold pill & avatars until 2.20s (+1.05s comfortable hold)
     // ----------------------------------------------------
     if (this.pillAvatars.length > 0) {
       this.timeline.fromTo(this.pillAvatars,
@@ -172,52 +173,55 @@ export class IntroController {
           opacity: 1, 
           rotation: 0,
           duration: 0.28, 
-          stagger: 0.07, 
+          stagger: 0.08, 
           ease: 'back.out(2.2)' 
         },
-        0.85
+        0.80
       );
     }
 
     // ----------------------------------------------------
-    // Phase 4: 1.20 to 2.00s - Pill dissolves, headline blurs in
+    // Phase 4: 2.20 to 3.00s - Pill dissolves, headline blurs in
     // ----------------------------------------------------
     this.timeline.to(this.pill, {
       scale: 1.15,
       opacity: 0,
       duration: 0.25,
       ease: 'power2.in'
-    }, 1.20);
+    }, 2.20);
 
     this.timeline.fromTo(this.headlineStage,
       { opacity: 0, filter: 'blur(16px)', y: 24 },
       { opacity: 1, filter: 'blur(0px)', y: 0, duration: 0.55, ease: 'power3.out' },
-      1.25
+      2.30
     );
 
     // ----------------------------------------------------
-    // Phase 5: 2.00 to 3.20s - Word roller spins 4 times
+    // ----------------------------------------------------
+    // Phase 5: Hold initial headline (2.30 to 4.25s: 1.4s reading hold)
+    // Then 4.25 to 5.45s - Word roller spins to "مشروعك"
+    // Then Hold final punchline (5.45 to 6.80s: 1.35s reading hold)
     // ----------------------------------------------------
     if (this.rollerTrack) {
       this.timeline.to(this.rollerTrack, {
         filter: 'blur(0px 4px)',
         duration: 0.1
-      }, 2.00);
+      }, 4.25);
 
       this.timeline.to(this.rollerTrack, {
         yPercent: -75,
-        duration: 1.12,
+        duration: 1.15,
         ease: 'power3.inOut'
-      }, 2.05);
+      }, 4.30);
 
       this.timeline.to(this.rollerTrack, {
         filter: 'blur(0px 0px)',
         duration: 0.15
-      }, 3.12);
+      }, 5.40);
     }
 
     // ----------------------------------------------------
-    // Phase 6: 3.20 to 3.50s - Headline blurs & slides out
+    // Phase 6: 6.80 to 7.15s - Headline blurs & slides out
     // Meet Omar appears on start side
     // ----------------------------------------------------
     const slideDir = this.lang === 'ar' ? -60 : 60;
@@ -228,18 +232,18 @@ export class IntroController {
       x: slideDir,
       duration: 0.30,
       ease: 'power3.in'
-    }, 3.20);
+    }, 6.80);
 
-    this.timeline.set(this.meetStage, { opacity: 1 }, 3.20);
+    this.timeline.set(this.meetStage, { opacity: 1 }, 6.85);
     this.timeline.fromTo(this.meetHeading,
       { opacity: 0, y: 35, filter: 'blur(8px)' },
       { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.40, ease: 'power3.out' },
-      3.22
+      6.90
     );
 
     // ----------------------------------------------------
-    // Phase 7: 3.30 to 5.00s - Vertical Photo Wheel Fast Scroll
-    // Decelerates exponentially and STOPS AT EXACTLY t = 5.00s on photo-2!
+    // Phase 7: 7.05 to 8.75s - Vertical Photo Wheel Fast Scroll
+    // Decelerates exponentially and STOPS AT EXACTLY t = 8.75s on photo-2!
     // ----------------------------------------------------
     if (this.wheelTrack) {
       this.timeline.fromTo(this.wheelTrack,
@@ -247,21 +251,22 @@ export class IntroController {
         {
           y: targetY,
           filter: 'blur(0px 0px)',
-          duration: 1.70, // 3.30 + 1.70 = 5.00s exactly
+          duration: 1.70, // 7.05 + 1.70 = 8.75s exactly
           ease: 'power4.out'
         },
-        3.30
+        7.05
       );
     }
 
     // ----------------------------------------------------
-    // Phase 8: 5.00s - Stopped card gets orange border & check badge
+    // Phase 8: 8.75s - Stopped card gets orange border & check badge
+    // Hold 1.25s (8.75 to 10.00s)
     // ----------------------------------------------------
     this.timeline.call(() => {
       if (this.landingCard) {
         this.landingCard.classList.add('has-orange-border');
       }
-    }, null, 5.00);
+    }, null, 8.75);
 
     if (this.checkBadge) {
       this.timeline.fromTo(this.checkBadge,
@@ -273,24 +278,22 @@ export class IntroController {
           duration: 0.30, 
           ease: 'back.out(2.5)' 
         },
-        5.00
+        8.75
       );
     }
 
-    // Hold 0.3s (5.00 to 5.30s)
-
     // ----------------------------------------------------
-    // Phase 9: 5.30 to 6.00s - Seamless Hand-off to Hero
+    // Phase 9: 10.00 to 10.75s - Seamless Hand-off to Hero
     // ----------------------------------------------------
     this.timeline.call(() => {
       this.triggerHeroHandOff();
-    }, null, 5.30);
+    }, null, 10.00);
 
     this.timeline.to(this.overlay, {
       opacity: 0,
-      duration: 0.45,
+      duration: 0.50,
       ease: 'power2.out'
-    }, 5.55);
+    }, 10.25);
   }
 
   triggerHeroHandOff() {

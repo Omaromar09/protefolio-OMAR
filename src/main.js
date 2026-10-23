@@ -110,11 +110,11 @@ class App {
           setTimeout(() => {
             if (this.intro && this.intro.timeline) {
               this.intro.timeline.pause(timeVal);
-              if (timeVal >= 5.0) {
+              if (timeVal >= 8.75) {
                 const landingCard = document.getElementById('intro-landing-card');
                 if (landingCard) landingCard.classList.add('has-orange-border');
               }
-              if (timeVal >= 5.3) {
+              if (timeVal >= 10.0) {
                 this.runHeroHandOff(true);
               }
             }
