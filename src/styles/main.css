@@ -46,6 +46,9 @@ html {
   line-height: 1.6;
   scroll-behavior: auto; /* Handled smoothly by Lenis */
   overflow-x: hidden;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-rendering: optimizeLegibility;
 }
 
 html[lang="en"] {

@@ -174,32 +174,38 @@
 
 .gallery-card-caption {
   position: absolute;
-  bottom: 20px;
-  inset-inline-end: 20px;
-  padding: 6px 14px;
-  background: rgba(20, 17, 15, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 999px;
+  bottom: 16px;
+  inset-inline: 16px;
+  padding: 10px 16px;
+  background: rgba(20, 17, 15, 0.68);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
   color: #FFFFFF;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   z-index: 5;
 }
 
-.gallery-card-title {
-  display: none;
+.gallery-card-text {
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #FFFFFF;
 }
 
 .gallery-card-num {
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   letter-spacing: 0.05em;
-  color: #FFFFFF;
-  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
   direction: ltr !important;
   unicode-bidi: isolate;
+  flex-shrink: 0;
 }
 
 .gallery-nav-btns {
@@ -775,4 +781,292 @@ html[dir="rtl"] .marquee-track {
   color: var(--text-muted);
   padding: 3px 10px;
   border-radius: var(--pill-radius);
+}
+
+/* ==========================================================================
+   4. WORK (3 Real Projects from 7P Studio)
+   ========================================================================== */
+.work-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.work-project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 36px 30px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.work-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: rgba(232, 85, 43, 0.35);
+}
+
+.work-project-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(232, 85, 43, 0.08);
+  padding: 4px 12px;
+  border-radius: var(--pill-radius);
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+
+.work-project-title {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.work-project-desc {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  flex-grow: 1;
+}
+
+.btn-project-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--text-main);
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: var(--pill-radius);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  width: fit-content;
+}
+
+.btn-project-view:hover {
+  background: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(232, 85, 43, 0.25);
+}
+
+.btn-project-view svg {
+  width: 16px;
+  height: 16px;
+  stroke: #FFFFFF;
+  transition: transform 0.25s ease;
+}
+
+html[dir="rtl"] .btn-project-view svg {
+  transform: scaleX(-1);
+}
+
+.work-studio-footer {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.work-studio-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  padding: 14px 28px;
+  border-radius: var(--pill-radius);
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.96rem;
+  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.04);
+  transition: all 0.25s ease;
+}
+
+.work-studio-banner:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 85, 43, 0.12);
+}
+
+.studio-banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+.work-studio-banner svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+}
+
+html[dir="rtl"] .work-studio-banner svg {
+  transform: scaleX(-1);
+}
+
+/* ==========================================================================
+   5. PROCESS ("إزاي بنشتغل سوا") - 4 Steps
+   ========================================================================== */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.process-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 32px 24px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s ease;
+  position: relative;
+}
+
+.process-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.process-num {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+}
+
+.process-step-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.process-step-desc {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   6. FAQ ("أسئلة بتيجي في البال علطول")
+   ========================================================================== */
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.faq-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  padding: 34px 28px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s ease;
+}
+
+.faq-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.faq-question {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.4;
+  margin-bottom: 12px;
+}
+
+.faq-answer {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* Easter Egg Coffee Button & Toast */
+.easter-egg-coffee {
+  background: none;
+  border: none;
+  padding: 0 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  vertical-align: middle;
+}
+
+.easter-egg-coffee:hover {
+  transform: scale(1.3) rotate(15deg);
+}
+
+.easter-egg-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(20, 17, 15, 0.92);
+  color: #FFFFFF;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 14px 28px;
+  border-radius: var(--pill-radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 16px 36px rgba(20, 17, 15, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  text-align: center;
+}
+
+.easter-egg-toast.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive queries for new sections */
+@media (max-width: 960px) {
+  .work-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }

@@ -16,7 +16,9 @@ export class ScrollSectionsController {
     this.initAboutFan();
     this.initGalleryStack();
     this.initServiceCards();
-    this.initWorkCard();
+    this.initWorkCards();
+    this.initProcessCards();
+    this.initFaqCards();
     this.initContactCopy();
     this.initBackToTop();
   }
@@ -101,12 +103,17 @@ export class ScrollSectionsController {
       const caption = document.createElement('div');
       caption.className = 'gallery-card-caption';
       
+      const text = document.createElement('span');
+      text.className = 'gallery-card-text';
+      text.textContent = document.documentElement.lang === 'en' ? p.captionEn : p.captionAr;
+
       const num = document.createElement('span');
       num.className = 'gallery-card-num';
       const curStr = String(idx + 1).padStart(2, '0');
       const totalStr = String(photos.length).padStart(2, '0');
       num.textContent = `${curStr} / ${totalStr}`;
 
+      caption.appendChild(text);
       caption.appendChild(num);
       card.appendChild(img);
       card.appendChild(caption);
@@ -214,20 +221,60 @@ export class ScrollSectionsController {
     );
   }
 
-  initWorkCard() {
-    const card = document.querySelector('.work-single-card');
-    if (!card) return;
+  initWorkCards() {
+    const cards = document.querySelectorAll('.work-project-card, .work-studio-banner');
+    if (cards.length === 0) return;
 
-    gsap.fromTo(card,
-      { y: 60, opacity: 0, scale: 0.96 },
+    gsap.fromTo(cards,
+      { y: 40, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        scale: 1,
-        duration: 0.8,
+        duration: 0.65,
+        stagger: 0.12,
         ease: 'power3.out',
         scrollTrigger: {
-          trigger: card,
+          trigger: '.work-projects-grid',
+          start: 'top 85%'
+        }
+      }
+    );
+  }
+
+  initProcessCards() {
+    const cards = document.querySelectorAll('.process-card');
+    if (cards.length === 0) return;
+
+    gsap.fromTo(cards,
+      { y: 35, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.process-grid',
+          start: 'top 85%'
+        }
+      }
+    );
+  }
+
+  initFaqCards() {
+    const cards = document.querySelectorAll('.faq-card');
+    if (cards.length === 0) return;
+
+    gsap.fromTo(cards,
+      { y: 30, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.55,
+        stagger: 0.1,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.faq-grid',
           start: 'top 85%'
         }
       }

@@ -7,7 +7,7 @@ import Lenis from 'lenis';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { translations } from './i18n.js';
+import { translations, getCairoVibe } from './i18n.js';
 import { IntroController } from './intro.js';
 import { HeroWheelController } from './heroWheel.js';
 import { ScrollSectionsController } from './scrollSections.js';
@@ -71,13 +71,16 @@ class App {
     // 6. Initialize Magnetic Hover Buttons
     initMagneticButtons();
 
-    // 7. Live Cairo Clock Ticker
+    // 7. Live Cairo Clock Ticker & Vibe
     this.initCairoClock();
 
-    // 8. Navigation & Language Events
+    // 8. Easter Egg Interaction & Console Greeting
+    this.initEasterEgg();
+
+    // 9. Navigation & Language Events
     this.bindGlobalEvents();
 
-    // 9. Test / URL parameters (?t=2.5, ?skip=1)
+    // 10. Test / URL parameters (?t=2.5, ?skip=1)
     this.checkUrlParams();
 
     // Check visibility change to pause loops
@@ -294,16 +297,17 @@ class App {
     // About
     const aboutKicker = document.getElementById('about-kicker');
     const aboutTitle = document.getElementById('about-title');
-    const aboutBio = document.getElementById('about-bio');
-    const aboutPlaceholder = document.getElementById('about-placeholder');
-    const aboutFocal = document.getElementById('about-focal-note');
+    const aboutBio1 = document.getElementById('about-bio-1');
+    const aboutBio2 = document.getElementById('about-bio-2');
     const aboutVibeStatus = document.getElementById('about-vibe-status');
     if (aboutKicker) aboutKicker.textContent = t.about.tag;
     if (aboutTitle) aboutTitle.textContent = t.about.title;
-    if (aboutBio) aboutBio.textContent = t.about.bio;
-    if (aboutPlaceholder) aboutPlaceholder.textContent = t.about.placeholder;
-    if (aboutFocal) aboutFocal.textContent = t.about.focalNote;
+    if (aboutBio1) aboutBio1.textContent = t.about.bio1;
+    if (aboutBio2) aboutBio2.textContent = t.about.bio2;
     if (aboutVibeStatus) aboutVibeStatus.textContent = `${t.about.vibeStatus} • ${t.about.vibeCity}`;
+
+    // Update Cairo clock & vibe text for current language
+    this.updateCairoClock();
 
     // Gallery / Behind the Scenes
     const galleryKicker = document.getElementById('gallery-kicker');
@@ -320,6 +324,7 @@ class App {
     if (servicesKicker) servicesKicker.textContent = t.services.tag;
     if (servicesTitle) servicesTitle.textContent = t.services.title;
     if (servicesSubtitle) servicesSubtitle.textContent = t.services.subtitle;
+
     const s1Title = document.getElementById('service-1-title');
     const s1Desc = document.getElementById('service-1-desc');
     const s2Title = document.getElementById('service-2-title');
@@ -327,29 +332,90 @@ class App {
     const s3Title = document.getElementById('service-3-title');
     const s3Desc = document.getElementById('service-3-desc');
     if (s1Title) s1Title.textContent = t.services.items[0].title;
-    if (s1Desc) s1Desc.textContent = t.services.items[0].desc;
+    if (s1Desc) s1Desc.innerHTML = t.services.items[0].desc.replace(/\n/g, '<br />');
     if (s2Title) s2Title.textContent = t.services.items[1].title;
-    if (s2Desc) s2Desc.textContent = t.services.items[1].desc;
+    if (s2Desc) s2Desc.innerHTML = t.services.items[1].desc.replace(/\n/g, '<br />');
     if (s3Title) s3Title.textContent = t.services.items[2].title;
-    if (s3Desc) s3Desc.textContent = t.services.items[2].desc;
+    if (s3Desc) s3Desc.innerHTML = t.services.items[2].desc.replace(/\n/g, '<br />');
 
     // Work / 7P Studio
     const workKicker = document.getElementById('work-kicker');
     const workTitle = document.getElementById('work-title');
     const workSubtitle = document.getElementById('work-subtitle');
-    const workCardTitle = document.getElementById('work-card-title');
-    const workCardDesc = document.getElementById('work-card-desc');
-    const workLinkText = document.getElementById('work-link-text');
-    const workPreviewNote = document.getElementById('work-preview-note');
+    const workStudioNote = document.getElementById('work-studio-note');
     if (workKicker) workKicker.textContent = t.work.tag;
     if (workTitle) workTitle.textContent = t.work.title;
     if (workSubtitle) workSubtitle.textContent = t.work.subtitle;
-    if (workCardTitle) workCardTitle.textContent = t.work.cardTitle;
-    if (workCardDesc) workCardDesc.textContent = t.work.cardDesc;
-    if (workLinkText) workLinkText.textContent = t.work.cardLinkText;
-    if (workPreviewNote) workPreviewNote.textContent = isEn ? 'External client studio portfolio' : 'موقع استوديو العملاء الخارجي';
+    if (workStudioNote) workStudioNote.textContent = t.work.studioNote;
 
-    // Contact
+    const p1Title = document.getElementById('p1-title');
+    const p1Desc = document.getElementById('p1-desc');
+    const p1Btn = document.getElementById('p1-btn-text');
+    if (p1Title) p1Title.textContent = t.work.projects[0].title;
+    if (p1Desc) p1Desc.textContent = t.work.projects[0].desc;
+    if (p1Btn) p1Btn.textContent = t.work.projects[0].btnText;
+
+    const p2Title = document.getElementById('p2-title');
+    const p2Desc = document.getElementById('p2-desc');
+    const p2Btn = document.getElementById('p2-btn-text');
+    if (p2Title) p2Title.textContent = t.work.projects[1].title;
+    if (p2Desc) p2Desc.textContent = t.work.projects[1].desc;
+    if (p2Btn) p2Btn.textContent = t.work.projects[1].btnText;
+
+    const p3Title = document.getElementById('p3-title');
+    const p3Desc = document.getElementById('p3-desc');
+    const p3Btn = document.getElementById('p3-btn-text');
+    if (p3Title) p3Title.textContent = t.work.projects[2].title;
+    if (p3Desc) p3Desc.textContent = t.work.projects[2].desc;
+    if (p3Btn) p3Btn.textContent = t.work.projects[2].btnText;
+
+    // Process ("إزاي بنشتغل سوا")
+    const processKicker = document.getElementById('process-kicker');
+    const processTitle = document.getElementById('process-title');
+    const processSubtitle = document.getElementById('process-subtitle');
+    if (processKicker) processKicker.textContent = t.process.tag;
+    if (processTitle) processTitle.textContent = t.process.title;
+    if (processSubtitle) processSubtitle.textContent = t.process.subtitle;
+
+    const pr1Title = document.getElementById('pr-1-title');
+    const pr1Desc = document.getElementById('pr-1-desc');
+    const pr2Title = document.getElementById('pr-2-title');
+    const pr2Desc = document.getElementById('pr-2-desc');
+    const pr3Title = document.getElementById('pr-3-title');
+    const pr3Desc = document.getElementById('pr-3-desc');
+    const pr4Title = document.getElementById('pr-4-title');
+    const pr4Desc = document.getElementById('pr-4-desc');
+    if (pr1Title) pr1Title.textContent = t.process.steps[0].title;
+    if (pr1Desc) pr1Desc.textContent = t.process.steps[0].desc;
+    if (pr2Title) pr2Title.textContent = t.process.steps[1].title;
+    if (pr2Desc) pr2Desc.textContent = t.process.steps[1].desc;
+    if (pr3Title) pr3Title.textContent = t.process.steps[2].title;
+    if (pr3Desc) pr3Desc.textContent = t.process.steps[2].desc;
+    if (pr4Title) pr4Title.textContent = t.process.steps[3].title;
+    if (pr4Desc) pr4Desc.textContent = t.process.steps[3].desc;
+
+    // FAQ ("أسئلة بتيجي في البال علطول")
+    const faqKicker = document.getElementById('faq-kicker');
+    const faqTitle = document.getElementById('faq-title');
+    const faqSubtitle = document.getElementById('faq-subtitle');
+    if (faqKicker) faqKicker.textContent = t.faq.tag;
+    if (faqTitle) faqTitle.textContent = t.faq.title;
+    if (faqSubtitle) faqSubtitle.textContent = t.faq.subtitle;
+
+    const faqQ1 = document.getElementById('faq-q1');
+    const faqA1 = document.getElementById('faq-a1');
+    const faqQ2 = document.getElementById('faq-q2');
+    const faqA2 = document.getElementById('faq-a2');
+    const faqQ3 = document.getElementById('faq-q3');
+    const faqA3 = document.getElementById('faq-a3');
+    if (faqQ1) faqQ1.textContent = t.faq.items[0].q;
+    if (faqA1) faqA1.textContent = t.faq.items[0].a;
+    if (faqQ2) faqQ2.textContent = t.faq.items[1].q;
+    if (faqA2) faqA2.textContent = t.faq.items[1].a;
+    if (faqQ3) faqQ3.textContent = t.faq.items[2].q;
+    if (faqA3) faqA3.textContent = t.faq.items[2].a;
+
+    // Contact ("يلا نتكلم")
     const contactKicker = document.getElementById('contact-kicker');
     const contactTitle = document.getElementById('contact-title');
     const contactSubtitle = document.getElementById('contact-subtitle');
@@ -364,10 +430,13 @@ class App {
     if (emailLabel) emailLabel.textContent = t.contact.emailLabel;
     if (instaLabel) instaLabel.textContent = t.contact.instaLabel;
 
-    // Footer
+    // Footer & Easter Egg
     const footerRights = document.getElementById('footer-rights');
     const footerBack = document.getElementById('footer-back-to-top-text');
-    if (footerRights) footerRights.textContent = t.footer.copy;
+    if (footerRights) {
+      footerRights.innerHTML = `${t.footer.copy} <button id="easter-egg-btn" class="easter-egg-coffee" aria-label="Easter Egg">☕</button>`;
+      this.bindEasterEgg();
+    }
     if (footerBack) footerBack.textContent = t.footer.backToTop;
 
     // Re-render gallery captions if initialized
@@ -429,24 +498,63 @@ class App {
   }
 
   initCairoClock() {
+    this.updateCairoClock();
+    setInterval(() => {
+      this.updateCairoClock();
+    }, 15000);
+  }
+
+  updateCairoClock() {
     const clockEl = document.getElementById('cairo-clock');
-    if (!clockEl) return;
-    const update = () => {
-      try {
-        const now = new Intl.DateTimeFormat('ar-EG', {
-          timeZone: 'Africa/Cairo',
-          hour: '2-digit',
-          minute: '2-digit',
-          hour12: true
-        }).format(new Date());
-        clockEl.textContent = now;
-      } catch (e) {
-        const d = new Date();
-        clockEl.textContent = `${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
-      }
+    const vibeEl = document.getElementById('cairo-vibe-phrase');
+    if (!clockEl && !vibeEl) return;
+
+    try {
+      const locale = this.currentLang === 'en' ? 'en-US' : 'ar-EG';
+      const now = new Intl.DateTimeFormat(locale, {
+        timeZone: 'Africa/Cairo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(new Date());
+      if (clockEl) clockEl.textContent = now;
+    } catch (e) {
+      const d = new Date();
+      if (clockEl) clockEl.textContent = `${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
+
+    if (vibeEl) {
+      vibeEl.textContent = getCairoVibe(this.currentLang);
+    }
+  }
+
+  initEasterEgg() {
+    // Console Greeting
+    console.log(
+      '%c👋 أهلاً بيك في كواليس الموقع!\nأنا عمر يحيى.. لو عجبك الشغل وعايز نعمل حاجة سوا، كلمني على الواتساب: 01221576360',
+      'color: #E8552B; font-size: 14px; font-weight: bold; padding: 4px;'
+    );
+    this.bindEasterEgg();
+  }
+
+  bindEasterEgg() {
+    const btn = document.getElementById('easter-egg-btn');
+    const toast = document.getElementById('easter-egg-toast');
+    if (!btn || !toast) return;
+
+    btn.onclick = (e) => {
+      e.preventDefault();
+      const t = translations[this.currentLang];
+      toast.textContent = t.footer.easterEggToast;
+      toast.classList.add('is-visible');
+      toast.setAttribute('aria-hidden', 'false');
+
+      if (this.toastTimeout) clearTimeout(this.toastTimeout);
+      this.toastTimeout = setTimeout(() => {
+        toast.classList.remove('is-visible');
+        toast.setAttribute('aria-hidden', 'true');
+      }, 3500);
     };
-    update();
-    setInterval(update, 15000);
   }
 }
 
