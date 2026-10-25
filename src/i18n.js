@@ -25,7 +25,7 @@ export const translations = {
       headlineLine1Suffix: 'عمر يبني',
       headlineLine2Suffix: 'بتاعك',
       rotatingWords: ['موقع', 'متجر', 'براند', 'مشروعك'],
-      meetOmarLine1: 'قابل',
+      meetOmarLine1: 'مين',
       meetOmarLine2: 'عمر.'
     },
     hero: {
