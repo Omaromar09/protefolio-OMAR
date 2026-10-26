@@ -87,7 +87,7 @@ export const translations = {
     },
     work: {
       tag: 'أعمال 7P',
-      title: 'مشاريع حقيقية خرجت للنور من الاستوديو',
+      title: 'مشاريع حقيقية خرجت للنور من الاستوديو مع بشمهندس مصطفى جاد',
       subtitle: 'دي نماذج حية لمشاريع اشتغلت عليها مع عملاء في استوديو 7P.. تقدر تفتح وتتفرج بنفسك:',
       projects: [
         {
@@ -278,7 +278,7 @@ export const translations = {
     },
     work: {
       tag: '7P Studio Work',
-      title: 'Real-world projects shipped from the studio',
+      title: 'Real-world projects shipped with Eng. Mostafa Gad at 7P Studio',
       subtitle: 'Live commercial projects built for clients at 7P Studio.. feel free to explore them live:',
       projects: [
         {
