@@ -6,15 +6,27 @@
 /* Fonts are loaded asynchronously in index.html with preconnect & swap to eliminate render blocking */
 
 :root {
-  /* Color Palette strictly according to spec */
-  --bg-main: #FBF8F4;
-  --text-main: #14110F;
-  --text-muted: #8A817A;
-  --accent: #E8552B;
+  /* Central Token System */
+  --bg: #F4F1EC;
+  --bg-main: var(--bg);
+  --surface: rgba(255, 255, 255, 0.7);
+  --surface-card: #ECEFF2;
+  --surface-2: #DDE3E8;
   --card-bg: #FFFFFF;
-  --card-border: rgba(20, 17, 15, 0.08);
-  --card-shadow: 0 12px 36px -8px rgba(20, 17, 15, 0.06), 0 4px 12px -2px rgba(20, 17, 15, 0.03);
-  --card-shadow-hover: 0 20px 48px -10px rgba(20, 17, 15, 0.1), 0 8px 20px -4px rgba(20, 17, 15, 0.05);
+  --ink: #3A0F34;
+  --text-main: var(--ink);
+  --ink-2: #6B4F67;
+  --text-muted: var(--ink-2);
+  --line: rgba(58, 15, 52, 0.14);
+  --card-border: var(--line);
+  --accent: #EAAA00;
+  --accent-hover: #D69900;
+  --accent-ink: #3A0F34;
+  --deep: #3A0F34;
+  --deep-ink: #DDE3E8;
+  --deep-2: #4E1A47;
+  --card-shadow: 0 12px 36px -8px rgba(58, 15, 52, 0.07), 0 4px 12px -2px rgba(58, 15, 52, 0.03);
+  --card-shadow-hover: 0 20px 48px -10px rgba(58, 15, 52, 0.12), 0 8px 20px -4px rgba(58, 15, 52, 0.06);
 
   /* Fonts */
   --font-ar: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -36,6 +48,28 @@
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(234, 170, 0, 0.35);
+  color: var(--ink);
+}
+
+/* Custom Editorial Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: var(--pill-radius);
+  border: 2px solid var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-2);
 }
 
 html {
@@ -79,7 +113,7 @@ html[dir="ltr"] body {
   direction: ltr;
 }
 
-/* Background Atmosphere: Subtle grid of dots + slow drifting soft peach shapes */
+/* Background Atmosphere: Subtle architectural column grid + dot grid + slow drifting editorial gradient auras */
 .bg-canvas-container {
   position: fixed;
   inset: 0;
@@ -91,34 +125,44 @@ html[dir="ltr"] body {
 .bg-dot-grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(20, 17, 15, 0.075) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(58, 15, 52, 0.08) 1.2px, transparent 1.2px);
   background-size: 32px 32px;
   opacity: 0.65;
+}
+
+.bg-column-grid {
+  position: absolute;
+  inset: 0;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(to right, transparent, transparent calc((100% - 5px) / 6), rgba(58, 15, 52, 0.038) calc((100% - 5px) / 6), rgba(58, 15, 52, 0.038) calc((100% - 5px) / 6 + 1px));
+  opacity: 0.75;
 }
 
 .bg-blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(100px);
-  opacity: 0.55;
+  opacity: 0.65;
   will-change: transform;
 }
 
 .bg-blob-top {
-  top: -160px;
-  inset-inline-start: 15%;
-  width: 580px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(255, 214, 198, 0.85) 0%, rgba(251, 248, 244, 0) 70%);
+  top: -150px;
+  inset-inline-start: 12%;
+  width: 620px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(234, 170, 0, 0.25) 0%, rgba(245, 183, 26, 0.12) 40%, rgba(244, 241, 236, 0) 72%);
   animation: driftTop 18s ease-in-out infinite alternate;
 }
 
 .bg-blob-bottom {
-  bottom: -220px;
-  inset-inline-end: 10%;
-  width: 680px;
-  height: 580px;
-  background: radial-gradient(circle, rgba(255, 206, 186, 0.75) 0%, rgba(251, 248, 244, 0) 70%);
+  bottom: -200px;
+  inset-inline-end: 8%;
+  width: 720px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(122, 58, 114, 0.17) 0%, rgba(58, 15, 52, 0.08) 45%, rgba(244, 241, 236, 0) 72%);
   animation: driftBottom 22s ease-in-out infinite alternate;
 }
 
@@ -180,13 +224,13 @@ html[dir="ltr"] body {
   padding: 8px 18px;
   border-radius: var(--pill-radius);
   border: 1px solid var(--card-border);
-  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.04);
+  box-shadow: 0 4px 16px rgba(58, 15, 52, 0.04);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nav-brand:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(20, 17, 15, 0.07);
+  box-shadow: 0 6px 20px rgba(58, 15, 52, 0.08);
 }
 
 .nav-dot {
@@ -207,7 +251,7 @@ html[dir="ltr"] body {
   padding: 6px 12px;
   border-radius: var(--pill-radius);
   border: 1px solid var(--card-border);
-  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.04);
+  box-shadow: 0 4px 16px rgba(58, 15, 52, 0.04);
 }
 
 .nav-links {
@@ -266,7 +310,7 @@ html[dir="ltr"] body {
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(20, 17, 15, 0.05);
+  box-shadow: 0 4px 14px rgba(58, 15, 52, 0.05);
 }
 
 .mobile-nav-toggle svg {
@@ -284,7 +328,7 @@ body.drawer-open {
 .mobile-drawer {
   position: fixed;
   inset: 0;
-  background: rgba(251, 248, 244, 0.98);
+  background: rgba(244, 241, 236, 0.98);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   z-index: 1000;
@@ -322,7 +366,7 @@ body.drawer-open {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(20, 17, 15, 0.06);
+  box-shadow: 0 4px 14px rgba(58, 15, 52, 0.06);
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -358,7 +402,7 @@ body.drawer-open {
 
 .mobile-drawer a:hover,
 .mobile-drawer a:active {
-  background: rgba(20, 17, 15, 0.05);
+  background: rgba(58, 15, 52, 0.06);
   color: var(--accent);
 }
 
@@ -405,6 +449,10 @@ body.drawer-open {
   color: var(--accent);
   position: relative;
   display: inline-block;
+  background: linear-gradient(135deg, #EAAA00 0%, #F5B71A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 14px rgba(234, 170, 0, 0.28));
 }
 
 /* Magnetic Button Base */
@@ -429,29 +477,29 @@ body.drawer-open {
 }
 
 .btn-primary {
-  background-color: var(--text-main);
-  color: #FFFFFF;
-  box-shadow: 0 8px 24px rgba(20, 17, 15, 0.12);
+  background-color: var(--accent);
+  color: var(--accent-ink);
+  box-shadow: 0 8px 24px rgba(234, 170, 0, 0.28);
 }
 
 .btn-primary:hover {
-  background-color: #000000;
+  background-color: var(--accent-hover);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(20, 17, 15, 0.18);
+  box-shadow: 0 12px 30px rgba(234, 170, 0, 0.38);
 }
 
 .btn-secondary {
-  background-color: #FFFFFF;
-  color: var(--text-main);
-  border-color: var(--card-border);
-  box-shadow: 0 6px 20px rgba(20, 17, 15, 0.05);
+  background-color: var(--surface-2);
+  color: var(--ink);
+  border-color: var(--line);
+  box-shadow: 0 6px 20px rgba(58, 15, 52, 0.05);
 }
 
 .btn-secondary:hover {
-  background-color: #FAFAFA;
-  border-color: rgba(20, 17, 15, 0.16);
+  background-color: #CFD7DE;
+  border-color: rgba(58, 15, 52, 0.22);
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(20, 17, 15, 0.08);
+  box-shadow: 0 10px 24px rgba(58, 15, 52, 0.08);
 }
 
 /* Focus styles for accessibility */

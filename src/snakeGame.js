@@ -131,7 +131,7 @@ export class SnakeGame {
         vy: Math.sin(angle) * speed,
         radius: 2 + Math.random() * 2,
         alpha: 1,
-        color: Math.random() > 0.4 ? '#E8552B' : '#14110F'
+        color: Math.random() > 0.4 ? '#EAAA00' : '#3A0F34'
       });
     }
   }
@@ -325,8 +325,8 @@ export class SnakeGame {
     } else {
       if (this.overlayTitle) this.overlayTitle.textContent = isEn ? 'Ready to Play?' : 'جاهز تلعب؟';
       if (this.overlayMsg) this.overlayMsg.textContent = isEn 
-        ? 'Guide the snake to eat orange treats without hitting walls.' 
-        : 'وجه التعبان ياكل النقط البرتقالي وماتخبطش في الحيطة أو في نفسك.';
+        ? 'Guide the snake to collect golden treats without hitting walls.' 
+        : 'وجه التعبان ياكل النقط الدهبي وماتخبطش في الحيطة أو في نفسك.';
       if (this.overlayBtn) this.overlayBtn.textContent = isEn ? 'Start Game ▶' : 'ابدأ اللعب ▶';
     }
 
@@ -439,18 +439,18 @@ export class SnakeGame {
     const cs = this.cellSize;
 
     // Background
-    ctx.fillStyle = '#FAF7F2';
+    ctx.fillStyle = '#ECEFF2';
     ctx.fillRect(0, 0, size, size);
 
     // Draw subtle grid dots
-    ctx.fillStyle = 'rgba(20, 17, 15, 0.05)';
+    ctx.fillStyle = 'rgba(58, 15, 52, 0.07)';
     for (let x = 0; x < this.gridSize; x++) {
       for (let y = 0; y < this.gridSize; y++) {
         ctx.fillRect(x * cs + cs / 2 - 1, y * cs + cs / 2 - 1, 2, 2);
       }
     }
 
-    // Draw Food (Pulsing Orange Gem)
+    // Draw Food (Pulsing Marigold Gem)
     const fx = this.food.x * cs;
     const fy = this.food.y * cs;
     const pad = cs * 0.18;
@@ -459,13 +459,13 @@ export class SnakeGame {
     const fOffset = (cs - fSize) / 2;
 
     // Food glow
-    ctx.fillStyle = 'rgba(232, 85, 43, 0.2)';
+    ctx.fillStyle = 'rgba(234, 170, 0, 0.35)';
     ctx.beginPath();
     ctx.arc(fx + cs / 2, fy + cs / 2, cs * 0.55 * pulse, 0, Math.PI * 2);
     ctx.fill();
 
     // Food body
-    ctx.fillStyle = '#E8552B';
+    ctx.fillStyle = '#EAAA00';
     this.roundRect(ctx, fx + fOffset, fy + fOffset, fSize, fSize, fSize * 0.45);
     ctx.fill();
 
@@ -484,9 +484,9 @@ export class SnakeGame {
       const sSize = cs - sPad * 2;
       const rad = isHead ? sSize * 0.38 : sSize * 0.28;
 
-      // Color: Head is deep black-brown, body softens slightly down the tail
-      const alpha = Math.max(0.7, 1 - (i / this.snake.length) * 0.25);
-      ctx.fillStyle = `rgba(20, 17, 15, ${alpha})`;
+      // Color: Head is deep aubergine, body softens slightly down the tail
+      const alpha = Math.max(0.75, 1 - (i / this.snake.length) * 0.22);
+      ctx.fillStyle = `rgba(58, 15, 52, ${alpha})`;
       this.roundRect(ctx, sx + sPad, sy + sPad, sSize, sSize, rad);
       ctx.fill();
 
@@ -515,8 +515,8 @@ export class SnakeGame {
         ctx.arc(e2.x, e2.y, cs * 0.12, 0, Math.PI * 2);
         ctx.fill();
 
-        // Orange Pupils
-        ctx.fillStyle = '#E8552B';
+        // Marigold Pupils
+        ctx.fillStyle = '#EAAA00';
         ctx.beginPath();
         ctx.arc(e1.x, e1.y, cs * 0.06, 0, Math.PI * 2);
         ctx.arc(e2.x, e2.y, cs * 0.06, 0, Math.PI * 2);

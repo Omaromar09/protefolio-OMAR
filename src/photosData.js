@@ -76,6 +76,24 @@ export const photos = [
     focalPoint: '50% 25%',
     altAr: 'عمر يحيى',
     altEn: 'Omar Yahia'
+  },
+  {
+    id: 'photo-9',
+    src: '/assets/photos/photo-9.webp',
+    fallbackSrc: '/assets/photos/photo-9.jpg',
+    thumb: '/assets/photos/photo-9-thumb.webp',
+    focalPoint: '50% 30%',
+    altAr: 'عمر يحيى — الغروب والمدينة',
+    altEn: 'Omar Yahia — Sunset & City'
+  },
+  {
+    id: 'photo-10',
+    src: '/assets/photos/photo-10.webp',
+    fallbackSrc: '/assets/photos/photo-10.jpg',
+    thumb: '/assets/photos/photo-10-thumb.webp',
+    focalPoint: '50% 25%',
+    altAr: 'عمر يحيى',
+    altEn: 'Omar Yahia'
   }
 ];
 

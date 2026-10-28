@@ -46,7 +46,7 @@ html[dir="rtl"] .hero-content {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--text-muted);
-  box-shadow: 0 4px 14px rgba(20, 17, 15, 0.04);
+  box-shadow: 0 4px 14px rgba(58, 15, 52, 0.04);
   margin-bottom: 24px;
 }
 
@@ -133,12 +133,12 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   height: 100%;
   border-radius: var(--card-radius);
   overflow: hidden;
-  background-color: #E8E4DD;
-  box-shadow: 0 24px 50px -12px rgba(20, 17, 15, 0.16), 0 8px 24px -4px rgba(20, 17, 15, 0.08);
+  background-color: var(--surface-2);
+  box-shadow: 0 24px 50px -12px rgba(58, 15, 52, 0.16), 0 0 36px rgba(234, 170, 0, 0.2);
   border: 3px solid var(--accent);
   transform-style: preserve-3d;
   will-change: transform;
-  transition: transform 0.1s ease-out, border-color 0.3s ease;
+  transition: transform 0.1s ease-out, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .hero-card-image-wrap {
@@ -182,7 +182,7 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(20, 17, 15, 0.06);
+  box-shadow: 0 4px 14px rgba(58, 15, 52, 0.06);
   transition: all 0.25s ease;
 }
 
@@ -190,7 +190,7 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   background: var(--text-main);
   color: #FFFFFF;
   transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(20, 17, 15, 0.12);
+  box-shadow: 0 8px 20px rgba(58, 15, 52, 0.12);
 }
 
 .wheel-btn svg {
@@ -209,7 +209,7 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   border: 1px solid var(--card-border);
   padding: 8px 20px;
   border-radius: var(--pill-radius);
-  box-shadow: 0 4px 16px rgba(20, 17, 15, 0.04);
+  box-shadow: 0 4px 16px rgba(58, 15, 52, 0.04);
 }
 
 .wheel-dots {
@@ -222,7 +222,7 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: rgba(20, 17, 15, 0.18);
+  background-color: rgba(58, 15, 52, 0.18);
   cursor: pointer;
   transition: all 0.3s var(--transition-smooth);
 }
@@ -331,7 +331,7 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
     width: 44px;
     height: 44px;
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 4px 16px rgba(20, 17, 15, 0.12);
+    box-shadow: 0 4px 16px rgba(58, 15, 52, 0.12);
   }
   .wheel-indicator-bar {
     margin-top: 20px;

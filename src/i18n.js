@@ -107,11 +107,11 @@ export const translations = {
           btnText: 'شوفه ↗'
         },
         {
-          id: 'elmo7taref',
-          title: 'مطعم المحترف',
-          tag: 'Food & Grill',
-          desc: 'موقع لمطعم وجبات ومشويات، فيه فلاتر سريعة للأكل ومعاينة للساندوتشات وحساب الفاتورة للواتساب.',
-          link: 'https://elmo7taref.vercel.app/',
+          id: 'rawnaq',
+          title: 'متجر رَوْنَـق للعطور الفاخرة 3D',
+          tag: '3D WebGL Storefront',
+          desc: 'متجر وتجربة تفاعلية لبراند عطور فاخرة، فيه زجاجة عطر 3D تفاعلية مع إمكانية التدوير ورشّة عطر، وسلة طلب مباشر عبر واتساب.',
+          link: 'https://demo-perfume-sigma.vercel.app/',
           btnText: 'شوفه ↗'
         }
       ],
@@ -298,11 +298,11 @@ export const translations = {
           btnText: 'View ↗'
         },
         {
-          id: 'elmo7taref',
-          title: 'Elmo7taref Restaurant',
-          tag: 'Food & Grill',
-          desc: 'Grill & meal restaurant platform with quick food categories, sandwich previews, and WhatsApp billing.',
-          link: 'https://elmo7taref.vercel.app/',
+          id: 'rawnaq',
+          title: 'Rawnaq 3D Luxury Perfumes',
+          tag: '3D WebGL Storefront',
+          desc: 'Interactive 3D fragrance boutique with a rotatable WebGL bottle, mist spray animation, and seamless WhatsApp orders.',
+          link: 'https://demo-perfume-sigma.vercel.app/',
           btnText: 'View ↗'
         }
       ],

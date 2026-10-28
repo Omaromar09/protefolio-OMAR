@@ -256,8 +256,10 @@ export class HeroWheelController {
         duration: 0.18,
         ease: 'power2.in',
         onComplete: () => {
+          this.cardImg.removeAttribute('srcset');
           this.cardImg.src = photos[this.currentIndex].src;
           this.cardImg.style.objectPosition = photos[this.currentIndex].focalPoint;
+          this.cardImg.alt = document.documentElement.lang === 'en' ? photos[this.currentIndex].altEn : photos[this.currentIndex].altAr;
           gsap.set(this.cardImg, { y: direction > 0 ? 40 : -40 });
         }
       }, 0);
@@ -306,6 +308,7 @@ export class HeroWheelController {
 
     // Image & Focal Point
     if (this.cardImg) {
+      this.cardImg.removeAttribute('srcset');
       this.cardImg.src = p.src;
       this.cardImg.alt = document.documentElement.lang === 'en' ? p.altEn : p.altAr;
       this.cardImg.style.objectPosition = p.focalPoint;

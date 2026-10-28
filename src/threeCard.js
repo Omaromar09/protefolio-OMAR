@@ -60,11 +60,11 @@ export class ThreeHeroCard {
 
     this.container.appendChild(this.renderer.domElement);
 
-    // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1.2);
+    // Lighting (Warm white key and off-white ambient reflecting the token system)
+    const ambientLight = new THREE.AmbientLight(0xF4F1EC, 1.25);
     this.scene.add(ambientLight);
 
-    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    const dirLight = new THREE.DirectionalLight(0xFFFBF5, 0.85);
     dirLight.position.set(2, 4, 3);
     this.scene.add(dirLight);
 
