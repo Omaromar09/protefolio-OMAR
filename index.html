@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,13 +11,17 @@
     } catch (e) {}
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
-  <title>عمر يحيى — مصمم ومطور مواقع</title>
-  <meta name="description" content="الموقع الشخصي لعمر يحيى — بحول الأفكار لمواقع وتجارب ويب حية فيها روح وحركة سلسة تفتح النفس." />
+  <title>Omar Mohamed — Web Designer & Developer</title>
+  <meta name="description" content="Personal portfolio of Omar Mohamed — Designing and building fast, clean, and intuitive web experiences." />
 
   <meta name="theme-color" content="#F4F1EC" />
 
   <!-- Canonical & Real Domain Reference -->
   <link rel="canonical" href="https://www.engomar.tech/" />
+
+  <!-- Critical Image Preload for Instant LCP -->
+  <link rel="preload" as="image" href="/assets/photos/photo-2.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/photos/photo-2-sm.webp" type="image/webp" />
 
   <!-- Preconnect to Font Origins for Fast Handshake -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,15 +36,15 @@
   <!-- Open Graph & Twitter SEO -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.engomar.tech/" />
-  <meta property="og:title" content="عمر يحيى — مصمم ومطور مواقع" />
-  <meta property="og:description" content="الموقع الشخصي لعمر يحيى — بحول الأفكار لمواقع وتجارب ويب حية فيها روح وحركة سلسة تفتح النفس." />
+  <meta property="og:title" content="Omar Mohamed — Web Designer & Developer" />
+  <meta property="og:description" content="Personal portfolio of Omar Mohamed — Designing and building fast, clean, and intuitive web experiences." />
   <meta property="og:image" content="https://www.engomar.tech/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.engomar.tech/" />
-  <meta name="twitter:title" content="عمر يحيى — مصمم ومطور مواقع" />
-  <meta name="twitter:description" content="الموقع الشخصي لعمر يحيى — بحول الأفكار لمواقع وتجارب ويب حية فيها روح وحركة سلسة تفتح النفس." />
+  <meta name="twitter:title" content="Omar Mohamed — Web Designer & Developer" />
+  <meta name="twitter:description" content="Personal portfolio of Omar Mohamed — Designing and building fast, clean, and intuitive web experiences." />
   <meta name="twitter:image" content="https://www.engomar.tech/og-image.jpg" />
 
   <!-- Favicon -->
@@ -57,13 +61,13 @@
   </div>
 
   <!-- INTRO OVERLAY (Master Timeline GSAP: 5.0s on first load) -->
-  <div id="intro-overlay" role="dialog" aria-modal="true" aria-label="مقدمة الموقع">
+  <div id="intro-overlay" role="dialog" aria-modal="true" aria-label="Intro">
     <!-- Sleek Minimalist Progress Indicator (0.00 to 5.00s) -->
     <div id="intro-progress-line" class="intro-progress-line" aria-hidden="true"></div>
 
     <!-- Skip Button (visible from frame 1) -->
-    <button id="intro-skip-btn" class="intro-skip-btn" aria-label="تخطي المقدمة">
-      <span id="skip-btn-label">تخطي</span>
+    <button id="intro-skip-btn" class="intro-skip-btn" aria-label="Skip intro">
+      <span id="skip-btn-label">Skip</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polygon points="5 4 15 12 5 20 5 4"></polygon>
         <line x1="19" y1="5" x2="19" y2="19"></line>
@@ -79,10 +83,10 @@
       <div id="intro-pill" class="intro-pill">
         <div class="pill-shimmer" aria-hidden="true"></div>
         <div class="intro-avatars-group">
-          <img class="intro-avatar" src="/assets/photos/photo-1-thumb.webp" alt="عمر" width="36" height="36" decoding="async" />
-          <img class="intro-avatar" src="/assets/photos/photo-2-thumb.webp" alt="عمر" width="36" height="36" decoding="async" />
-          <img class="intro-avatar" src="/assets/photos/photo-3-thumb.webp" alt="عمر" width="36" height="36" decoding="async" />
-          <img class="intro-avatar" src="/assets/photos/photo-4-thumb.webp" alt="عمر" width="36" height="36" decoding="async" />
+          <img class="intro-avatar" src="/assets/photos/photo-1-thumb.webp" alt="Omar" width="36" height="36" decoding="async" />
+          <img class="intro-avatar" src="/assets/photos/photo-2-thumb.webp" alt="Omar" width="36" height="36" decoding="async" />
+          <img class="intro-avatar" src="/assets/photos/photo-3-thumb.webp" alt="Omar" width="36" height="36" decoding="async" />
+          <img class="intro-avatar" src="/assets/photos/photo-4-thumb.webp" alt="Omar" width="36" height="36" decoding="async" />
         </div>
       </div>
     </div>
@@ -91,35 +95,35 @@
     <div id="intro-headline-stage" class="intro-headline-stage">
       <div class="intro-headline">
         <div class="intro-headline-line1">
-          <span id="intro-line1-prefix">خلّي</span>
+          <span id="intro-line1-prefix">Let</span>
           <span class="intro-inline-avatars">
-            <img src="/assets/photos/photo-1-thumb.webp" alt="عمر" width="32" height="32" decoding="async" />
-            <img src="/assets/photos/photo-2-thumb.webp" alt="عمر" width="32" height="32" decoding="async" />
-            <img src="/assets/photos/photo-3-thumb.webp" alt="عمر" width="32" height="32" decoding="async" />
-            <img src="/assets/photos/photo-4-thumb.webp" alt="عمر" width="32" height="32" decoding="async" />
+            <img src="/assets/photos/photo-1-thumb.webp" alt="Omar" width="32" height="32" decoding="async" />
+            <img src="/assets/photos/photo-2-thumb.webp" alt="Omar" width="32" height="32" decoding="async" />
+            <img src="/assets/photos/photo-3-thumb.webp" alt="Omar" width="32" height="32" decoding="async" />
+            <img src="/assets/photos/photo-4-thumb.webp" alt="Omar" width="32" height="32" decoding="async" />
           </span>
-          <span id="intro-line1-suffix">عمر يبني</span>
+          <span id="intro-line1-suffix">Omar build</span>
         </div>
         <div class="intro-headline-line2">
           <span class="intro-roller-box">
             <span id="intro-roller-track" class="intro-roller-track">
-              <span class="intro-roller-item">موقع</span>
-              <span class="intro-roller-item">متجر</span>
-              <span class="intro-roller-item">براند</span>
-              <span class="intro-roller-item is-final">مشروعك</span>
+              <span class="intro-roller-item">website</span>
+              <span class="intro-roller-item">store</span>
+              <span class="intro-roller-item">brand</span>
+              <span class="intro-roller-item is-final">idea</span>
             </span>
           </span>
-          <span id="intro-line2-suffix">بتاعك</span>
+          <span id="intro-line2-suffix"></span>
         </div>
       </div>
     </div>
 
-    <!-- Phase 6 & 7: "مين عمر." on start side, vertical photo wheel on end side -->
+    <!-- Phase 6 & 7: "Meet Omar." on start side, vertical photo wheel on end side -->
     <div id="intro-meet-stage" class="intro-meet-stage">
       <div class="intro-meet-text-col">
         <h2 id="intro-meet-heading" class="intro-meet-heading">
-          <span id="intro-meet-l1">مين</span><br />
-          <span id="intro-meet-l2">عمر<span class="highlight-dot">.</span></span>
+          <span id="intro-meet-l1">Meet</span><br />
+          <span id="intro-meet-l2">Omar<span class="highlight-dot">.</span></span>
         </h2>
       </div>
 
@@ -134,7 +138,7 @@
             <div class="intro-wheel-card"><img src="/assets/photos/photo-4-thumb.webp" alt="" width="360" height="480" loading="lazy" decoding="async" /></div>
             <!-- The landing card (photo-2) which the wheel stops on at exactly 8.75s -->
             <div id="intro-landing-card" class="intro-wheel-card is-landing">
-              <img src="/assets/photos/photo-2-sm.webp" srcset="/assets/photos/photo-2-sm.webp 480w, /assets/photos/photo-2.webp 900w" sizes="(max-width: 600px) 340px, 420px" alt="عمر يحيى" width="360" height="480" decoding="async" />
+              <img src="/assets/photos/photo-2-sm.webp" srcset="/assets/photos/photo-2-sm.webp 480w, /assets/photos/photo-2.webp 900w" sizes="(max-width: 600px) 340px, 420px" alt="Omar Mohamed" width="360" height="480" decoding="async" />
               <div id="intro-check-badge" class="card-check-badge" aria-hidden="true">
                 <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
               </div>
@@ -158,24 +162,24 @@
       <div class="nav-inner">
         <a href="#hero" class="nav-brand" data-magnetic>
           <span class="nav-dot"></span>
-          <span id="nav-brand-text">عمر يحيى</span>
+          <span id="nav-brand-text">Omar Mohamed</span>
         </a>
 
         <div class="nav-controls">
-          <nav class="nav-links" aria-label="روابط الموقع">
-            <a href="#about" class="nav-link" id="nav-link-about">حكايتي</a>
-            <a href="#photos" class="nav-link" id="nav-link-photos">ورا الكواليس</a>
-            <a href="#services" class="nav-link" id="nav-link-services">صنعتي</a>
-            <a href="#work" class="nav-link" id="nav-link-work">أعمال 7P</a>
-            <a href="#contact" class="nav-link" id="nav-link-contact">يلا نتكلم</a>
+          <nav class="nav-links" aria-label="Site Navigation">
+            <a href="#about" class="nav-link" id="nav-link-about">My Story</a>
+            <a href="#photos" class="nav-link" id="nav-link-photos">Behind the Screen</a>
+            <a href="#services" class="nav-link" id="nav-link-services">My Craft</a>
+            <a href="#work" class="nav-link" id="nav-link-work">7P Studio</a>
+            <a href="#contact" class="nav-link" id="nav-link-contact">Let's Talk</a>
           </nav>
           
-          <button id="lang-toggle-btn" class="lang-btn" data-magnetic aria-label="تبديل اللغة">
-            English
+          <button id="lang-toggle-btn" class="lang-btn" data-magnetic aria-label="Switch to Arabic">
+            عربي
           </button>
         </div>
 
-        <button id="mobile-toggle-btn" class="mobile-nav-toggle" aria-label="القائمة">
+        <button id="mobile-toggle-btn" class="mobile-nav-toggle" aria-label="Menu">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -187,18 +191,18 @@
 
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
-      <button id="mobile-close-btn" class="mobile-drawer-close" aria-label="إغلاق القائمة">
+      <button id="mobile-close-btn" class="mobile-drawer-close" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
-      <a href="#about" class="mobile-drawer-link" data-nav="about">حكايتي</a>
-      <a href="#photos" class="mobile-drawer-link" data-nav="photos">ورا الكواليس</a>
-      <a href="#services" class="mobile-drawer-link" data-nav="services">صنعتي</a>
-      <a href="#work" class="mobile-drawer-link" data-nav="work">أعمال 7P</a>
-      <a href="#contact" class="mobile-drawer-link" data-nav="contact">يلا نتكلم</a>
-      <button id="mobile-lang-btn" class="lang-btn" style="margin-top: 12px;">English</button>
+      <a href="#about" class="mobile-drawer-link" data-nav="about">My Story</a>
+      <a href="#photos" class="mobile-drawer-link" data-nav="photos">Behind the Screen</a>
+      <a href="#services" class="mobile-drawer-link" data-nav="services">My Craft</a>
+      <a href="#work" class="mobile-drawer-link" data-nav="work">7P Studio</a>
+      <a href="#contact" class="mobile-drawer-link" data-nav="contact">Let's Talk</a>
+      <button id="mobile-lang-btn" class="lang-btn" style="margin-top: 12px;">عربي</button>
     </div>
 
     <!-- MAIN CONTENT -->
@@ -211,24 +215,24 @@
             <div class="hero-content">
               <div class="hero-badge" id="hero-badge">
                 <span class="hero-badge-dot"></span>
-                <span id="hero-badge-text">مصمم ومطور ويب مستقل</span>
+                <span id="hero-badge-text">Freelance Web Designer & Developer</span>
               </div>
-              <h1 class="hero-title" id="hero-title">أنا عمر يحيى.</h1>
+              <h1 class="hero-title" id="hero-title">I'm Omar Mohamed.</h1>
               <p class="hero-subtitle" id="hero-subtitle">
-                <span id="hero-subtitle-prefix">بصمم وببرمج مواقع </span>
-                <span class="accent-word" id="hero-subtitle-accent">سريعة ومريحة</span>
-                <span id="hero-subtitle-suffix"> في الاستخدام</span>
+                <span id="hero-subtitle-prefix">Designing and building </span>
+                <span class="accent-word" id="hero-subtitle-accent">fast and intuitive</span>
+                <span id="hero-subtitle-suffix"> web experiences</span>
               </p>
               <div class="hero-actions">
                 <a href="#work" class="btn-primary" data-magnetic id="hero-cta-work">
-                  <span id="hero-cta-work-text">شوف المشاريع</span>
+                  <span id="hero-cta-work-text">See Projects</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <line x1="7" y1="17" x2="17" y2="7"></line>
                     <polyline points="7 7 17 7 17 17"></polyline>
                   </svg>
                 </a>
                 <a href="https://wa.me/201221576360" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-magnetic id="hero-cta-contact">
-                  <span id="hero-cta-contact-text">ابعتلي واتساب</span>
+                  <span id="hero-cta-contact-text">Chat on WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -242,7 +246,7 @@
                 <!-- 3D Card Shell -->
                 <div id="hero-card-3d" class="hero-card-3d">
                   <div class="hero-card-image-wrap">
-                    <img id="hero-card-img" class="hero-card-img" src="/assets/photos/photo-2.webp" alt="عمر يحيى" style="object-position: 48% 28%;" width="400" height="533" decoding="async" />
+                    <img id="hero-card-img" class="hero-card-img" src="/assets/photos/photo-2.webp" alt="Omar Mohamed" style="object-position: 48% 28%;" width="400" height="533" decoding="async" />
                   </div>
                   <!-- Corner Checkmark Badge -->
                   <div id="hero-check-badge" class="card-check-badge" aria-hidden="true">
@@ -252,12 +256,12 @@
 
                 <!-- Floating Up / Down Buttons -->
                 <div class="wheel-controls">
-                  <button id="wheel-btn-prev" class="wheel-btn" data-magnetic aria-label="الصورة السابقة">
+                  <button id="wheel-btn-prev" class="wheel-btn" data-magnetic aria-label="Previous photo">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                       <polyline points="18 15 12 9 6 15"></polyline>
                     </svg>
                   </button>
-                  <button id="wheel-btn-next" class="wheel-btn" data-magnetic aria-label="الصورة التالية">
+                  <button id="wheel-btn-next" class="wheel-btn" data-magnetic aria-label="Next photo">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                       <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
@@ -268,6 +272,7 @@
               <!-- Indicator Bar & Counter -->
               <div class="wheel-indicator-bar">
                 <div id="wheel-dots" class="wheel-dots"></div>
+                <div class="wheel-divider" aria-hidden="true"></div>
                 <div id="wheel-counter-text" class="wheel-counter-text">02 / 10</div>
               </div>
               <div class="wheel-hint">
@@ -275,7 +280,7 @@
                   <rect x="5" y="2" width="14" height="20" rx="7"></rect>
                   <line x1="12" y1="6" x2="12" y2="10"></line>
                 </svg>
-                <span id="wheel-hint-text">تقدر تقلب بالماوس أو بالسحب أو بالأسهم</span>
+                <span id="wheel-hint-text">Navigate with mouse wheel, drag, or arrow keys</span>
               </div>
             </div>
           </div>
@@ -285,19 +290,19 @@
       <!-- CONTINUOUS CREATIVE MARQUEE RIBBON -->
       <div class="infinite-marquee-ribbon" aria-hidden="true">
         <div class="marquee-track">
-          <span>✦ واجهات سريعة ونظيفة</span>
-          <span>✦ حركة ناعمة</span>
+          <span>✦ FAST & CLEAN UI</span>
+          <span>✦ FLUID MOTION</span>
           <span>✦ THREE.JS & GSAP</span>
-          <span>✦ تصميم وتطوير</span>
-          <span>✦ تجارب ويب حديثة</span>
-          <span>✦ من الفكرة للإطلاق</span>
+          <span>✦ DESIGN & CODE</span>
+          <span>✦ MODERN WEB EXPERIENCES</span>
+          <span>✦ FROM CONCEPT TO LAUNCH</span>
           <!-- loop duplication -->
-          <span>✦ واجهات سريعة ونظيفة</span>
-          <span>✦ حركة ناعمة</span>
+          <span>✦ FAST & CLEAN UI</span>
+          <span>✦ FLUID MOTION</span>
           <span>✦ THREE.JS & GSAP</span>
-          <span>✦ تصميم وتطوير</span>
-          <span>✦ تجارب ويب حديثة</span>
-          <span>✦ من الفكرة للإطلاق</span>
+          <span>✦ DESIGN & CODE</span>
+          <span>✦ MODERN WEB EXPERIENCES</span>
+          <span>✦ FROM CONCEPT TO LAUNCH</span>
         </div>
       </div>
 
@@ -305,8 +310,8 @@
       <section id="about" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="about-kicker">حكايتي</div>
-            <h2 class="section-title" id="about-title">ليه بحب الويب وبدأت إزاي؟</h2>
+            <div class="section-kicker" id="about-kicker">My Story</div>
+            <h2 class="section-title" id="about-title">How I got started in web design</h2>
           </div>
 
           <!-- Card Fan Deck -->
@@ -314,33 +319,33 @@
             <!-- 4 Curated Floating Lifestyle Cards around the Central Bio Card -->
             <div class="about-fan-cards-wrap">
               <div class="about-fan-card fan-1" data-photo="5">
-                <img src="/assets/photos/photo-5-sm.webp" srcset="/assets/photos/photo-5-sm.webp 400w, /assets/photos/photo-5.webp 650w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 50% 25%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-5-sm.webp" srcset="/assets/photos/photo-5-sm.webp 400w, /assets/photos/photo-5.webp 650w" sizes="(max-width: 600px) 140px, 220px" alt="Omar Mohamed" style="object-position: 50% 25%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
               <div class="about-fan-card fan-2" data-photo="3">
-                <img src="/assets/photos/photo-3-sm.webp" srcset="/assets/photos/photo-3-sm.webp 400w, /assets/photos/photo-3.webp 768w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 50% 28%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-3-sm.webp" srcset="/assets/photos/photo-3-sm.webp 400w, /assets/photos/photo-3.webp 768w" sizes="(max-width: 600px) 140px, 220px" alt="Omar Mohamed" style="object-position: 50% 28%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
               <div class="about-fan-card fan-3" data-photo="4">
-                <img src="/assets/photos/photo-4-sm.webp" srcset="/assets/photos/photo-4-sm.webp 400w, /assets/photos/photo-4.webp 684w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 50% 22%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-4-sm.webp" srcset="/assets/photos/photo-4-sm.webp 400w, /assets/photos/photo-4.webp 684w" sizes="(max-width: 600px) 140px, 220px" alt="Omar Mohamed" style="object-position: 50% 22%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
               <div class="about-fan-card fan-4" data-photo="6">
-                <img src="/assets/photos/photo-6-sm.webp" srcset="/assets/photos/photo-6-sm.webp 400w, /assets/photos/photo-6.webp 768w" sizes="(max-width: 600px) 140px, 220px" alt="عمر يحيى" style="object-position: 48% 20%;" loading="lazy" decoding="async" width="220" height="280" />
+                <img src="/assets/photos/photo-6-sm.webp" srcset="/assets/photos/photo-6-sm.webp 400w, /assets/photos/photo-6.webp 768w" sizes="(max-width: 600px) 140px, 220px" alt="Omar Mohamed" style="object-position: 48% 20%;" loading="lazy" decoding="async" width="220" height="280" />
               </div>
             </div>
 
             <!-- Central Bio Card -->
             <div class="about-center-card">
               <p class="about-bio-text" id="about-bio-1">
-                أنا عمر، مصمم ومطور ويب من مصر. بدايتي مع الويب كانت من كتر ما كنت بشوف مواقع تقيلة وكلامها مش مظبوط على الموبايل. اتعلمت المجال عشان أعمل مواقع شكلها نضيف، سريعة، وسهلة في الاستخدام من غير تعقيد.
+                I'm Omar, a web designer and developer from Egypt. I got into web design because I was tired of clunky, slow sites that look broken on mobile. I build clean, fast, and easy-to-use websites without unnecessary complexity.
               </p>
               <p class="about-bio-text" id="about-bio-2">
-                بهتم بالتفاصيل اللي بتفرق في تجربة اللي بيفتح الموقع: حركة ناعمة، خطوط واضحة، وسرعة في التحميل بحيث يشتغل مظبوط وسلس على أي شاشة.
+                I care about the details that actually matter: smooth motion, crisp typography, and instant loading times so your site works seamlessly on any device.
               </p>
 
               <!-- Live Cairo Vibe & Stack Widget -->
               <div class="about-vibe-widget">
                 <div class="vibe-status-line">
                   <span class="vibe-beacon-dot"></span>
-                  <span id="about-vibe-status">متاح حالياً لمشاريع جديدة • مصر</span>
+                  <span id="about-vibe-status">Available for new projects • Egypt</span>
                 </div>
                 <div class="vibe-stack-tags">
                   <span class="stack-tag">Figma</span>
@@ -361,9 +366,9 @@
       <section id="photos" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="gallery-kicker">ورا الكواليس</div>
-            <h2 class="section-title" id="gallery-title">مش كل حياتي كود وشاشات.. دي لقطات من تفاصيل أيامي</h2>
-            <p class="section-subtitle" id="gallery-subtitle">تقدر تقلب بالماوس أو بالسحب بين الصور:</p>
+            <div class="section-kicker" id="gallery-kicker">Behind the Screen</div>
+            <h2 class="section-title" id="gallery-title">Not just code and screens.. here's a glimpse of my days</h2>
+            <p class="section-subtitle" id="gallery-subtitle">Navigate through the photos with mouse wheel or swipe:</p>
           </div>
 
           <div id="gallery-stack" class="gallery-stack-container">
@@ -371,10 +376,10 @@
           </div>
 
           <div class="gallery-nav-btns">
-            <button id="gallery-prev-btn" class="wheel-btn" data-magnetic aria-label="السابق">
+            <button id="gallery-prev-btn" class="wheel-btn" data-magnetic aria-label="Previous">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
             </button>
-            <button id="gallery-next-btn" class="wheel-btn" data-magnetic aria-label="التالي">
+            <button id="gallery-next-btn" class="wheel-btn" data-magnetic aria-label="Next">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
             </button>
           </div>
@@ -385,79 +390,221 @@
       <section id="services" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="services-kicker">صنعتي</div>
-            <h2 class="section-title" id="services-title">ثلاث حاجات بحط فيهم كل تركيزي</h2>
-            <p class="section-subtitle" id="services-subtitle">بلسان بسيط ومن غير كلام معقد.. ده اللي هتاخده وإزاي هيفرق معاك:</p>
+            <div class="section-kicker" id="services-kicker">My Craft</div>
+            <h2 class="section-title" id="services-title">Three things I pour all my energy into</h2>
+            <p class="section-subtitle" id="services-subtitle">Plain English, no buzzwords: what you get and how it moves the needle:</p>
           </div>
 
           <div class="services-grid">
             <article class="service-card">
               <div class="service-num">01</div>
-              <h3 class="service-title" id="service-1-title">ديزاين الواجهات (UI/UX)</h3>
+              <h3 class="service-title" id="service-1-title">Interface Design (UI/UX)</h3>
               <p class="service-desc" id="service-1-desc">
-                إيه اللي هتاخده: ديزاين مريح وشيك على فيجما متفصل على فكرتك ومش شبه حد.<br />
-                إزاي ده هيفرق معاك: اللي هيدخل موقعك هيفهم كل حاجة في ثواني ويوصل للي عايزه من غير ما يتوه.
+                What you get: Clean, custom Figma designs tailored specifically to your idea.<br />
+                How it helps you: Visitors understand your offering within seconds and navigate without friction.
               </p>
               <div class="service-tags">
-                <span>فيجما من الصفر</span>
-                <span>مريح للعين</span>
-                <span>سهل وبسيط</span>
+                <span>Figma from Scratch</span>
+                <span>Easy on the Eyes</span>
+                <span>Intuitive Flow</span>
               </div>
             </article>
 
             <article class="service-card">
               <div class="service-num">02</div>
-              <h3 class="service-title" id="service-2-title">برمجة وحركة سلسة (Code & Motion)</h3>
+              <h3 class="service-title" id="service-2-title">Clean Code & Fluid Motion</h3>
               <p class="service-desc" id="service-2-desc">
-                إيه اللي هتاخده: كود نظيف وسريع، مع أنيميشن ناعم ولمسات 3D خفيفة على الموبايل واللابتوب.<br />
-                إزاي ده هيفرق معاك: موقعك مش هيكون مجرد كلام وصور، هيكون فيه روح وشياكة تعلق في دماغ الزائر.
+                What you get: Fast, semantic code with smooth 60fps motion and lightweight 3D accents.<br />
+                How it helps you: Your website feels alive, responsive, and memorable to everyone who visits.
               </p>
               <div class="service-tags">
-                <span>حركة 60fps</span>
+                <span>60fps Fluidity</span>
                 <span>Three.js 3D</span>
-                <span>كود نظيف</span>
+                <span>Clean Code</span>
               </div>
             </article>
 
             <article class="service-card">
               <div class="service-num">03</div>
-              <h3 class="service-title" id="service-3-title">تظبيط وترقية المواقع القائمة</h3>
+              <h3 class="service-title" id="service-3-title">Revamping Outdated Websites</h3>
               <p class="service-desc" id="service-3-desc">
-                إيه اللي هتاخده: بنمسك موقعك القديم ننضف كوده، نسرع تحميله، ونعدل شكله لستايل عصري.<br />
-                إزاي ده هيفرق معاك: بدل ما الزباين تقفل الموقع من بطئه، هيفتح في لمح البصر ويشتغل مظبوط على أي شاشة.
+                What you get: We take your slow legacy site, clean up the codebase, accelerate loading, and modernize the visual style.<br />
+                How it helps you: Instead of bouncing from slow loads, customers stay and engage.
               </p>
               <div class="service-tags">
-                <span>سرعة طيارة</span>
-                <span>تظبيط الموبايل</span>
-                <span>شياكة عصرية</span>
+                <span>High Speed</span>
+                <span>Mobile Perfect</span>
+                <span>Modern Refresh</span>
               </div>
             </article>
           </div>
         </div>
       </section>
 
+      <!-- CERTIFICATIONS & ACCREDITATIONS SECTION (Meta & DeepLearning.AI) -->
+      <section id="certificates" class="content-section">
+        <div class="section-container">
+          <div class="section-head">
+            <div class="section-kicker" id="cert-kicker">Accreditation & Credentials</div>
+            <h2 class="section-title" id="cert-title">Certified by Industry Leaders</h2>
+            <p class="section-subtitle" id="cert-subtitle">Verified technical expertise and professional accreditation from Meta and DeepLearning.AI:</p>
+          </div>
+
+          <div class="certificates-grid">
+            <!-- 1. Meta Front-End Developer Professional Certificate -->
+            <article class="cert-card" data-cert="meta">
+              <div class="cert-card-preview" data-cert-view="meta" role="button" tabindex="0" aria-label="View Meta Front-End Developer Certificate">
+                <img src="/assets/certificates/cert-meta-frontend-thumb.webp" alt="Meta Front-End Developer Certificate — Omar Mohamed" loading="lazy" decoding="async" width="600" height="463" />
+                <div class="cert-preview-overlay">
+                  <span class="cert-zoom-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      <line x1="11" y1="8" x2="11" y2="14"></line>
+                      <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                    <span class="cert-zoom-text" id="cert-zoom-meta">View Certificate</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="cert-card-content">
+                <div class="cert-header-meta">
+                  <span class="cert-tag" id="cert-tag-meta">Meta • 9-Course Professional Program</span>
+                  <span class="cert-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    <span id="cert-badge-meta">Verified</span>
+                  </span>
+                </div>
+
+                <h3 class="cert-title" id="cert-title-meta">Meta Front-End Developer</h3>
+                <div class="cert-issuer-row">
+                  <span class="cert-issuer" id="cert-issuer-meta">Authorized by Meta via Coursera</span>
+                  <span class="cert-dot">•</span>
+                  <span class="cert-date" id="cert-date-meta">January 2025</span>
+                </div>
+
+                <p class="cert-desc" id="cert-desc-meta">
+                  Comprehensive 9-course professional specialization certified by Meta, mastering React, Advanced React, modern JavaScript (ES6+), UI/UX design principles, version control with Git, and building high-performance interactive web applications.
+                </p>
+
+                <div class="cert-skills-wrap">
+                  <span>React</span>
+                  <span>Advanced React</span>
+                  <span>JavaScript (ES6+)</span>
+                  <span>UI/UX Design</span>
+                  <span>Git & GitHub</span>
+                  <span>HTML5 & CSS3</span>
+                </div>
+
+                <div class="cert-action-row">
+                  <button type="button" class="btn-cert-view" data-cert-view="meta" data-magnetic>
+                    <span id="cert-btn-meta">View Certificate ↗</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2. DeepLearning.AI AI For Everyone Certificate -->
+            <article class="cert-card" data-cert="ai">
+              <div class="cert-card-preview" data-cert-view="ai" role="button" tabindex="0" aria-label="View AI For Everyone Certificate">
+                <img src="/assets/certificates/cert-ai-for-everyone-thumb.webp" alt="AI For Everyone Certificate — Omar Mohamed" loading="lazy" decoding="async" width="600" height="463" />
+                <div class="cert-preview-overlay">
+                  <span class="cert-zoom-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      <line x1="11" y1="8" x2="11" y2="14"></line>
+                      <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                    <span class="cert-zoom-text" id="cert-zoom-ai">View Certificate</span>
+                  </span>
+                </div>
+              </div>
+
+              <div class="cert-card-content">
+                <div class="cert-header-meta">
+                  <span class="cert-tag" id="cert-tag-ai">DeepLearning.AI • Andrew Ng</span>
+                  <span class="cert-badge">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    <span id="cert-badge-ai">Verified</span>
+                  </span>
+                </div>
+
+                <h3 class="cert-title" id="cert-title-ai">AI For Everyone</h3>
+                <div class="cert-issuer-row">
+                  <span class="cert-issuer" id="cert-issuer-ai">DeepLearning.AI via Coursera</span>
+                  <span class="cert-dot">•</span>
+                  <span class="cert-date" id="cert-date-ai">January 2026</span>
+                </div>
+
+                <p class="cert-desc" id="cert-desc-ai">
+                  Authorized certification from DeepLearning.AI instructed by AI pioneer Andrew Ng. Covers foundational machine learning concepts, AI product strategy, data science workflows, and integrating modern AI into web solutions.
+                </p>
+
+                <div class="cert-skills-wrap">
+                  <span>Machine Learning</span>
+                  <span>AI Strategy</span>
+                  <span>Generative AI</span>
+                  <span>Data Science</span>
+                  <span>AI in Web Dev</span>
+                </div>
+
+                <div class="cert-action-row">
+                  <button type="button" class="btn-cert-view" data-cert-view="ai" data-magnetic>
+                    <span id="cert-btn-ai">View Certificate ↗</span>
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CERTIFICATE LIGHTBOX MODAL (Apple Liquid Glass) -->
+      <div id="cert-modal" class="cert-modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="cert-modal-backdrop" id="cert-modal-backdrop"></div>
+        <div class="cert-modal-dialog">
+          <button type="button" id="cert-modal-close" class="cert-modal-close" aria-label="Close modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <div class="cert-modal-card">
+            <div class="cert-modal-img-wrap">
+              <img id="cert-modal-img" src="" alt="Certificate Preview" width="1024" height="790" />
+            </div>
+            <div class="cert-modal-info">
+              <h4 id="cert-modal-heading" class="cert-modal-heading"></h4>
+              <p id="cert-modal-sub" class="cert-modal-sub"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- 4. MY WORK ("أعمال 7P") SECTION (3 Real Projects from 7P Studio) -->
       <section id="work" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="work-kicker">أعمال 7P</div>
-            <h2 class="section-title" id="work-title">مشاريع حقيقية خرجت للنور من الاستوديو مع بشمهندس مصطفى جاد</h2>
-            <p class="section-subtitle" id="work-subtitle">دي نماذج حية لمشاريع اشتغلت عليها مع عملاء في استوديو 7P.. تقدر تفتح وتتفرج بنفسك:</p>
+            <div class="section-kicker" id="work-kicker">7P Studio Work</div>
+            <h2 class="section-title" id="work-title">Real-world projects shipped with Eng. Mostafa Gad at 7P Studio</h2>
+            <p class="section-subtitle" id="work-subtitle">Live commercial projects built for clients at 7P Studio.. feel free to explore them live:</p>
           </div>
 
           <div class="work-projects-grid">
             <!-- Project 1: Aya Accessories -->
             <article class="work-project-card">
               <div class="work-project-top">
-                <span class="work-project-tag">E-Commerce</span>
-                <h3 class="work-project-title" id="p1-title">متجر آية للاكسسوارات</h3>
+                <span class="work-project-tag" id="p1-tag">E-Commerce</span>
+                <h3 class="work-project-title" id="p1-title">Aya Accessories Store</h3>
               </div>
               <p class="work-project-desc" id="p1-desc">
-                متجر إكسسوارات وباندانات هاندميد، مع فلاتر سريعة وسلة لطلب الأوردر على الواتساب علطول.
+                Handmade accessories & bandanas store with fast filters and seamless WhatsApp cart ordering.
               </p>
               <div class="work-project-action">
                 <a href="https://aya-accessories.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project-view" data-magnetic id="p1-btn">
-                  <span id="p1-btn-text">شوفه ↗</span>
+                  <span id="p1-btn-text">View ↗</span>
                 </a>
               </div>
             </article>
@@ -465,31 +612,31 @@
             <!-- Project 2: Festival Pastry -->
             <article class="work-project-card">
               <div class="work-project-top">
-                <span class="work-project-tag">Pastry & Sweets</span>
-                <h3 class="work-project-title" id="p2-title">حلواني فيستيفال فايف ستار</h3>
+                <span class="work-project-tag" id="p2-tag">Pastry & Sweets</span>
+                <h3 class="work-project-title" id="p2-title">Festival Five Star Pastry</h3>
               </div>
               <p class="work-project-desc" id="p2-desc">
-                موقع لحلواني تورت وحلويات، بيعرض المنيو والأسعار وفروع المحل والطلب أونلاين.
+                Bakery & cake catalog website featuring menu items, pricing, branch locations, and online orders.
               </p>
               <div class="work-project-action">
                 <a href="https://festival-fivestar.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project-view" data-magnetic id="p2-btn">
-                  <span id="p2-btn-text">شوفه ↗</span>
+                  <span id="p2-btn-text">View ↗</span>
                 </a>
               </div>
             </article>
 
-            <!-- Project 3: Elmo7taref -->
+            <!-- Project 3: Rawnaq 3D Perfumes -->
             <article class="work-project-card">
               <div class="work-project-top">
-                <span class="work-project-tag">Food & Grill</span>
-                <h3 class="work-project-title" id="p3-title">مطعم المحترف</h3>
+                <span class="work-project-tag" id="p3-tag">3D WebGL Storefront</span>
+                <h3 class="work-project-title" id="p3-title">Rawnaq 3D Luxury Perfumes</h3>
               </div>
               <p class="work-project-desc" id="p3-desc">
-                موقع لمطعم وجبات ومشويات، فيه فلاتر سريعة للأكل ومعاينة للساندوتشات وحساب الفاتورة للواتساب.
+                Interactive 3D fragrance boutique with a rotatable WebGL bottle, mist spray animation, and seamless WhatsApp orders.
               </p>
               <div class="work-project-action">
-                <a href="https://elmo7taref.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project-view" data-magnetic id="p3-btn">
-                  <span id="p3-btn-text">شوفه ↗</span>
+                <a href="https://demo-perfume-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project-view" data-magnetic id="p3-btn">
+                  <span id="p3-btn-text">View ↗</span>
                 </a>
               </div>
             </article>
@@ -499,100 +646,100 @@
           <div class="work-studio-footer">
             <a href="https://7pstudio.tech" target="_blank" rel="noopener noreferrer" class="work-studio-banner" data-magnetic id="work-studio-banner">
               <span class="studio-banner-dot"></span>
-              <span id="work-studio-note">باقي المشاريع وشغل الاستوديو الكامل موجود على 7P Studio ↗</span>
+              <span id="work-studio-note">See all commercial projects and studio portfolio on 7P Studio ↗</span>
             </a>
           </div>
         </div>
       </section>
 
-      <!-- 5. PROCESS SECTION ("إزاي بنشتغل سوا") -->
+      <!-- 5. PROCESS SECTION ("How We Work") -->
       <section id="process" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="process-kicker">الخطوات</div>
-            <h2 class="section-title" id="process-title">إزاي بنشتغل سوا؟</h2>
-            <p class="section-subtitle" id="process-subtitle">من غير تعقيد، الموضوع بيمشي في 4 خطوات واضحة ومباشرة:</p>
+            <div class="section-kicker" id="process-kicker">How We Work</div>
+            <h2 class="section-title" id="process-title">How do we build together?</h2>
+            <p class="section-subtitle" id="process-subtitle">No corporate runaround. Just 4 straightforward, collaborative steps:</p>
           </div>
 
           <div class="process-grid">
             <div class="process-card">
               <div class="process-num">01</div>
-              <h3 class="process-step-title" id="pr-1-title">نتكلم ونفهم</h3>
-              <p class="process-step-desc" id="pr-1-desc">بنتكلم نفهم فكرتك إيه ومين جمهورك والشكل اللي بتدور عليه.</p>
+              <h3 class="process-step-title" id="pr-1-title">Chat & Align</h3>
+              <p class="process-step-desc" id="pr-1-desc">We sit down, discuss your vision, who your audience is, and what you are looking for.</p>
             </div>
 
             <div class="process-card">
               <div class="process-num">02</div>
-              <h3 class="process-step-title" id="pr-2-title">أصمم الواجهة</h3>
-              <p class="process-step-desc" id="pr-2-desc">بعمل ديزاين كامل على فيجما بتشوفه وتعدل عليه لحد ما تكون راضي عنه.</p>
+              <h3 class="process-step-title" id="pr-2-title">Figma Design</h3>
+              <p class="process-step-desc" id="pr-2-desc">I draft a complete design in Figma for you to review and tweak until you are happy with it.</p>
             </div>
 
             <div class="process-card">
               <div class="process-num">03</div>
-              <h3 class="process-step-title" id="pr-3-title">أبرمج وأحرك</h3>
-              <p class="process-step-desc" id="pr-3-desc">بحول الديزاين لكود حقيقي سريع ومرن مع حركة خفيفة ومظبوطة على الموبايل والكمبيوتر.</p>
+              <h3 class="process-step-title" id="pr-3-title">Code & Animate</h3>
+              <p class="process-step-desc" id="pr-3-desc">I turn the design into performant, responsive code with subtle motion that runs smooth on mobile and desktop.</p>
             </div>
 
             <div class="process-card">
               <div class="process-num">04</div>
-              <h3 class="process-step-title" id="pr-4-title">نطلق الموقع</h3>
-              <p class="process-step-desc" id="pr-4-desc">بنرفع الموقع لايف على الدومين ونتأكد إنه شغال تمام وسريع بدون مشاكل.</p>
+              <h3 class="process-step-title" id="pr-4-title">Launch & Verify</h3>
+              <p class="process-step-desc" id="pr-4-desc">We push the site live to your domain and ensure everything runs fast without issues.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 6. FAQ SECTION ("أسئلة بتيجي في البال علطول") -->
+      <!-- 6. FAQ SECTION ("Quick FAQ") -->
       <section id="faq" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="faq-kicker">سؤال وجواب</div>
-            <h2 class="section-title" id="faq-title">أسئلة بتيجي في البال علطول</h2>
-            <p class="section-subtitle" id="faq-subtitle">إجابات سريعة ومباشرة على أكتر تساؤلات بتتسأل:</p>
+            <div class="section-kicker" id="faq-kicker">Quick FAQ</div>
+            <h2 class="section-title" id="faq-title">Common questions asked upfront</h2>
+            <p class="section-subtitle" id="faq-subtitle">Quick and honest answers to the things people ask most:</p>
           </div>
 
           <div class="faq-grid">
             <div class="faq-card">
-              <h3 class="faq-question" id="faq-q1">المشروع بياخد وقت قد إيه؟</h3>
-              <p class="faq-answer" id="faq-a1">على حسب حجم الشغل، المواقع البسيطة عادة من أسبوع لأسبوعين، والمشاريع الأكبر من 3 لـ 4 أسابيع، وبنحدد ميعاد واضح من البداية.</p>
+              <h3 class="faq-question" id="faq-q1">How long does a website take?</h3>
+              <p class="faq-answer" id="faq-a1">Depends on scope, standard landing pages usually take 1 to 2 weeks, while larger stores or custom projects take 3 to 4 weeks. We agree on a clear delivery date from day one.</p>
             </div>
 
             <div class="faq-card">
-              <h3 class="faq-question" id="faq-q2">بتشتغل مع مين؟</h3>
-              <p class="faq-answer" id="faq-a2">مع أصحاب المشاريع والشركات الناشئة، المتاجر والمطاعم، أو أي حد محتاج موقع شخصي أو بورتفوليو نظيف.</p>
+              <h3 class="faq-question" id="faq-q2">Who do you work with?</h3>
+              <p class="faq-answer" id="faq-a2">Founders, startups, local businesses, fashion brands, restaurants, or anyone looking for a clean, standout portfolio.</p>
             </div>
 
             <div class="faq-card">
-              <h3 class="faq-question" id="faq-q3">لو عندي موقع قديم ومحتاج يتجدد؟</h3>
-              <p class="faq-answer" id="faq-a3">بنشوف المشاكل الموجودة ونعيد تصميمه وبرمجته من الصفر بحيث يكون سريع وعصري على كل الأجهزة.</p>
+              <h3 class="faq-question" id="faq-q3">What if I already have an old site?</h3>
+              <p class="faq-answer" id="faq-a3">We pinpoint the issues and rebuild it cleanly from the ground up so it runs fast and modern across all devices.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 7. MINI-GAME SECTION ("استراحة كود // لعبة التعبان") -->
+      <!-- 7. MINI-GAME SECTION ("Code Break") -->
       <section id="game" class="content-section section-game">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="game-kicker">استراحة كود 🎮</div>
-            <h2 class="section-title" id="game-title">افصل شوية مع لعبة التعبان</h2>
-            <p class="section-subtitle" id="game-subtitle">مبرمجها كود صافي بالـ JavaScript و Canvas. العب بالأسهم على الكيبورد أو بالتاتش لو إنت ع الموبايل وشوف هتوصل لكام نقطة!</p>
+            <div class="section-kicker" id="game-kicker">Code Break 🎮</div>
+            <h2 class="section-title" id="game-title">Take a Break with Classic Snake</h2>
+            <p class="section-subtitle" id="game-subtitle">Hand-coded with vanilla JavaScript and HTML5 Canvas. Play with keyboard arrows or touch controls on mobile and see your high score!</p>
           </div>
 
           <div class="game-card-wrapper">
             <!-- Top Status Bar -->
             <div class="game-header-bar">
               <div class="game-score-box">
-                <span class="score-label" id="game-score-label">السكور:</span>
+                <span class="score-label" id="game-score-label">Score:</span>
                 <span id="game-current-score" class="score-value">0</span>
               </div>
               <div class="game-actions-box">
                 <button id="game-start-btn" class="btn-primary game-btn" data-magnetic>
-                  <span id="game-btn-text">ابدأ اللعب ▶</span>
+                  <span id="game-btn-text">Start Game ▶</span>
                 </button>
               </div>
               <div class="game-score-box">
-                <span class="score-label" id="game-best-label">أعلى سكور:</span>
+                <span class="score-label" id="game-best-label">High Score:</span>
                 <span id="game-best-score" class="score-value">0</span>
               </div>
             </div>
@@ -604,50 +751,50 @@
               <div id="game-overlay" class="game-overlay is-visible">
                 <div class="game-overlay-content">
                   <div class="game-overlay-icon">🐍</div>
-                  <h3 id="game-overlay-title" class="game-overlay-title">جاهز تلعب؟</h3>
-                  <p id="game-overlay-msg" class="game-overlay-msg">استخدم الأسهم أو التاتش عشان توجه التعبان وماتخبطش في الحيطة أو في نفسك.</p>
-                  <button id="game-overlay-btn" class="btn-primary game-action-btn">ابدأ اللعب ▶</button>
+                  <h3 id="game-overlay-title" class="game-overlay-title">Ready to Play?</h3>
+                  <p id="game-overlay-msg" class="game-overlay-msg">Guide the snake to collect golden treats without hitting walls.</p>
+                  <button id="game-overlay-btn" class="btn-primary game-action-btn">Start Game ▶</button>
                 </div>
               </div>
             </div>
 
             <!-- Mobile Touch Controls (D-Pad) -->
-            <div class="game-dpad-controls" aria-label="أزرار تحكم التاتش">
+            <div class="game-dpad-controls" aria-label="Touch D-Pad Controls">
               <div class="dpad-row dpad-row-up">
-                <button class="dpad-btn dpad-up" data-dir="UP" aria-label="فوق">
+                <button class="dpad-btn dpad-up" data-dir="UP" aria-label="Up">
                   <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
                 </button>
               </div>
               <div class="dpad-row dpad-row-middle">
-                <button class="dpad-btn dpad-left" data-dir="LEFT" aria-label="شمال">
+                <button class="dpad-btn dpad-left" data-dir="LEFT" aria-label="Left">
                   <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
                 </button>
                 <div class="dpad-center-indicator"></div>
-                <button class="dpad-btn dpad-right" data-dir="RIGHT" aria-label="يمين">
+                <button class="dpad-btn dpad-right" data-dir="RIGHT" aria-label="Right">
                   <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
                 </button>
               </div>
               <div class="dpad-row dpad-row-down">
-                <button class="dpad-btn dpad-down" data-dir="DOWN" aria-label="تحت">
+                <button class="dpad-btn dpad-down" data-dir="DOWN" aria-label="Down">
                   <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 </button>
               </div>
             </div>
 
             <div class="game-footer-hint">
-              <span id="game-controls-hint">💡 على الكيبورد: الأسهم أو W, A, S, D — على الموبايل: المس الأسهم أو اسحب ع الشاشة مباشرة</span>
+              <span id="game-controls-hint">💡 Keyboard: Arrow keys or W, A, S, D — Mobile: Touch D-pad buttons or swipe on canvas</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 8. CONTACT ("يلا نتكلم") SECTION -->
+      <!-- 8. CONTACT ("Let's Talk") SECTION -->
       <section id="contact" class="content-section">
         <div class="section-container">
           <div class="section-head">
-            <div class="section-kicker" id="contact-kicker">يلا نتكلم</div>
-            <h2 class="section-title" id="contact-title">عندك فكرة أو مشروع؟ تعالى ندردش.</h2>
-            <p class="section-subtitle" id="contact-subtitle">الواتساب أسرع وسيلة للرد، والإيميل ممتاز لو معاك تفاصيل أو ملفات حابب تبعتها.</p>
+            <div class="section-kicker" id="contact-kicker">Let's Talk</div>
+            <h2 class="section-title" id="contact-title">Have a project idea in mind? Let’s talk.</h2>
+            <p class="section-subtitle" id="contact-subtitle">WhatsApp is quickest for an instant reply, and email is great if you have files or a project brief.</p>
           </div>
 
           <div class="contact-channels-grid">
@@ -656,13 +803,13 @@
               <div class="contact-icon-bubble">
                 <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
               </div>
-              <span class="contact-label" id="contact-wa-label">واتساب</span>
+              <span class="contact-label" id="contact-wa-label">WhatsApp</span>
               <div class="contact-value-row">
                 <span class="contact-selectable-text" id="val-whatsapp">01221576360</span>
-                <button class="btn-copy" data-copy-target="val-whatsapp">نسخ</button>
+                <button class="btn-copy" data-copy-target="val-whatsapp">Copy</button>
               </div>
               <a href="https://wa.me/201221576360" target="_blank" rel="noopener noreferrer" class="btn-primary contact-action-link" data-magnetic>
-                <span>محادثة فورية</span>
+                <span>Direct Chat</span>
               </a>
             </div>
 
@@ -671,13 +818,13 @@
               <div class="contact-icon-bubble">
                 <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
               </div>
-              <span class="contact-label" id="contact-email-label">الإيميل</span>
+              <span class="contact-label" id="contact-email-label">Email</span>
               <div class="contact-value-row">
                 <span class="contact-selectable-text" id="val-email">om058166@gmail.com</span>
-                <button class="btn-copy" data-copy-target="val-email">نسخ</button>
+                <button class="btn-copy" data-copy-target="val-email">Copy</button>
               </div>
               <a href="mailto:om058166@gmail.com" class="btn-secondary contact-action-link" data-magnetic>
-                <span>إرسال إيميل</span>
+                <span>Send Email</span>
               </a>
             </div>
 
@@ -686,13 +833,13 @@
               <div class="contact-icon-bubble">
                 <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
               </div>
-              <span class="contact-label" id="contact-insta-label">إنستجرام</span>
+              <span class="contact-label" id="contact-insta-label">Instagram</span>
               <div class="contact-value-row">
                 <span class="contact-selectable-text" id="val-insta">@omar_thegreatt</span>
-                <button class="btn-copy" data-copy-target="val-insta">نسخ</button>
+                <button class="btn-copy" data-copy-target="val-insta">Copy</button>
               </div>
               <a href="https://instagram.com/omar_thegratt" target="_blank" rel="noopener noreferrer" class="btn-secondary contact-action-link" data-magnetic>
-                <span>فتح البروفايل</span>
+                <span>View Profile</span>
               </a>
             </div>
           </div>
@@ -700,15 +847,65 @@
       </section>
     </main>
 
+    <!-- FLOATING LIQUID GLASS BOTTOM DOCK (Apple iOS / WWDC25 System) -->
+    <nav id="floating-dock" class="floating-liquid-dock" aria-label="Quick Navigation">
+      <!-- 1. Upper Tier: Live Status Capsule -->
+      <a href="https://wa.me/201221576360" target="_blank" rel="noopener noreferrer" class="dock-status-pill" id="dock-status-pill" aria-label="Available for projects">
+        <span class="dock-status-dot"></span>
+        <span class="dock-status-text" id="dock-status-text">Available for projects</span>
+        <span class="dock-status-sep">•</span>
+        <span class="dock-time-val" id="dock-time-text">Cairo 3:15 PM</span>
+      </a>
+
+      <!-- 2. Lower Tier: Main Island + Action Button -->
+      <div class="dock-main-row">
+        <div class="dock-island">
+          <a href="#about" class="dock-item" id="dock-item-about" data-nav="about">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span class="dock-item-label" id="dock-lbl-story">Story</span>
+          </a>
+          <a href="#work" class="dock-item" id="dock-item-work" data-nav="work">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span class="dock-item-label" id="dock-lbl-projects">Projects</span>
+          </a>
+          <a href="#services" class="dock-item" id="dock-item-services" data-nav="services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+            <span class="dock-item-label" id="dock-lbl-craft">Craft</span>
+          </a>
+          <a href="#contact" class="dock-item" id="dock-item-contact" data-nav="contact">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <span class="dock-item-label" id="dock-lbl-contact">Let's Talk</span>
+          </a>
+        </div>
+
+        <!-- Circular Action Button (WhatsApp) -->
+        <a href="https://wa.me/201221576360" target="_blank" rel="noopener noreferrer" class="dock-action-btn" id="dock-action-btn" aria-label="Chat on WhatsApp" data-tooltip="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+        </a>
+      </div>
+    </nav>
+
     <!-- 8. FOOTER -->
     <footer class="site-footer" id="footer">
       <div class="section-container">
         <div class="footer-inner">
           <p class="footer-copy" id="footer-rights">
-            © 2026 عمر يحيى • تصميم وتطوير عمر يحيى
+            © 2026 Omar Mohamed • Designed & Built by Omar Mohamed
           </p>
           <button id="footer-back-to-top" class="footer-back-to-top" data-magnetic>
-            <span id="footer-back-to-top-text">العودة للأعلى ↑</span>
+            <span id="footer-back-to-top-text">Back to top ↑</span>
           </button>
         </div>
       </div>

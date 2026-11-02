@@ -1,6 +1,6 @@
 /**
  * Photos configuration
- * Curated personal photography of Omar Yahia
+ * Curated personal photography of Omar Mohamed
  * All photos cropped to 3:4 portrait ratio, max 1200px, WebP + fallback JPG + thumb WebP
  */
 
@@ -11,8 +11,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-1.jpg',
     thumb: '/assets/photos/photo-1-thumb.webp',
     focalPoint: '50% 35%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-2',
@@ -20,8 +20,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-2.jpg',
     thumb: '/assets/photos/photo-2-thumb.webp',
     focalPoint: '48% 28%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-3',
@@ -29,8 +29,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-3.jpg',
     thumb: '/assets/photos/photo-3-thumb.webp',
     focalPoint: '50% 45%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-4',
@@ -38,8 +38,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-4.jpg',
     thumb: '/assets/photos/photo-4-thumb.webp',
     focalPoint: '52% 22%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-5',
@@ -47,8 +47,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-5.jpg',
     thumb: '/assets/photos/photo-5-thumb.webp',
     focalPoint: '50% 28%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-6',
@@ -56,8 +56,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-6.jpg',
     thumb: '/assets/photos/photo-6-thumb.webp',
     focalPoint: '48% 20%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-7',
@@ -65,8 +65,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-7.jpg',
     thumb: '/assets/photos/photo-7-thumb.webp',
     focalPoint: '50% 32%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-8',
@@ -74,8 +74,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-8.jpg',
     thumb: '/assets/photos/photo-8-thumb.webp',
     focalPoint: '50% 25%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   },
   {
     id: 'photo-9',
@@ -83,8 +83,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-9.jpg',
     thumb: '/assets/photos/photo-9-thumb.webp',
     focalPoint: '50% 30%',
-    altAr: 'عمر يحيى — الغروب والمدينة',
-    altEn: 'Omar Yahia — Sunset & City'
+    altAr: 'عمر محمد — الغروب والمدينة',
+    altEn: 'Omar Mohamed — Sunset & City'
   },
   {
     id: 'photo-10',
@@ -92,8 +92,8 @@ export const photos = [
     fallbackSrc: '/assets/photos/photo-10.jpg',
     thumb: '/assets/photos/photo-10-thumb.webp',
     focalPoint: '50% 25%',
-    altAr: 'عمر يحيى',
-    altEn: 'Omar Yahia'
+    altAr: 'عمر محمد',
+    altEn: 'Omar Mohamed'
   }
 ];
 

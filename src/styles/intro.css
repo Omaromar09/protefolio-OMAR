@@ -31,7 +31,9 @@ html.is-speed-audit .site-nav {
 }
 
 html.is-speed-audit #hero-content,
-html.is-speed-audit #hero-card-col {
+html.is-speed-audit #hero-card-col,
+html.is-speed-audit .hero-content,
+html.is-speed-audit .hero-wheel-wrapper {
   opacity: 1 !important;
   transform: none !important;
 }

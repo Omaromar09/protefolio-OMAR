@@ -3,6 +3,7 @@ import './styles/intro.css';
 import './styles/hero.css';
 import './styles/sections.css';
 import './styles/game.css';
+import './styles/dock.css';
 
 import Lenis from 'lenis';
 import gsap from 'gsap';
@@ -35,14 +36,15 @@ class App {
       const urlLang = urlParams.get('lang');
       if (urlLang === 'en' || urlLang === 'ar') return urlLang;
 
-      const saved = localStorage.getItem('omar_portfolio_lang');
-      if (saved === 'en' || saved === 'ar') return saved;
+      const pref = localStorage.getItem('omar_portfolio_lang_pref');
+      if (pref === 'en' || pref === 'ar') return pref;
     } catch (e) {}
-    return 'ar'; // Arabic default as requested
+    return 'en'; // English is the primary / default language
   }
 
   saveLanguage(lang) {
     try {
+      localStorage.setItem('omar_portfolio_lang_pref', lang);
       localStorage.setItem('omar_portfolio_lang', lang);
     } catch (e) {}
   }
@@ -80,10 +82,16 @@ class App {
     // 7. Live Cairo Clock Ticker & Vibe
     this.initCairoClock();
 
-    // 8. Navigation & Language Events
+    // 8. Initialize Floating Liquid Glass Bottom Dock
+    this.initFloatingDock();
+
+    // 9. Initialize Certificates Lightbox Modal
+    this.initCertificatesModal();
+
+    // 10. Navigation & Language Events
     this.bindGlobalEvents();
 
-    // 9. Test / URL parameters (?t=2.5, ?skip=1)
+    // 11. Test / URL parameters (?t=2.5, ?skip=1)
     this.checkUrlParams();
 
     // Check visibility change to pause loops
@@ -232,11 +240,21 @@ class App {
     document.documentElement.dir = isEn ? 'ltr' : 'rtl';
     document.title = t.meta.title;
 
-    // Meta description
+    // Meta tags
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.content = t.meta.description;
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.content = t.meta.title;
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.content = t.meta.description;
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.content = t.meta.title;
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.content = t.meta.description;
 
     // Skip Button
+    const skipBtn = document.getElementById('intro-skip-btn');
+    if (skipBtn) skipBtn.setAttribute('aria-label', isEn ? 'Skip intro' : 'تخطي المقدمة');
     const skipLabel = document.getElementById('skip-btn-label');
     if (skipLabel) skipLabel.textContent = t.nav.skipIntro;
 
@@ -285,14 +303,20 @@ class App {
 
     const langToggleBtn = document.getElementById('lang-toggle-btn');
     const mobileLangBtn = document.getElementById('mobile-lang-btn');
-    if (langToggleBtn) langToggleBtn.textContent = t.nav.langToggle;
-    if (mobileLangBtn) mobileLangBtn.textContent = t.nav.langToggle;
+    if (langToggleBtn) {
+      langToggleBtn.textContent = t.nav.langToggle;
+      langToggleBtn.setAttribute('aria-label', isEn ? 'Switch to Arabic' : 'تبديل إلى الإنجليزية');
+    }
+    if (mobileLangBtn) {
+      mobileLangBtn.textContent = t.nav.langToggle;
+    }
 
     // Hero
     const heroBadge = document.getElementById('hero-badge-text');
     const heroTitle = document.getElementById('hero-title');
     const heroSubtitlePre = document.getElementById('hero-subtitle-prefix');
     const heroSubtitleAcc = document.getElementById('hero-subtitle-accent');
+    const heroSubtitleSuf = document.getElementById('hero-subtitle-suffix');
     const heroCtaWorkText = document.getElementById('hero-cta-work-text');
     const heroCtaContactText = document.getElementById('hero-cta-contact-text');
     const wheelHintText = document.getElementById('wheel-hint-text');
@@ -301,9 +325,22 @@ class App {
     if (heroTitle) heroTitle.textContent = t.hero.greeting;
     if (heroSubtitlePre) heroSubtitlePre.textContent = t.hero.oneLinerPrefix;
     if (heroSubtitleAcc) heroSubtitleAcc.textContent = t.hero.oneLinerAccent;
+    if (heroSubtitleSuf) heroSubtitleSuf.textContent = t.hero.oneLinerSuffix;
     if (heroCtaWorkText) heroCtaWorkText.textContent = t.hero.ctaWork;
     if (heroCtaContactText) heroCtaContactText.textContent = t.hero.ctaContact;
     if (wheelHintText) wheelHintText.textContent = isEn ? 'Navigate with mouse wheel, drag, or arrow keys' : 'تقدر تقلب بالماوس أو بالسحب أو بالأسهم';
+
+    const wheelPrev = document.getElementById('wheel-btn-prev');
+    const wheelNext = document.getElementById('wheel-btn-next');
+    if (wheelPrev) wheelPrev.setAttribute('aria-label', isEn ? 'Previous photo' : 'الصورة السابقة');
+    if (wheelNext) wheelNext.setAttribute('aria-label', isEn ? 'Next photo' : 'الصورة التالية');
+
+    // Marquee Ribbon
+    const marqueeTrack = document.querySelector('.marquee-track');
+    if (marqueeTrack && t.marquee) {
+      const marqueeList = [...t.marquee, ...t.marquee];
+      marqueeTrack.innerHTML = marqueeList.map(item => `<span>✦ ${item}</span>`).join('');
+    }
 
     // About
     const aboutKicker = document.getElementById('about-kicker');
@@ -328,6 +365,11 @@ class App {
     if (galleryTitle) galleryTitle.textContent = t.gallery.title;
     if (gallerySubtitle) gallerySubtitle.textContent = t.gallery.subtitle;
 
+    const galPrev = document.getElementById('gallery-prev-btn');
+    const galNext = document.getElementById('gallery-next-btn');
+    if (galPrev) galPrev.setAttribute('aria-label', isEn ? 'Previous' : 'السابق');
+    if (galNext) galNext.setAttribute('aria-label', isEn ? 'Next' : 'التالي');
+
     // Services / Craft
     const servicesKicker = document.getElementById('services-kicker');
     const servicesTitle = document.getElementById('services-title');
@@ -349,6 +391,67 @@ class App {
     if (s3Title) s3Title.textContent = t.services.items[2].title;
     if (s3Desc) s3Desc.innerHTML = t.services.items[2].desc.replace(/\n/g, '<br />');
 
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, idx) => {
+      const item = t.services.items[idx];
+      if (item && item.tags) {
+        const tagsWrap = card.querySelector('.service-tags');
+        if (tagsWrap) {
+          tagsWrap.innerHTML = item.tags.map(tag => `<span>${tag}</span>`).join('');
+        }
+      }
+    });
+
+    // Certificates & Accreditations (Meta & DeepLearning.AI)
+    if (t.certificates) {
+      const certKicker = document.getElementById('cert-kicker');
+      const certTitle = document.getElementById('cert-title');
+      const certSubtitle = document.getElementById('cert-subtitle');
+      if (certKicker) certKicker.textContent = t.certificates.tag;
+      if (certTitle) certTitle.textContent = t.certificates.title;
+      if (certSubtitle) certSubtitle.textContent = t.certificates.subtitle;
+
+      // Meta
+      const metaItem = t.certificates.items[0];
+      const certTagMeta = document.getElementById('cert-tag-meta');
+      const certBadgeMeta = document.getElementById('cert-badge-meta');
+      const certTitleMeta = document.getElementById('cert-title-meta');
+      const certIssuerMeta = document.getElementById('cert-issuer-meta');
+      const certDateMeta = document.getElementById('cert-date-meta');
+      const certDescMeta = document.getElementById('cert-desc-meta');
+      const certBtnMeta = document.getElementById('cert-btn-meta');
+      const certZoomMeta = document.getElementById('cert-zoom-meta');
+
+      if (certTagMeta) certTagMeta.textContent = metaItem.tag;
+      if (certBadgeMeta) certBadgeMeta.textContent = metaItem.badge;
+      if (certTitleMeta) certTitleMeta.textContent = metaItem.title;
+      if (certIssuerMeta) certIssuerMeta.textContent = metaItem.issuer;
+      if (certDateMeta) certDateMeta.textContent = metaItem.date;
+      if (certDescMeta) certDescMeta.textContent = metaItem.desc;
+      if (certBtnMeta) certBtnMeta.textContent = metaItem.btnText;
+      if (certZoomMeta) certZoomMeta.textContent = metaItem.btnText;
+
+      // DeepLearning.AI
+      const aiItem = t.certificates.items[1];
+      const certTagAi = document.getElementById('cert-tag-ai');
+      const certBadgeAi = document.getElementById('cert-badge-ai');
+      const certTitleAi = document.getElementById('cert-title-ai');
+      const certIssuerAi = document.getElementById('cert-issuer-ai');
+      const certDateAi = document.getElementById('cert-date-ai');
+      const certDescAi = document.getElementById('cert-desc-ai');
+      const certBtnAi = document.getElementById('cert-btn-ai');
+      const certZoomAi = document.getElementById('cert-zoom-ai');
+
+      if (certTagAi) certTagAi.textContent = aiItem.tag;
+      if (certBadgeAi) certBadgeAi.textContent = aiItem.badge;
+      if (certTitleAi) certTitleAi.textContent = aiItem.title;
+      if (certIssuerAi) certIssuerAi.textContent = aiItem.issuer;
+      if (certDateAi) certDateAi.textContent = aiItem.date;
+      if (certDescAi) certDescAi.textContent = aiItem.desc;
+      if (certBtnAi) certBtnAi.textContent = aiItem.btnText;
+      if (certZoomAi) certZoomAi.textContent = aiItem.btnText;
+    }
+
     // Work / 7P Studio
     const workKicker = document.getElementById('work-kicker');
     const workTitle = document.getElementById('work-title');
@@ -359,26 +462,38 @@ class App {
     if (workSubtitle) workSubtitle.textContent = t.work.subtitle;
     if (workStudioNote) workStudioNote.textContent = t.work.studioNote;
 
+    const p1Tag = document.getElementById('p1-tag');
     const p1Title = document.getElementById('p1-title');
     const p1Desc = document.getElementById('p1-desc');
     const p1Btn = document.getElementById('p1-btn-text');
+    const p1Link = document.getElementById('p1-btn');
+    if (p1Tag) p1Tag.textContent = t.work.projects[0].tag;
     if (p1Title) p1Title.textContent = t.work.projects[0].title;
     if (p1Desc) p1Desc.textContent = t.work.projects[0].desc;
     if (p1Btn) p1Btn.textContent = t.work.projects[0].btnText;
+    if (p1Link) p1Link.href = t.work.projects[0].link;
 
+    const p2Tag = document.getElementById('p2-tag');
     const p2Title = document.getElementById('p2-title');
     const p2Desc = document.getElementById('p2-desc');
     const p2Btn = document.getElementById('p2-btn-text');
+    const p2Link = document.getElementById('p2-btn');
+    if (p2Tag) p2Tag.textContent = t.work.projects[1].tag;
     if (p2Title) p2Title.textContent = t.work.projects[1].title;
     if (p2Desc) p2Desc.textContent = t.work.projects[1].desc;
     if (p2Btn) p2Btn.textContent = t.work.projects[1].btnText;
+    if (p2Link) p2Link.href = t.work.projects[1].link;
 
+    const p3Tag = document.getElementById('p3-tag');
     const p3Title = document.getElementById('p3-title');
     const p3Desc = document.getElementById('p3-desc');
     const p3Btn = document.getElementById('p3-btn-text');
+    const p3Link = document.getElementById('p3-btn');
+    if (p3Tag) p3Tag.textContent = t.work.projects[2].tag;
     if (p3Title) p3Title.textContent = t.work.projects[2].title;
     if (p3Desc) p3Desc.textContent = t.work.projects[2].desc;
     if (p3Btn) p3Btn.textContent = t.work.projects[2].btnText;
+    if (p3Link) p3Link.href = t.work.projects[2].link;
 
     // Process ("إزاي بنشتغل سوا")
     const processKicker = document.getElementById('process-kicker');
@@ -460,11 +575,53 @@ class App {
     if (emailLabel) emailLabel.textContent = t.contact.emailLabel;
     if (instaLabel) instaLabel.textContent = t.contact.instaLabel;
 
+    const contactCards = document.querySelectorAll('.contact-card');
+    if (contactCards[0]) {
+      const btn = contactCards[0].querySelector('.contact-action-link span');
+      if (btn) btn.textContent = t.contact.chatBtn;
+    }
+    if (contactCards[1]) {
+      const btn = contactCards[1].querySelector('.contact-action-link span');
+      if (btn) btn.textContent = t.contact.mailBtn;
+    }
+    if (contactCards[2]) {
+      const btn = contactCards[2].querySelector('.contact-action-link span');
+      if (btn) btn.textContent = t.contact.profileBtn;
+    }
+
+    const copyBtns = document.querySelectorAll('.btn-copy');
+    copyBtns.forEach(btn => {
+      if (!btn.classList.contains('copied')) {
+        btn.textContent = t.contact.copyBtn;
+      }
+    });
+
     // Footer
     const footerRights = document.getElementById('footer-rights');
     const footerBack = document.getElementById('footer-back-to-top-text');
     if (footerRights) footerRights.textContent = t.footer.copy;
     if (footerBack) footerBack.textContent = t.footer.backToTop;
+
+    // Floating Liquid Glass Bottom Dock
+    if (t.dock) {
+      const dockStatus = document.getElementById('dock-status-text');
+      const dockLblStory = document.getElementById('dock-lbl-story');
+      const dockLblProjects = document.getElementById('dock-lbl-projects');
+      const dockLblCraft = document.getElementById('dock-lbl-craft');
+      const dockLblContact = document.getElementById('dock-lbl-contact');
+      const dockAction = document.getElementById('dock-action-btn');
+
+      if (dockStatus) dockStatus.textContent = t.dock.status;
+      if (dockLblStory) dockLblStory.textContent = t.dock.story;
+      if (dockLblProjects) dockLblProjects.textContent = t.dock.projects;
+      if (dockLblCraft) dockLblCraft.textContent = t.dock.craft;
+      if (dockLblContact) dockLblContact.textContent = t.dock.contact;
+      if (dockAction) {
+        dockAction.setAttribute('data-tooltip', t.dock.chat);
+        dockAction.setAttribute('aria-label', `${t.dock.chat} on WhatsApp`);
+      }
+      this.updateDockTime();
+    }
 
     // Re-render gallery if initialized
     if (this.scrollSections) {
@@ -478,6 +635,7 @@ class App {
 
   toggleLanguage() {
     const nextLang = this.currentLang === 'ar' ? 'en' : 'ar';
+    this.saveLanguage(nextLang);
     this.applyLanguage(nextLang, true);
   }
 
@@ -582,6 +740,177 @@ class App {
     if (vibeEl) {
       vibeEl.textContent = getCairoVibe(this.currentLang);
     }
+  }
+
+  initFloatingDock() {
+    const dock = document.getElementById('floating-dock');
+    if (!dock) return;
+
+    // Smooth scroll on dock link click
+    const dockLinks = dock.querySelectorAll('.dock-item');
+    dockLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            if (this.lenis) {
+              this.lenis.scrollTo(target, { offset: -30 });
+            } else {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }
+        }
+      });
+    });
+
+    // Scroll Spy for Dock items
+    const sections = [
+      { id: 'about', el: document.getElementById('about'), dock: document.getElementById('dock-item-about') },
+      { id: 'work', el: document.getElementById('work'), dock: document.getElementById('dock-item-work') },
+      { id: 'services', el: document.getElementById('services'), dock: document.getElementById('dock-item-services') },
+      { id: 'contact', el: document.getElementById('contact'), dock: document.getElementById('dock-item-contact') }
+    ];
+
+    const updateActiveDock = () => {
+      const scrollPos = window.scrollY + window.innerHeight * 0.4;
+      let activeSec = null;
+      for (const s of sections) {
+        if (s.el) {
+          const top = s.el.offsetTop;
+          const height = s.el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            activeSec = s;
+          }
+        }
+      }
+
+      sections.forEach((s) => {
+        if (s.dock) {
+          s.dock.classList.toggle('is-active', activeSec && activeSec.id === s.id);
+        }
+      });
+    };
+
+    // On mobile screens, hide dock when viewing hero top so wheel controls are unobstructed
+    const handleDockVisibility = () => {
+      const isMobile = window.innerWidth <= 680;
+      if (isMobile && window.scrollY < 120) {
+        dock.classList.add('is-hidden');
+      } else {
+        dock.classList.remove('is-hidden');
+      }
+    };
+
+    window.addEventListener('scroll', () => {
+      updateActiveDock();
+      handleDockVisibility();
+    }, { passive: true });
+    window.addEventListener('resize', handleDockVisibility, { passive: true });
+    updateActiveDock();
+    handleDockVisibility();
+
+    // Live clock in top status pill
+    this.updateDockTime();
+    setInterval(() => {
+      this.updateDockTime();
+    }, 15000);
+  }
+
+  updateDockTime() {
+    const timeEl = document.getElementById('dock-time-text');
+    if (!timeEl) return;
+
+    try {
+      const isEn = this.currentLang === 'en';
+      const locale = isEn ? 'en-US' : 'ar-EG';
+      const cairoLabel = isEn ? 'Cairo' : 'القاهرة';
+      const timeStr = new Intl.DateTimeFormat(locale, {
+        timeZone: 'Africa/Cairo',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      }).format(new Date());
+
+      timeEl.textContent = `${cairoLabel} ${timeStr}`;
+    } catch (e) {
+      const d = new Date();
+      timeEl.textContent = `Cairo ${d.getHours()}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
+  }
+
+  initCertificatesModal() {
+    const modal = document.getElementById('cert-modal');
+    if (!modal) return;
+
+    const modalImg = document.getElementById('cert-modal-img');
+    const modalHeading = document.getElementById('cert-modal-heading');
+    const modalSub = document.getElementById('cert-modal-sub');
+    const closeBtn = document.getElementById('cert-modal-close');
+    const backdrop = document.getElementById('cert-modal-backdrop');
+
+    const certData = {
+      meta: {
+        src: '/assets/certificates/cert-meta-frontend.webp',
+        titleEn: 'Meta Front-End Developer — Professional Certificate',
+        titleAr: 'مطور واجهات أمامية معتمد من Meta — شهادة مهنية احترافية (9 دورات)',
+        issuerEn: 'Issued by Meta via Coursera • Verified Credential (Jan 4, 2025)',
+        issuerAr: 'معتمدة وموثقة من شركة Meta العالمية عبر كورسيرا (4 يناير 2025)'
+      },
+      ai: {
+        src: '/assets/certificates/cert-ai-for-everyone.webp',
+        titleEn: 'AI For Everyone — DeepLearning.AI',
+        titleAr: 'الذكاء الاصطناعي للجميع — DeepLearning.AI (أندرو نج)',
+        issuerEn: 'Authorized by DeepLearning.AI & Andrew Ng via Coursera (Jan 28, 2026)',
+        issuerAr: 'معتمدة من DeepLearning.AI بإشراف أندرو نج عبر كورسيرا (28 يناير 2026)'
+      }
+    };
+
+    const openModal = (certKey) => {
+      const data = certData[certKey];
+      if (!data) return;
+
+      const isEn = this.currentLang === 'en';
+      if (modalImg) modalImg.src = data.src;
+      if (modalHeading) modalHeading.textContent = isEn ? data.titleEn : data.titleAr;
+      if (modalSub) modalSub.textContent = isEn ? data.issuerEn : data.issuerAr;
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    const triggers = document.querySelectorAll('[data-cert-view]');
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const certKey = btn.getAttribute('data-cert-view');
+        openModal(certKey);
+      });
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const certKey = btn.getAttribute('data-cert-view');
+          openModal(certKey);
+        }
+      });
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+        closeModal();
+      }
+    });
   }
 }
 

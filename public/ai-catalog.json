@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
   "name_for_model": "eng_omar_portfolio",
-  "name_for_human": "Omar Yahia Portfolio",
-  "description_for_model": "Official portfolio of Omar Yahia, creative web designer and developer. Includes showcase of bespoke projects, frontend development capabilities, and contact information.",
-  "description_for_human": "الموقع الرسمي للمهندس عمر يحيى — مصمم ومطور مواقع ويب تفاعلية وتطبيقات حديثة.",
+  "name_for_human": "Omar Mohamed Portfolio",
+  "description_for_model": "Official portfolio of Omar Mohamed, creative web designer and developer. Includes showcase of bespoke projects, frontend development capabilities, and contact information.",
+  "description_for_human": "الموقع الرسمي للمهندس عمر محمد — مصمم ومطور مواقع ويب تفاعلية وتطبيقات حديثة.",
   "auth": {
     "type": "none"
   },

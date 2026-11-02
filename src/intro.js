@@ -5,7 +5,7 @@ export class IntroController {
   constructor(options = {}) {
     this.options = options;
     this.onComplete = options.onComplete || (() => {});
-    this.lang = options.lang || 'ar';
+    this.lang = options.lang || 'en';
     this.timeline = null;
     this.isComplete = false;
 

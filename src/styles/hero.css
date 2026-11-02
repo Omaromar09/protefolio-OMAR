@@ -36,18 +36,31 @@ html[dir="rtl"] .hero-content {
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
+  gap: 9px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.48) 100%);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1.2px solid rgba(255, 255, 255, 0.88);
   padding: 8px 18px;
   border-radius: var(--pill-radius);
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--text-muted);
-  box-shadow: 0 4px 14px rgba(58, 15, 52, 0.04);
+  color: var(--ink);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.35),
+    0 12px 28px -6px rgba(58, 15, 52, 0.08),
+    0 3px 10px rgba(58, 15, 52, 0.03);
   margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.hero-badge:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 255, 255, 0.6) 100%);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    0 16px 32px -6px rgba(58, 15, 52, 0.12);
 }
 
 .hero-badge-dot {
@@ -175,22 +188,29 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: #FFFFFF;
-  border: 1px solid var(--card-border);
-  color: var(--text-main);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.52) 100%);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1.2px solid rgba(255, 255, 255, 0.9);
+  color: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(58, 15, 52, 0.06);
-  transition: all 0.25s ease;
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.35),
+    0 12px 28px -6px rgba(58, 15, 52, 0.12);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .wheel-btn:hover {
-  background: var(--text-main);
-  color: #FFFFFF;
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(58, 15, 52, 0.12);
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.8) 100%);
+  color: var(--accent);
+  transform: scale(1.12) translateY(-2px);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    0 18px 36px -6px rgba(58, 15, 52, 0.18);
 }
 
 .wheel-btn svg {
@@ -202,45 +222,91 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
   margin-top: 24px;
   display: flex;
   align-items: center;
-  gap: 16px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--card-border);
-  padding: 8px 20px;
-  border-radius: var(--pill-radius);
-  box-shadow: 0 4px 16px rgba(58, 15, 52, 0.04);
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.48) 100%);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  padding: 8px 18px;
+  border-radius: 9999px;
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.4),
+    0 16px 38px -10px rgba(58, 15, 52, 0.12),
+    0 4px 12px rgba(58, 15, 52, 0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wheel-indicator-bar:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.45),
+    0 22px 46px -10px rgba(58, 15, 52, 0.16);
 }
 
 .wheel-dots {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
 }
 
 .wheel-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: rgba(58, 15, 52, 0.18);
+  background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95) 0%, rgba(107, 79, 103, 0.28) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    inset 0 1px 1.5px rgba(255, 255, 255, 0.9),
+    0 1px 3px rgba(58, 15, 52, 0.12);
   cursor: pointer;
-  transition: all 0.3s var(--transition-smooth);
+  padding: 0;
+  outline: none;
+  transition: all 0.38s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.wheel-dot:hover:not(.is-active) {
+  transform: scale(1.4);
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, rgba(234, 170, 0, 0.45) 100%);
+  box-shadow:
+    0 0 10px rgba(234, 170, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
 }
 
 .wheel-dot.is-active {
-  width: 24px;
+  width: 28px;
+  height: 11px;
   border-radius: 9999px;
-  background-color: var(--accent);
+  background: linear-gradient(135deg, #FFC933 0%, #EAAA00 55%, #C88F00 100%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    0 0 16px rgba(234, 170, 0, 0.6),
+    inset 0 1.2px 1px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.22);
+}
+
+.wheel-divider {
+  width: 1px;
+  height: 16px;
+  background: linear-gradient(to bottom, transparent, rgba(58, 15, 52, 0.2), transparent);
+  border-radius: 9999px;
 }
 
 .wheel-counter-text {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.1em;
   direction: ltr !important;
   unicode-bidi: isolate;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8);
 }
 
 #hero-check-badge {
@@ -297,10 +363,13 @@ html[dir="rtl"] .hero-actions .btn-primary svg {
     justify-content: center;
   }
   .hero-card-stage {
-    width: min(300px, 78vw);
+    width: min(280px, 72vw);
     height: auto;
     aspect-ratio: 3 / 4;
-    max-height: 420px;
+    max-height: 375px;
+  }
+  .hero-wheel-wrapper {
+    margin-bottom: 50px;
   }
   .wheel-controls {
     position: absolute;

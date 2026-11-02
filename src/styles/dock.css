@@ -1,0 +1,303 @@
+/* ==========================================================================
+   FLOATING LIQUID GLASS BOTTOM DOCK (Apple iOS / WWDC25 Design System)
+   Inspired by modern iOS liquid glass dynamic islands and floating tabs.
+   ========================================================================== */
+
+.floating-liquid-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none; /* children enable pointer events */
+  opacity: 1;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+  will-change: transform, opacity;
+}
+
+.floating-liquid-dock.is-hidden {
+  opacity: 0 !important;
+  transform: translate(-50%, 24px) !important;
+  pointer-events: none !important;
+}
+
+/* 1. Upper Tier: Live Status Capsule */
+.dock-status-pill {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.52) 100%);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(255, 255, 255, 0.3),
+    0 10px 24px -6px rgba(58, 15, 52, 0.1);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.dock-status-pill:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.65) 100%);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    0 14px 28px -6px rgba(58, 15, 52, 0.15);
+}
+
+.dock-status-dot {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981; /* Emerald active pulse */
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+}
+
+.dock-status-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid #10B981;
+  opacity: 0.7;
+  animation: dockDotPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes dockDotPulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+.dock-status-sep {
+  opacity: 0.35;
+  font-weight: 400;
+}
+
+.dock-time-val {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+/* 2. Lower Tier: Main Island Capsule + Quick Action Button */
+.dock-main-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.dock-island {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0.46) 100%);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1.2px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.4),
+    0 20px 42px -10px rgba(58, 15, 52, 0.14),
+    0 4px 14px rgba(58, 15, 52, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  border-radius: 9999px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  position: relative;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dock-item svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  stroke-width: 2;
+  transition: transform 0.25s ease, stroke 0.25s ease;
+}
+
+.dock-item:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.dock-item:hover svg {
+  transform: translateY(-1.5px);
+}
+
+/* Active Tab Fluid Bubble */
+.dock-item.is-active {
+  color: var(--ink);
+  background: linear-gradient(135deg, rgba(234, 170, 0, 0.22) 0%, rgba(234, 170, 0, 0.10) 100%);
+  box-shadow:
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.85),
+    0 2px 8px rgba(234, 170, 0, 0.25);
+  border: 1px solid rgba(234, 170, 0, 0.35);
+}
+
+.dock-item.is-active svg {
+  stroke: var(--accent);
+}
+
+/* 3. Circular Action Button (WhatsApp) */
+.dock-action-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.52) 100%);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1.2px solid rgba(255, 255, 255, 0.88);
+  box-shadow:
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 2px 0 rgba(255, 255, 255, 0.4),
+    0 18px 36px -8px rgba(58, 15, 52, 0.14),
+    0 4px 12px rgba(58, 15, 52, 0.05);
+  color: #25D366; /* WhatsApp emerald */
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  position: relative;
+}
+
+.dock-action-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.dock-action-btn:hover {
+  transform: scale(1.1) translateY(-2px);
+  background: #25D366;
+  color: #FFFFFF;
+  border-color: #25D366;
+  box-shadow:
+    0 12px 28px -4px rgba(37, 211, 102, 0.45),
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.dock-action-btn:hover svg {
+  transform: rotate(6deg) scale(1.05);
+}
+
+/* Tooltip on Action Button */
+.dock-action-btn[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  padding: 5px 11px;
+  border-radius: 9999px;
+  background: var(--ink);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(58, 15, 52, 0.2);
+}
+
+.dock-action-btn[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+  .floating-liquid-dock {
+    bottom: 14px;
+    width: auto;
+    max-width: 92vw;
+  }
+
+  .dock-status-pill {
+    display: none; /* Keep mobile clean and uncluttered */
+  }
+
+  .dock-main-row {
+    width: auto;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .dock-island {
+    padding: 6px 10px;
+  }
+
+  .dock-item {
+    padding: 7px 11px;
+    gap: 6px;
+    font-size: 0.8rem;
+  }
+
+  .dock-action-btn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .dock-action-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 440px) {
+  .floating-liquid-dock {
+    bottom: 10px;
+  }
+
+  .dock-status-pill {
+    font-size: 0.68rem;
+    padding: 3.5px 9px;
+  }
+
+  .dock-item-label {
+    display: none; /* Icon-only on tiny screens */
+  }
+
+  .dock-item {
+    padding: 8px 12px;
+  }
+
+  .dock-item svg {
+    width: 19px;
+    height: 19px;
+  }
+}

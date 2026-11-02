@@ -7,11 +7,11 @@
 export const translations = {
   ar: {
     meta: {
-      title: 'عمر يحيى — مصمم ومطور مواقع',
-      description: 'الموقع الشخصي لعمر يحيى — بصمم وببرمج مواقع سريعة ومريحة في الاستخدام بدون تعقيد.'
+      title: 'عمر محمد — مصمم ومطور مواقع',
+      description: 'الموقع الشخصي لعمر محمد — بصمم وببرمج مواقع سريعة ومريحة في الاستخدام بدون تعقيد.'
     },
     nav: {
-      brand: 'عمر يحيى',
+      brand: 'عمر محمد',
       about: 'حكايتي',
       photos: 'ورا الكواليس',
       services: 'صنعتي',
@@ -19,6 +19,15 @@ export const translations = {
       contact: 'يلا نتكلم',
       skipIntro: 'تخطي',
       langToggle: 'English'
+    },
+    dock: {
+      story: 'حكايتي',
+      projects: 'أعمالي',
+      craft: 'صنعتي',
+      contact: 'يلا نتكلم',
+      chat: 'واتساب',
+      status: 'متاح لمشاريع جديدة',
+      cairo: 'القاهرة'
     },
     intro: {
       headlineLine1Prefix: 'خلّي',
@@ -30,13 +39,13 @@ export const translations = {
     },
     hero: {
       badge: 'مصمم ومطور ويب مستقل',
-      greeting: 'أنا عمر يحيى.',
+      greeting: 'أنا عمر محمد.',
       oneLinerPrefix: 'بصمم وببرمج مواقع ',
       oneLinerAccent: 'سريعة ومريحة',
       oneLinerSuffix: ' في الاستخدام',
       ctaWork: 'شوف المشاريع',
       ctaContact: 'ابعتلي واتساب',
-      cardAlt: 'عمر يحيى',
+      cardAlt: 'عمر محمد',
       scrollPrompt: 'انزل تحت وشوف التفاصيل'
     },
     marquee: [
@@ -50,7 +59,7 @@ export const translations = {
     about: {
       tag: 'حكايتي',
       title: 'ليه بحب الويب وبدأت إزاي؟',
-      bio1: 'أنا عمر، مصمم ومطور ويب من مصر. بدايتي مع الويب كانت من كتر ما كنت بشوف مواقع تقيلة وكلامها مش مظبوط على الموبايل. اتعلمت المجال عشان أعمل مواقع شكلها نضيف، سريعة، وسهلة في الاستخدام من غير تعقيد.',
+      bio1: 'أنا عمر محمد، مصمم ومطور ويب من مصر. بدايتي مع الويب كانت من كتر ما كنت بشوف مواقع تقيلة وكلامها مش مظبوط على الموبايل. اتعلمت المجال عشان أعمل مواقع شكلها نضيف، سريعة، وسهلة في الاستخدام من غير تعقيد.',
       bio2: 'بهتم بالتفاصيل اللي بتفرق في تجربة اللي بيفتح الموقع: حركة ناعمة، خطوط واضحة، وسرعة في التحميل بحيث يشتغل مظبوط وسلس على أي شاشة.',
       vibeStatus: 'متاح حالياً لمشاريع جديدة',
       vibeCity: 'مصر'
@@ -84,6 +93,37 @@ export const translations = {
           tags: ['سرعة عالية', 'تظبيط الموبايل', 'شياكة عصرية']
         }
       ]
+    },
+    certificates: {
+      tag: 'الاعتمادات والشهادات',
+      title: 'شهادات معتمدة عالمياً من كبرى شركات التكنولوجيا',
+      subtitle: 'دراسة احترافية متعمقة واعتماد رسمي موثق من شركة Meta العالمية وDeepLearning.AI:',
+      items: [
+        {
+          id: 'meta',
+          tag: 'Meta • 9 كورسات احترافية',
+          title: 'Meta Front-End Developer',
+          issuer: 'شركة Meta العالمية عبر Coursera',
+          date: 'يناير 2025',
+          desc: 'شهادة مهنية متكاملة من شركة Meta تتضمن 9 كورسات عملية مكثفة: إتقان React وAdvanced React، جافاسكريبت المتقدمة، مبادئ تصميم واجهات وتجربة المستخدم UI/UX، وأنظمة التحكم في الإصدارات Git لبناء مواقع وتطبيقات ويب حية وعالية السرعة.',
+          skills: ['React', 'Advanced React', 'JavaScript (ES6+)', 'UI/UX Design', 'Git & GitHub', 'HTML5 & CSS3'],
+          badge: 'شهادة مهنية معتمدة',
+          btnText: 'معاينة الشهادة ↗'
+        },
+        {
+          id: 'ai',
+          tag: 'DeepLearning.AI • Andrew Ng',
+          title: 'AI For Everyone',
+          issuer: 'DeepLearning.AI عبر Coursera',
+          date: 'يناير 2026',
+          desc: 'شهادة معتمدة بإشراف رائد الذكاء الاصطناعي أندرو نج (Andrew Ng) من DeepLearning.AI؛ تغطي المفاهيم الأساسية لتعلم الآلة (ML) والشبكات العصبية، استراتيجيات بناء وتوظيف منتجات الذكاء الاصطناعي، ودمج تقنيات الـ AI الحديثة في تجارب الويب.',
+          skills: ['Machine Learning', 'AI Strategy', 'Generative AI', 'Data Science', 'AI in Web Dev'],
+          badge: 'اعتماد رسمي موثق',
+          btnText: 'معاينة الشهادة ↗'
+        }
+      ],
+      modalTitle: 'معاينة الشهادة الرسمية',
+      modalClose: 'إغلاق'
     },
     work: {
       tag: 'أعمال 7P',
@@ -192,17 +232,17 @@ export const translations = {
       profileBtn: 'فتح البروفايل'
     },
     footer: {
-      copy: '© 2026 عمر يحيى • تصميم وتطوير عمر يحيى',
+      copy: '© 2026 عمر محمد • تصميم وتطوير عمر محمد',
       backToTop: 'العودة للأعلى ↑'
     }
   },
   en: {
     meta: {
-      title: 'Omar Yahia — Web Designer & Developer',
-      description: 'Personal portfolio of Omar Yahia — Designing and building fast, clean, and intuitive web experiences.'
+      title: 'Omar Mohamed — Web Designer & Developer',
+      description: 'Personal portfolio of Omar Mohamed — Designing and building fast, clean, and intuitive web experiences.'
     },
     nav: {
-      brand: 'Omar Yahia',
+      brand: 'Omar Mohamed',
       about: 'My Story',
       photos: 'Behind the Screen',
       services: 'My Craft',
@@ -210,6 +250,15 @@ export const translations = {
       contact: "Let's Talk",
       skipIntro: 'Skip',
       langToggle: 'عربي'
+    },
+    dock: {
+      story: 'Story',
+      projects: 'Projects',
+      craft: 'Craft',
+      contact: "Let's Talk",
+      chat: 'Chat',
+      status: 'Available for projects',
+      cairo: 'Cairo'
     },
     intro: {
       headlineLine1Prefix: 'Let',
@@ -221,13 +270,13 @@ export const translations = {
     },
     hero: {
       badge: 'Freelance Web Designer & Developer',
-      greeting: "I'm Omar Yahia.",
+      greeting: "I'm Omar Mohamed.",
       oneLinerPrefix: 'Designing and building ',
       oneLinerAccent: 'fast and intuitive',
       oneLinerSuffix: ' web experiences',
       ctaWork: 'See Projects',
       ctaContact: 'Chat on WhatsApp',
-      cardAlt: 'Omar Yahia',
+      cardAlt: 'Omar Mohamed',
       scrollPrompt: 'Scroll down to explore'
     },
     marquee: [
@@ -241,7 +290,7 @@ export const translations = {
     about: {
       tag: 'My Story',
       title: 'How I got started in web design',
-      bio1: "I'm Omar, a web designer and developer from Egypt. I got into web design because I was tired of clunky, slow sites that look broken on mobile. I build clean, fast, and easy-to-use websites without unnecessary complexity.",
+      bio1: "I'm Omar Mohamed, a web designer and developer from Egypt. I got into web design because I was tired of clunky, slow sites that look broken on mobile. I build clean, fast, and easy-to-use websites without unnecessary complexity.",
       bio2: "I care about the details that actually matter: smooth motion, crisp typography, and instant loading times so your site works seamlessly on any device.",
       vibeStatus: 'Available for new projects',
       vibeCity: 'Egypt'
@@ -275,6 +324,37 @@ export const translations = {
           tags: ['High Speed', 'Mobile Perfect', 'Modern Refresh']
         }
       ]
+    },
+    certificates: {
+      tag: 'Accreditation & Credentials',
+      title: 'Certified by Industry Leaders',
+      subtitle: 'Verified technical expertise and professional accreditation from Meta and DeepLearning.AI:',
+      items: [
+        {
+          id: 'meta',
+          tag: 'Meta • 9-Course Professional Program',
+          title: 'Meta Front-End Developer',
+          issuer: 'Authorized by Meta via Coursera',
+          date: 'January 2025',
+          desc: 'Comprehensive 9-course professional specialization certified by Meta, mastering React, Advanced React, modern JavaScript (ES6+), UI/UX design principles, version control with Git, and building high-performance interactive web applications.',
+          skills: ['React', 'Advanced React', 'JavaScript (ES6+)', 'UI/UX Design', 'Git & GitHub', 'HTML5 & CSS3'],
+          badge: 'Verified Professional Certificate',
+          btnText: 'View Certificate ↗'
+        },
+        {
+          id: 'ai',
+          tag: 'DeepLearning.AI • Andrew Ng',
+          title: 'AI For Everyone',
+          issuer: 'DeepLearning.AI via Coursera',
+          date: 'January 2026',
+          desc: 'Authorized certification from DeepLearning.AI instructed by AI pioneer Andrew Ng. Covers foundational machine learning concepts, AI product strategy, data science workflows, and integrating modern AI into web solutions.',
+          skills: ['Machine Learning', 'AI Strategy', 'Generative AI', 'Data Science', 'AI in Web Dev'],
+          badge: 'Verified Course Certificate',
+          btnText: 'View Certificate ↗'
+        }
+      ],
+      modalTitle: 'Verified Credential Preview',
+      modalClose: 'Close'
     },
     work: {
       tag: '7P Studio Work',
@@ -383,7 +463,7 @@ export const translations = {
       profileBtn: 'View Profile'
     },
     footer: {
-      copy: '© 2026 Omar Yahia • Designed & Built by Omar Yahia',
+      copy: '© 2026 Omar Mohamed • Designed & Built by Omar Mohamed',
       backToTop: 'Back to top ↑'
     }
   }
@@ -392,7 +472,7 @@ export const translations = {
 /**
  * Returns dynamic Cairo vibe text based on actual Egypt hour (Africa/Cairo)
  */
-export function getCairoVibe(lang = 'ar') {
+export function getCairoVibe(lang = 'en') {
   let cairoHour = 15;
   try {
     const hourStr = new Intl.DateTimeFormat('en-US', {
