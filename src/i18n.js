@@ -16,7 +16,7 @@ export const translations = {
       photos: 'ورا الكواليس',
       services: 'صنعتي',
       work: 'أعمال 7P',
-      contact: 'يلا نتكلم',
+      contact: 'تواصل معايا',
       skipIntro: 'تخطي',
       langToggle: 'English'
     },
@@ -24,9 +24,9 @@ export const translations = {
       story: 'حكايتي',
       projects: 'أعمالي',
       craft: 'صنعتي',
-      contact: 'يلا نتكلم',
+      contact: 'تواصل',
       chat: 'واتساب',
-      status: 'متاح لمشاريع جديدة',
+      status: 'متاح للتواصل',
       cairo: 'القاهرة'
     },
     intro: {
@@ -58,11 +58,11 @@ export const translations = {
     ],
     about: {
       tag: 'حكايتي',
-      title: 'ليه بحب الويب وبدأت إزاي؟',
-      bio1: 'أنا عمر محمد، مصمم ومطور ويب من مصر. بدايتي مع الويب كانت من كتر ما كنت بشوف مواقع تقيلة وكلامها مش مظبوط على الموبايل. اتعلمت المجال عشان أعمل مواقع شكلها نضيف، سريعة، وسهلة في الاستخدام من غير تعقيد.',
-      bio2: 'بهتم بالتفاصيل اللي بتفرق في تجربة اللي بيفتح الموقع: حركة ناعمة، خطوط واضحة، وسرعة في التحميل بحيث يشتغل مظبوط وسلس على أي شاشة.',
-      vibeStatus: 'متاح حالياً لمشاريع جديدة',
-      vibeCity: 'مصر'
+      title: 'ببساطة.. مين عمر وبعمل إيه؟',
+      bio1: 'مصمم ومطور واجهات ويب — بحب التفاصيل اللي بتفرق: حركة ناعمة، تصميم رايق، وتجارب سريعة وسلسة من أول لمسة.',
+      bio2: 'شغوف بالـ UI/UX وبناء مواقع تجمع بين شياكة وبساطة الشكل وسرعة الأداء على أي شاشة.',
+      vibeStatus: 'مصر',
+      vibeCity: 'أفكار وتجارب ويب حديثة'
     },
     gallery: {
       tag: 'ورا الكواليس',
@@ -72,25 +72,25 @@ export const translations = {
     services: {
       tag: 'صنعتي',
       title: 'ثلاث حاجات بحط فيهم كل تركيزي',
-      subtitle: 'بلسان بسيط ومن غير كلام معقد.. ده اللي هتاخده وإزاي هيفرق معاك:',
+      subtitle: 'المبادئ والمهارات اللي بحطها في كل موقع وتجربة بشتغل عليها:',
       items: [
         {
           num: '01',
           title: 'ديزاين الواجهات (UI/UX)',
-          desc: 'إيه اللي هتاخده: ديزاين مريح وشيك على فيجما متفصل على فكرتك ومش شبه حد.\nإزاي ده هيفرق معاك: اللي هيدخل موقعك هيفهم كل حاجة في ثواني ويوصل للي عايزه من غير ما يتوه.',
+          desc: 'تصميم واجهات مستخدم مريحة وأنيقة على فيجما — تركز على وضوح الفكرة، تناسق الخطوط، وسهولة الاستخدام من غير تعقيد.',
           tags: ['فيجما من الصفر', 'مريح للعين', 'سهل وبسيط']
         },
         {
           num: '02',
           title: 'برمجة وحركة سلسة (Code & Motion)',
-          desc: 'إيه اللي هتاخده: كود نظيف وسريع، مع أنيميشن ناعم ولمسات 3D خفيفة على الموبايل واللابتوب.\nإزاي ده هيفرق معاك: موقعك مش هيكون مجرد كلام وصور، هيكون مرتب وشيك ويعلّم مع الزائر.',
+          desc: 'برمجة واجهات سريعة جداً وخفيفة، مدعومة بحركة ناعمة 60fps ولمسات 3D خفيفة تدي الموقع روح وشياكة.',
           tags: ['حركة 60fps', 'Three.js 3D', 'كود نظيف']
         },
         {
           num: '03',
-          title: 'تظبيط وترقية المواقع القائمة',
-          desc: 'إيه اللي هتاخده: بنمسك موقعك القديم ننضف كوده، نسرع تحميله، ونعدل شكله لستايل عصري.\nإزاي ده هيفرق معاك: بدل ما الزائر يقفل الموقع من بطئه، هيفتح بسرعة ويشتغل مظبوط على أي شاشة.',
-          tags: ['سرعة عالية', 'تظبيط الموبايل', 'شياكة عصرية']
+          title: 'تجارب ويب تفاعلية',
+          desc: 'بناء مواقع وتجارب ويب مبتكرة تجمع بين اللمسة الفنية العصرية والأداء العالي المظبوط على كل الشاشات.',
+          tags: ['أفكار مبتكرة', 'مظبوط للموبايل', 'لمسات عصرية']
         }
       ]
     },
@@ -157,52 +157,6 @@ export const translations = {
       ],
       studioNote: 'باقي المشاريع وشغل الاستوديو الكامل موجود على 7P Studio ↗'
     },
-    process: {
-      tag: 'الخطوات',
-      title: 'إزاي بنشتغل سوا؟',
-      subtitle: 'من غير تعقيد، الموضوع بيمشي في 4 خطوات واضحة ومباشرة:',
-      steps: [
-        {
-          num: '01',
-          title: 'نتكلم ونفهم',
-          desc: 'بنتكلم نفهم فكرتك إيه ومين جمهورك والشكل اللي بتدور عليه.'
-        },
-        {
-          num: '02',
-          title: 'أصمم الواجهة',
-          desc: 'بعمل ديزاين كامل على فيجما بتشوفه وتعدل عليه لحد ما تكون راضي عنه.'
-        },
-        {
-          num: '03',
-          title: 'أبرمج وأحرك',
-          desc: 'بحول الديزاين لكود حقيقي سريع ومرن مع حركة خفيفة ومظبوطة على الموبايل والكمبيوتر.'
-        },
-        {
-          num: '04',
-          title: 'نطلق الموقع',
-          desc: 'بنرفع الموقع لايف على الدومين ونتأكد إنه شغال تمام وسريع بدون مشاكل.'
-        }
-      ]
-    },
-    faq: {
-      tag: 'سؤال وجواب',
-      title: 'أسئلة بتيجي في البال علطول',
-      subtitle: 'إجابات سريعة ومباشرة على أكتر تساؤلات بتتسأل:',
-      items: [
-        {
-          q: 'المشروع بياخد وقت قد إيه؟',
-          a: 'على حسب حجم الشغل، المواقع البسيطة عادة من أسبوع لأسبوعين، والمشاريع الأكبر من 3 لـ 4 أسابيع، وبنحدد ميعاد واضح من البداية.'
-        },
-        {
-          q: 'بتشتغل مع مين؟',
-          a: 'مع أصحاب المشاريع والشركات الناشئة، المتاجر والمطاعم، أو أي حد محتاج موقع شخصي أو بورتفوليو نظيف.'
-        },
-        {
-          q: 'لو عندي موقع قديم ومحتاج يتجدد؟',
-          a: 'بنشوف المشاكل الموجودة ونعيد تصميمه وبرمجته من الصفر بحيث يكون سريع وعصري على كل الأجهزة.'
-        }
-      ]
-    },
     game: {
       tag: 'استراحة كود 🎮',
       title: 'افصل شوية مع لعبة التعبان',
@@ -213,23 +167,27 @@ export const translations = {
       hint: '💡 على الكيبورد: الأسهم أو W, A, S, D — على الموبايل: المس الأسهم أو اسحب ع الشاشة مباشرة'
     },
     contact: {
-      tag: 'يلا نتكلم',
-      title: 'عندك فكرة أو مشروع؟ تعالى ندردش.',
-      subtitle: 'الواتساب أسرع وسيلة للرد، والإيميل ممتاز لو معاك تفاصيل أو ملفات حابب تبعتها.',
+      tag: 'خلّينا على تواصل',
+      title: 'حابب تسلّم، تشارك فكرة، أو ندردش؟ مرحب بيك دايماً.',
+      subtitle: 'مبسوط دايماً بمعرفة ناس جديدة ومشاركة أفكار الويب والتصميم. اختار الوسيلة الأنسب ليك:',
       whatsappLabel: 'واتساب',
       whatsappVal: '01221576360',
-      whatsappSub: 'أسرع رد ومتاح أغلب الوقت',
+      whatsappSub: 'أسرع وسيلة للدردشة والمتابعة',
       emailLabel: 'الإيميل',
       emailVal: 'om058166@gmail.com',
-      emailSub: 'للتفاصيل والملفات',
+      emailSub: 'للرسائل والأفكار المشتركة',
       instaLabel: 'إنستجرام',
       instaVal: '@omar_thegreatt',
-      instaSub: 'للتواصل والمتابعة',
+      instaSub: 'للتواصل والمتابعة اليومية',
       copyBtn: 'نسخ',
       copiedBtn: 'تم النسخ!',
-      chatBtn: 'محادثة فورية',
+      chatBtn: 'دردشة سريعة',
       mailBtn: 'إرسال إيميل',
-      profileBtn: 'فتح البروفايل'
+      profileBtn: 'حساب إنستجرام',
+      studioBadge: '7P Studio • طلب المشاريع والبيزنس',
+      studioTitle: 'عندك فكرة مشروع تجاري أو موقع لشركتك وحابب تنفذه؟',
+      studioDesc: 'لتنفيذ المواقع والمتاجر الكبيرة وهوية البراندات المتكاملة، تقدر تطلب وتتابع مشروعك مباشرة من خلال الاستوديو على 7P Studio:',
+      studioBtn: 'طلب مشروعك عبر 7pstudio.tech ↗'
     },
     footer: {
       copy: '© 2026 عمر محمد • تصميم وتطوير عمر محمد',
@@ -247,7 +205,7 @@ export const translations = {
       photos: 'Behind the Screen',
       services: 'My Craft',
       work: '7P Studio',
-      contact: "Let's Talk",
+      contact: "Let's Connect",
       skipIntro: 'Skip',
       langToggle: 'عربي'
     },
@@ -255,9 +213,9 @@ export const translations = {
       story: 'Story',
       projects: 'Projects',
       craft: 'Craft',
-      contact: "Let's Talk",
+      contact: 'Connect',
       chat: 'Chat',
-      status: 'Available for projects',
+      status: 'Open to connect',
       cairo: 'Cairo'
     },
     intro: {
@@ -289,11 +247,11 @@ export const translations = {
     ],
     about: {
       tag: 'My Story',
-      title: 'How I got started in web design',
-      bio1: "I'm Omar Mohamed, a web designer and developer from Egypt. I got into web design because I was tired of clunky, slow sites that look broken on mobile. I build clean, fast, and easy-to-use websites without unnecessary complexity.",
-      bio2: "I care about the details that actually matter: smooth motion, crisp typography, and instant loading times so your site works seamlessly on any device.",
-      vibeStatus: 'Available for new projects',
-      vibeCity: 'Egypt'
+      title: 'In short.. who I am & what I do',
+      bio1: 'UI designer & developer crafting fast, fluid, and memorable web experiences with refined details.',
+      bio2: 'Obsessed with clean motion, intuitive layout, and websites that feel effortless on any device.',
+      vibeStatus: 'Egypt',
+      vibeCity: 'Exploring modern web & fluid motion'
     },
     gallery: {
       tag: 'Behind the Screen',
@@ -303,25 +261,25 @@ export const translations = {
     services: {
       tag: 'My Craft',
       title: 'Three things I pour all my energy into',
-      subtitle: 'Plain English, no buzzwords: what you get and how it moves the needle:',
+      subtitle: 'The core principles and capabilities behind every project I build:',
       items: [
         {
           num: '01',
           title: 'Interface Design (UI/UX)',
-          desc: 'What you get: Clean, custom Figma designs tailored specifically to your idea.\nHow it helps you: Visitors understand your offering within seconds and navigate without friction.',
+          desc: 'Custom, thoughtful interfaces designed in Figma — crafted around crisp visual hierarchy, breathing room, and intuitive ergonomics.',
           tags: ['Figma from Scratch', 'Easy on the Eyes', 'Intuitive Flow']
         },
         {
           num: '02',
           title: 'Clean Code & Fluid Motion',
-          desc: 'What you get: Fast, semantic code with smooth 60fps motion and lightweight 3D accents.\nHow it helps you: Your website feels alive, responsive, and memorable to everyone who visits.',
+          desc: 'High-performance front-end code with organic 60fps animations, accessible typography, and lightweight 3D accents.',
           tags: ['60fps Fluidity', 'Three.js 3D', 'Clean Code']
         },
         {
           num: '03',
-          title: 'Revamping Outdated Websites',
-          desc: 'What you get: We take your slow legacy site, clean up the codebase, accelerate loading, and modernize the visual style.\nHow it helps you: Instead of bouncing from slow loads, customers stay and engage.',
-          tags: ['High Speed', 'Mobile Perfect', 'Modern Refresh']
+          title: 'Interactive Web Experiences',
+          desc: 'Creative web experiments, rotatable 3D showcases, and bespoke digital experiences designed to be memorable.',
+          tags: ['Creative Concept', 'Mobile Perfect', 'Modern Polish']
         }
       ]
     },
@@ -388,52 +346,6 @@ export const translations = {
       ],
       studioNote: 'See all commercial projects and studio portfolio on 7P Studio ↗'
     },
-    process: {
-      tag: 'How We Work',
-      title: 'How do we build together?',
-      subtitle: 'No corporate runaround. Just 4 straightforward, collaborative steps:',
-      steps: [
-        {
-          num: '01',
-          title: 'Chat & Align',
-          desc: 'We sit down, discuss your vision, who your audience is, and what you are looking for.'
-        },
-        {
-          num: '02',
-          title: 'Figma Design',
-          desc: 'I draft a complete design in Figma for you to review and tweak until you are happy with it.'
-        },
-        {
-          num: '03',
-          title: 'Code & Animate',
-          desc: 'I turn the design into performant, responsive code with subtle motion that runs smooth on mobile and desktop.'
-        },
-        {
-          num: '04',
-          title: 'Launch & Verify',
-          desc: 'We push the site live to your domain and ensure everything runs fast without issues.'
-        }
-      ]
-    },
-    faq: {
-      tag: 'Quick FAQ',
-      title: 'Common questions asked upfront',
-      subtitle: 'Quick and honest answers to the things people ask most:',
-      items: [
-        {
-          q: 'How long does a website take?',
-          a: 'Depends on scope, standard landing pages usually take 1 to 2 weeks, while larger stores or custom projects take 3 to 4 weeks. We agree on a clear delivery date from day one.'
-        },
-        {
-          q: 'Who do you work with?',
-          a: 'Founders, startups, local businesses, fashion brands, restaurants, or anyone looking for a clean, standout portfolio.'
-        },
-        {
-          q: 'What if I already have an old site?',
-          a: 'We pinpoint the issues and rebuild it cleanly from the ground up so it runs fast and modern across all devices.'
-        }
-      ]
-    },
     game: {
       tag: 'Code Break 🎮',
       title: 'Take a Break with Classic Snake',
@@ -444,23 +356,27 @@ export const translations = {
       hint: '💡 Keyboard: Arrow keys or W, A, S, D — Mobile: Touch D-pad buttons or swipe on canvas'
     },
     contact: {
-      tag: "Let's Talk",
-      title: 'Have a project idea in mind? Let’s talk.',
-      subtitle: 'WhatsApp is quickest for an instant reply, and email is great if you have files or a project brief.',
+      tag: "Let's Connect",
+      title: "Say hello, share an idea, or just connect.",
+      subtitle: "Always happy to chat with creators, developers, and curious minds. Pick whatever channel suits you best:",
       whatsappLabel: 'WhatsApp',
       whatsappVal: '01221576360',
-      whatsappSub: 'Quickest response throughout the day',
+      whatsappSub: 'Quickest for quick chats & hello',
       emailLabel: 'Email',
       emailVal: 'om058166@gmail.com',
-      emailSub: 'For briefs and asset files',
+      emailSub: 'For thoughts & thoughtful messages',
       instaLabel: 'Instagram',
       instaVal: '@omar_thegreatt',
-      instaSub: 'For updates and casual chats',
+      instaSub: 'For casual updates & behind the scenes',
       copyBtn: 'Copy',
       copiedBtn: 'Copied!',
       chatBtn: 'Direct Chat',
       mailBtn: 'Send Email',
-      profileBtn: 'View Profile'
+      profileBtn: 'View Profile',
+      studioBadge: '7P Studio • Commercial Projects',
+      studioTitle: 'Looking to build a commercial project or business website?',
+      studioDesc: 'For client projects, company platforms, online stores, and brand identity, connect with our studio directly at 7P Studio:',
+      studioBtn: 'Visit 7pstudio.tech ↗'
     },
     footer: {
       copy: '© 2026 Omar Mohamed • Designed & Built by Omar Mohamed',

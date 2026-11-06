@@ -495,52 +495,6 @@ class App {
     if (p3Btn) p3Btn.textContent = t.work.projects[2].btnText;
     if (p3Link) p3Link.href = t.work.projects[2].link;
 
-    // Process ("إزاي بنشتغل سوا")
-    const processKicker = document.getElementById('process-kicker');
-    const processTitle = document.getElementById('process-title');
-    const processSubtitle = document.getElementById('process-subtitle');
-    if (processKicker) processKicker.textContent = t.process.tag;
-    if (processTitle) processTitle.textContent = t.process.title;
-    if (processSubtitle) processSubtitle.textContent = t.process.subtitle;
-
-    const pr1Title = document.getElementById('pr-1-title');
-    const pr1Desc = document.getElementById('pr-1-desc');
-    const pr2Title = document.getElementById('pr-2-title');
-    const pr2Desc = document.getElementById('pr-2-desc');
-    const pr3Title = document.getElementById('pr-3-title');
-    const pr3Desc = document.getElementById('pr-3-desc');
-    const pr4Title = document.getElementById('pr-4-title');
-    const pr4Desc = document.getElementById('pr-4-desc');
-    if (pr1Title) pr1Title.textContent = t.process.steps[0].title;
-    if (pr1Desc) pr1Desc.textContent = t.process.steps[0].desc;
-    if (pr2Title) pr2Title.textContent = t.process.steps[1].title;
-    if (pr2Desc) pr2Desc.textContent = t.process.steps[1].desc;
-    if (pr3Title) pr3Title.textContent = t.process.steps[2].title;
-    if (pr3Desc) pr3Desc.textContent = t.process.steps[2].desc;
-    if (pr4Title) pr4Title.textContent = t.process.steps[3].title;
-    if (pr4Desc) pr4Desc.textContent = t.process.steps[3].desc;
-
-    // FAQ ("أسئلة بتيجي في البال علطول")
-    const faqKicker = document.getElementById('faq-kicker');
-    const faqTitle = document.getElementById('faq-title');
-    const faqSubtitle = document.getElementById('faq-subtitle');
-    if (faqKicker) faqKicker.textContent = t.faq.tag;
-    if (faqTitle) faqTitle.textContent = t.faq.title;
-    if (faqSubtitle) faqSubtitle.textContent = t.faq.subtitle;
-
-    const faqQ1 = document.getElementById('faq-q1');
-    const faqA1 = document.getElementById('faq-a1');
-    const faqQ2 = document.getElementById('faq-q2');
-    const faqA2 = document.getElementById('faq-a2');
-    const faqQ3 = document.getElementById('faq-q3');
-    const faqA3 = document.getElementById('faq-a3');
-    if (faqQ1) faqQ1.textContent = t.faq.items[0].q;
-    if (faqA1) faqA1.textContent = t.faq.items[0].a;
-    if (faqQ2) faqQ2.textContent = t.faq.items[1].q;
-    if (faqA2) faqA2.textContent = t.faq.items[1].a;
-    if (faqQ3) faqQ3.textContent = t.faq.items[2].q;
-    if (faqA3) faqA3.textContent = t.faq.items[2].a;
-
     // Mini-game ("لعبة التعبان")
     const gameKicker = document.getElementById('game-kicker');
     const gameTitle = document.getElementById('game-title');
@@ -595,6 +549,16 @@ class App {
         btn.textContent = t.contact.copyBtn;
       }
     });
+
+    // 7P Studio Commercial Card
+    const studioBadge = document.getElementById('studio-card-badge');
+    const studioTitle = document.getElementById('studio-card-title');
+    const studioDesc = document.getElementById('studio-card-desc');
+    const studioBtn = document.getElementById('studio-card-btn-text');
+    if (studioBadge && t.contact.studioBadge) studioBadge.textContent = t.contact.studioBadge;
+    if (studioTitle && t.contact.studioTitle) studioTitle.textContent = t.contact.studioTitle;
+    if (studioDesc && t.contact.studioDesc) studioDesc.textContent = t.contact.studioDesc;
+    if (studioBtn && t.contact.studioBtn) studioBtn.textContent = t.contact.studioBtn;
 
     // Footer
     const footerRights = document.getElementById('footer-rights');
