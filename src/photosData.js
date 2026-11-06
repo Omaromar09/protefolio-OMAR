@@ -37,7 +37,7 @@ export const photos = [
     src: '/assets/photos/photo-4.webp',
     fallbackSrc: '/assets/photos/photo-4.jpg',
     thumb: '/assets/photos/photo-4-thumb.webp',
-    focalPoint: '52% 22%',
+    focalPoint: '50% 65%',
     altAr: 'عمر محمد',
     altEn: 'Omar Mohamed'
   },
@@ -55,7 +55,7 @@ export const photos = [
     src: '/assets/photos/photo-6.webp',
     fallbackSrc: '/assets/photos/photo-6.jpg',
     thumb: '/assets/photos/photo-6-thumb.webp',
-    focalPoint: '48% 20%',
+    focalPoint: '50% 40%',
     altAr: 'عمر محمد',
     altEn: 'Omar Mohamed'
   },
@@ -64,7 +64,7 @@ export const photos = [
     src: '/assets/photos/photo-7.webp',
     fallbackSrc: '/assets/photos/photo-7.jpg',
     thumb: '/assets/photos/photo-7-thumb.webp',
-    focalPoint: '50% 32%',
+    focalPoint: '50% 45%',
     altAr: 'عمر محمد',
     altEn: 'Omar Mohamed'
   },
