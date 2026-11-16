@@ -4,7 +4,7 @@ import { photos, LANDING_PHOTO_INDEX } from './photosData.js';
 export class HeroWheelController {
   constructor(options = {}) {
     this.options = options;
-    this.currentIndex = LANDING_PHOTO_INDEX; // starts at photo-2 (index 1)
+    this.currentIndex = LANDING_PHOTO_INDEX; // starts at photo-6 (index 5)
     this.isAnimating = false;
 
     // DOM Elements

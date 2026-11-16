@@ -249,7 +249,7 @@ export class IntroController {
 
     // ----------------------------------------------------
     // Phase 7: 7.05 to 8.75s - Vertical Photo Wheel Fast Scroll
-    // Decelerates exponentially and STOPS AT EXACTLY t = 8.75s on photo-2!
+    // Decelerates exponentially and STOPS AT EXACTLY t = 8.75s on photo-6!
     // ----------------------------------------------------
     if (this.wheelTrack) {
       this.timeline.fromTo(this.wheelTrack,

@@ -97,6 +97,6 @@ export const photos = [
   }
 ];
 
-export const LANDING_PHOTO_INDEX = 1; // photo-2 is index 1
-export const landingPhotoIndex = 1;
+export const LANDING_PHOTO_INDEX = 5; // photo-6 is index 5 (Night street lamp photo)
+export const landingPhotoIndex = 5;
 export const totalPhotos = photos.length;
