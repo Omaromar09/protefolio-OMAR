@@ -293,7 +293,7 @@ export const translations = {
           tag: 'Meta • 9-Course Professional Program',
           title: 'Meta Front-End Developer',
           issuer: 'Authorized by Meta via Coursera',
-          date: 'January 2025',
+          date: 'January 2026',
           desc: 'Comprehensive 9-course professional specialization certified by Meta, mastering React, Advanced React, modern JavaScript (ES6+), UI/UX design principles, version control with Git, and building high-performance interactive web applications.',
           skills: ['React', 'Advanced React', 'JavaScript (ES6+)', 'UI/UX Design', 'Git & GitHub', 'HTML5 & CSS3'],
           badge: 'Verified Professional Certificate',
